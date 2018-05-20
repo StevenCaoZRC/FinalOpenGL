@@ -1,7 +1,50 @@
-﻿  CControls.cpp
+﻿  CCamera.cpp
+  CEnemy.cpp
+  CGameMech.cpp
+  CInterface.cpp
+  CLevel.cpp
+  CPlayer.cpp
+  CScene.cpp
+  CSceneManager.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.11.25503\include\memory(1712): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[22],const unsigned int&,const unsigned int&>(const char (&)[22],const unsigned int &,const unsigned int &)' being compiled
+          with
+          [
+              _Ty=CSprite
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[22],const unsigned int&,const unsigned int&>(const char (&)[22],const unsigned int &,const unsigned int &)' being compiled
+          with
+          [
+              _Ty=CSprite
+          ]
+  CSceneManager.cpp(77): note: see reference to function template instantiation 'std::shared_ptr<_Ty> std::make_shared<CSprite,const char(&)[22],const unsigned int&,const unsigned int&>(const char (&)[22],const unsigned int &,const unsigned int &)' being compiled
+          with
+          [
+              _Ty=CSprite
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.11.25503\include\memory(1712): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],double,double>(const char (&)[23],double &&,double &&)' being compiled
+          with
+          [
+              _Ty=CSprite
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\VC\Tools\MSVC\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],double,double>(const char (&)[23],double &&,double &&)' being compiled
+          with
+          [
+              _Ty=CSprite
+          ]
+  CSceneManager.cpp(78): note: see reference to function template instantiation 'std::shared_ptr<_Ty> std::make_shared<CSprite,const char(&)[23],double,double>(const char (&)[23],double &&,double &&)' being compiled
+          with
+          [
+              _Ty=CSprite
+          ]
+  CSprite.cpp
+CSprite.cpp(46): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+CSprite.cpp(47): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  main.cpp
   Generating code
-  21 of 952 functions ( 2.2%) were compiled, the rest were copied from previous compilation.
+  2 of 958 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    17 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Desktop\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Release\OpenGLTest.exe
+  OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Release\OpenGLTest.exe
