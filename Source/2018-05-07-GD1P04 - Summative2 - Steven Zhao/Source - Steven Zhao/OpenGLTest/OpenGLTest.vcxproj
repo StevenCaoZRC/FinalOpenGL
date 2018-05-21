@@ -144,6 +144,7 @@
     <ClInclude Include="CGameMech.h" />
     <ClInclude Include="CInterface.h" />
     <ClInclude Include="CLevel.h" />
+    <ClInclude Include="clock.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CScene.h" />
     <ClInclude Include="CSceneManager.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="CGameMech.cpp" />
     <ClCompile Include="CInterface.cpp" />
     <ClCompile Include="CLevel.cpp" />
+    <ClCompile Include="clock.cpp" />
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CScene.cpp" />
     <ClCompile Include="CSceneManager.cpp" />

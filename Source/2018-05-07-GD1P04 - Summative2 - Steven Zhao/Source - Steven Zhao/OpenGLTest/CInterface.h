@@ -20,6 +20,7 @@
 // Library Includes //
 
 // Local Includes //
+#include <time.h>
 #include "TextLabel.h"
 
 // Types //
@@ -34,12 +35,14 @@ class CInterface
         public:
 			static CInterface* InstanceGet();
 			static void InstanceDestroy();
+			int FPSInSecond();
 			void update();
 			void render();
 			bool bWon = false;
 			TextLabel label;
 			TextLabel WinText;
 			TextLabel LostText;
+			int FPSCounter = 0;
         private:
 			CInterface();
 			~CInterface();

@@ -25,6 +25,7 @@
 #include "CPlayer.h"
 #include "CInterface.h"
 #include "CSound.h"
+#include "clock.h"
 
 // OpenGl Includes //
 #include "Dependencies\glm\glm.hpp"
@@ -56,10 +57,13 @@ int main(int argc, char **argv)
 	glutCreateWindow("My Game");
 
 	glewInit();
-	CSceneManager::InstanceGet()->init();
-	
-	
+	CSceneManager::InstanceGet()->init();s
+	CClock TickClock;
+	TickClock.Initialise();
+
+	TickClock.Process();
 	glutDisplayFunc(render);
+	
 	glutIdleFunc(Update);
 	glutCloseFunc(exit);
 	glutMainLoop();
@@ -82,7 +86,6 @@ void exit()
 	CControls::InstanceDestroy();
 	CInterface::InstanceDestroy();
 	CSound::InstanceDestroy();
-	
 }
 void Update()
 {

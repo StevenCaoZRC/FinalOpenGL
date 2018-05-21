@@ -46,8 +46,15 @@ void CInterface::InstanceDestroy()
 	}
 }
 
+int CInterface::FPSInSecond()
+{
+	
+	return 0;
+}
+
 void CInterface::update()
 {
+	FPSCounter++;
 	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::InstanceGet()->GetCurrentScene());
 	
 	if (CControls::InstanceGet()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED)//Set up first pressed 
