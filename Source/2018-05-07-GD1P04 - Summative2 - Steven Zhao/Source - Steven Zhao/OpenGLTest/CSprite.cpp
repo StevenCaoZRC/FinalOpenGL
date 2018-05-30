@@ -60,6 +60,7 @@ CSprite::CSprite(const char* _fileName, float fWidth, float fHeight)
 
 	};
 
+//-----------------------Going 3D-----------------------//
 	GLfloat cubeVertices[] = {
 	// Positions         // Normals         // Tex Coords
 
@@ -114,6 +115,8 @@ CSprite::CSprite(const char* _fileName, float fWidth, float fHeight)
 		8, 9, 10,		20, 21, 22,
 		8, 10, 11,		20, 22, 23,
 	};
+
+
 	TextureLoader textureloader;
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -285,9 +288,13 @@ void CSprite::render()
 
 	glBindVertexArray(vao);			  // Bind VAO
 	
-	glm::mat4 MVP = CCamera::InstanceGet()->SetMVP(objPosition,objRotate,objScale);
+	////------2D MVP------//
+	glm::mat4 MVP = CCamera::GetInstance()->SetMVP(objPosition,objRotate,objScale);
 	GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
 	glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
+
+	//------3D MVP------//
+	/*glm::mat4 MVP = CCamera::GetInstance();*/
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 

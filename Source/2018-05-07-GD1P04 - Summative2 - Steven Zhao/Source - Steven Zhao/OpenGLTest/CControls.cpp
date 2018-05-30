@@ -31,7 +31,7 @@ CControls::~CControls()
 {
 }
 
-CControls * CControls::InstanceGet()
+CControls * CControls::GetInstance()
 {
 	if (!m_pControls)
 	{
@@ -40,7 +40,7 @@ CControls * CControls::InstanceGet()
 	return m_pControls;
 }
 
-void CControls::InstanceDestroy()
+void CControls::DestroyInstance()
 {
 	if (m_pControls) //Checks to see if instance exists
 	{
@@ -86,11 +86,11 @@ void CControls::KeyUp(unsigned char cKey, int nX, int nY)
 
 void CControls::InitKeyUp(unsigned char cKey, int nX, int nY)
 {
-	CControls::InstanceGet()->KeyUp(cKey, nX, nY);
+	CControls::GetInstance()->KeyUp(cKey, nX, nY);
 }
 void CControls::InitKeyDown(unsigned char cKey, int nX, int nY)
 {
-	CControls::InstanceGet()->KeyDown(cKey, nX, nY);
+	CControls::GetInstance()->KeyDown(cKey, nX, nY);
 }
 void CControls::Mouse(int nButton, int nGlutState, int nX, int nY)
 {

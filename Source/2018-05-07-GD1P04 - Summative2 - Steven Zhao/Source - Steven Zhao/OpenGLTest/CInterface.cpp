@@ -27,7 +27,7 @@
 // Types //
 using namespace std;
 CInterface * CInterface::pInterface;
-CInterface * CInterface::InstanceGet()
+CInterface * CInterface::GetInstance()
 {
 	if (!pInterface) // If this does not exist
 	{
@@ -37,7 +37,7 @@ CInterface * CInterface::InstanceGet()
 	return pInterface;	//Returns the static instance
 }
 
-void CInterface::InstanceDestroy()
+void CInterface::DestroyInstance()
 {
 	if (pInterface)//If the instance exists
 	{
@@ -48,23 +48,23 @@ void CInterface::InstanceDestroy()
 
 void CInterface::update()
 {
-	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::InstanceGet()->GetCurrentScene());
+	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
 	
-	if (CControls::InstanceGet()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED)//Set up first pressed 
+	if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED)//Set up first pressed 
 	{
-		if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::MENU)
+		if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::MENU)
 		{
-			CSceneManager::InstanceGet()->switchScene(CSceneManager::LEVEL);
+			CSceneManager::GetInstance()->switchScene(CSceneManager::LEVEL);
 		}	
-		else if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::END)
+		else if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 		{
 			
-			CSceneManager::InstanceGet()->switchScene(CSceneManager::MENU);
+			CSceneManager::GetInstance()->switchScene(CSceneManager::MENU);
 			label.SetPosition(glm::vec2(100.0f, 650.0f));
 		}
 	}
 	
-	if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::END)
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 	{
 		label.SetPosition(glm::vec2(Utility::SCR_WIDTH / 2.5, Utility::SCR_HEIGHT / 2));
 		
@@ -82,7 +82,7 @@ void CInterface::render()
 {
 	label.Render();
 
-	if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::END)
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 	{
 		if (bWon)
 		{

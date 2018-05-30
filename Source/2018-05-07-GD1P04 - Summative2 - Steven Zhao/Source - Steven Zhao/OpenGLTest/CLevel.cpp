@@ -72,10 +72,10 @@ void CLevel::update()
 {
 	CScene::update();
 	
-	if (CControls::InstanceGet()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED && (abs(CharacterSpr->objPosition.x - EndSpr->objPosition.x) < 30) && abs(CharacterSpr->objPosition.y - EndSpr->objPosition.y) < 30 && v_Enemies.empty())
+	if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED && (abs(CharacterSpr->objPosition.x - EndSpr->objPosition.x) < 30) && abs(CharacterSpr->objPosition.y - EndSpr->objPosition.y) < 30 && v_Enemies.empty())
 	{
 		resetLevel();
-		CSceneManager::InstanceGet()->switchScene(CSceneManager::END);
+		CSceneManager::GetInstance()->switchScene(CSceneManager::END);
 	}
 	
 }

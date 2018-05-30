@@ -46,8 +46,8 @@ public:
 		LEVEL,//1
 		END,  //2
 	};
-	static CSceneManager* InstanceGet(); 
-	static void InstanceDestroy();
+	static CSceneManager* GetInstance(); 
+	static void DestroyInstance();
 	void RenderCurrent();
 	void UpdateCurrent(); 
 	void init();

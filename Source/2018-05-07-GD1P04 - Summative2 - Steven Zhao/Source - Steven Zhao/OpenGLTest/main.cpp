@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 	glutCreateWindow("My Game");
 
 	glewInit();
-	CSceneManager::InstanceGet()->init();
+	CSceneManager::GetInstance()->init();
 	
 	glutDisplayFunc(render);
 	glutTimerFunc(1000/FPS, Update,0);
@@ -75,7 +75,7 @@ void render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0, 1.0, 0.0, 1.0);//clears a colour
-	CSceneManager::InstanceGet()->RenderCurrent();
+	CSceneManager::GetInstance()->RenderCurrent();
 	if (frameCount != 60)
 		frameCount++;
 
@@ -83,30 +83,30 @@ void render()
 	if (finalTime - initialTime > 0)
 	{
 		cout << "FPS: " << frameCount / (finalTime - initialTime) << endl;
-		CInterface::InstanceGet()->FPSCounter.SetText("FPS: " + std::to_string(frameCount / (finalTime - initialTime)));
+		CInterface::GetInstance()->FPSCounter.SetText("FPS: " + std::to_string(frameCount / (finalTime - initialTime)));
 		frameCount = 0;
 		initialTime = finalTime;
 	}
 	
-	CInterface::InstanceGet()->FPSCounter.Render();
+	CInterface::GetInstance()->FPSCounter.Render();
 	glutSwapBuffers();
 	
 }
 void exit()
 {
-	CSceneManager::InstanceDestroy();
-	CCamera::InstanceDestroy();
-	CControls::InstanceDestroy();
-	CInterface::InstanceDestroy();
-	CSound::InstanceDestroy();
+	CSceneManager::DestroyInstance();
+	CCamera::DestroyInstance();
+	CControls::DestroyInstance();
+	CInterface::DestroyInstance();
+	CSound::DestroyInstance();
 }
 void Update(int)
 {
 	// Update game information.
 	glutPostRedisplay(); //render function is called
 	glutTimerFunc( ( 1000 / 60), Update, 0);
-	CInterface::InstanceGet()->update();
-	CSceneManager::InstanceGet()->UpdateCurrent();
-	CControls::InstanceGet()->update();
+	CInterface::GetInstance()->update();
+	CSceneManager::GetInstance()->UpdateCurrent();
+	CControls::GetInstance()->update();
 	
 }

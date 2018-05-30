@@ -32,8 +32,8 @@ class CInterface
 {
     // Member Functions //
         public:
-			static CInterface* InstanceGet();
-			static void InstanceDestroy();
+			static CInterface* GetInstance();
+			static void DestroyInstance();
 			void update();
 			void render();
 			bool bWon = false;

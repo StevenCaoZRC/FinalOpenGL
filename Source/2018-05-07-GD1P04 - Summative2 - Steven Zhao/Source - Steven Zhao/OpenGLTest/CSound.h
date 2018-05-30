@@ -32,8 +32,8 @@ class CSound
 {
     // Member Functions //
 public:
-	static CSound* InstanceGet();
-	static void InstanceDestroy();
+	static CSound* GetInstance();
+	static void DestroyInstance();
 	bool init();
 	const bool addSound();
 	FMOD::System * soundMgr;

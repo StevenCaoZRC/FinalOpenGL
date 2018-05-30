@@ -25,7 +25,7 @@ using namespace std;
 CSceneManager* CSceneManager::pSceneManager; // Redefining the static variable for class
 
 
-CSceneManager * CSceneManager::InstanceGet()
+CSceneManager * CSceneManager::GetInstance()
 {
 	if (!pSceneManager) // If this does not exist
 	{
@@ -35,7 +35,7 @@ CSceneManager * CSceneManager::InstanceGet()
 	return pSceneManager;	//Returns the static instance
 }
 
-void CSceneManager::InstanceDestroy()
+void CSceneManager::DestroyInstance()
 {
 	if (pSceneManager) //If the instance exists
 	{
@@ -48,8 +48,8 @@ void CSceneManager::InstanceDestroy()
 void CSceneManager::RenderCurrent()
 {
 	Scenes[nCurrentScene]->render(); //Rending the current scene 
-	CInterface::InstanceGet()->render();
-	CInterface::InstanceGet()->FPSCounter.Render();
+	CInterface::GetInstance()->render();
+	CInterface::GetInstance()->FPSCounter.Render();
 	
 }
 
@@ -70,7 +70,7 @@ void CSceneManager::init()
 
 	//---------------|Level Scenes Stuff|---------------//
 	//Gets the initial values of the controls
-	CControls::InstanceGet()->init();
+	CControls::GetInstance()->init();
 	
 	
 	//creaing a shared pointer to level and bgSprite and CharacterSpr
@@ -107,9 +107,9 @@ void CSceneManager::init()
 
 	End->SpritesAdd(EndSpr);
 	//Adding the level to scenemanager
-	CSceneManager::InstanceGet()->SceneAdd(Menu);
-	CSceneManager::InstanceGet()->SceneAdd(Level);
-	CSceneManager::InstanceGet()->SceneAdd(End);
+	CSceneManager::GetInstance()->SceneAdd(Menu);
+	CSceneManager::GetInstance()->SceneAdd(Level);
+	CSceneManager::GetInstance()->SceneAdd(End);
 	
 }
 
