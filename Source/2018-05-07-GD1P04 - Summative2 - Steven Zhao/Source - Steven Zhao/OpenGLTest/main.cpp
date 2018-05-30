@@ -76,7 +76,9 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0, 1.0, 0.0, 1.0);//clears a colour
 	CSceneManager::InstanceGet()->RenderCurrent();
-	frameCount++;
+	if (frameCount != 60)
+		frameCount++;
+
 	finalTime = time(NULL);
 	if (finalTime - initialTime > 0)
 	{
@@ -85,6 +87,7 @@ void render()
 		frameCount = 0;
 		initialTime = finalTime;
 	}
+	
 	CInterface::InstanceGet()->FPSCounter.Render();
 	glutSwapBuffers();
 	
@@ -101,7 +104,7 @@ void Update(int)
 {
 	// Update game information.
 	glutPostRedisplay(); //render function is called
-	glutTimerFunc( ( 0.0166666), Update, 0);
+	glutTimerFunc( ( 1000 / 60), Update, 0);
 	CInterface::InstanceGet()->update();
 	CSceneManager::InstanceGet()->UpdateCurrent();
 	CControls::InstanceGet()->update();
