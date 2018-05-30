@@ -48,6 +48,7 @@ void CSceneManager::DestroyInstance()
 void CSceneManager::RenderCurrent()
 {
 	Scenes[nCurrentScene]->render(); //Rending the current scene 
+
 	CInterface::GetInstance()->render();
 	CInterface::GetInstance()->FPSCounter.Render();
 	
@@ -68,6 +69,7 @@ void CSceneManager::init()
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
 	
 
+
 	//---------------|Level Scenes Stuff|---------------//
 	//Gets the initial values of the controls
 	CControls::GetInstance()->init();
@@ -80,8 +82,8 @@ void CSceneManager::init()
 	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>("Resources/entrance.png", 0.0, 0.0);
 	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>("Resources/exit.png", 0.0, 0.0);
 	Level->EndSpr = ExitSpr;
-	EntranceSpr->objPosition = { -550.0f, -195.0f, 0.0f };
-	ExitSpr->objPosition = { 550.0f,-195.0f,0.0f };
+	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f };
+	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f };
 	//Adding the spr to level
 	Level->SpritesAdd(BackGroundSpr);
 	Level->SpritesAdd(EntranceSpr);
@@ -95,6 +97,7 @@ void CSceneManager::init()
 	std::shared_ptr<CScene> Menu = make_shared<CScene>();
 	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT);
 	std::shared_ptr<CSprite> startBtn0 = make_shared<CSprite>("Resources/start0.png", 0.0, 0.0);
+	startBtn0->objPosition = { 0.0f, 0.0f, 1.0f };
 	//Do if clicked
 	//std::shared_ptr<CSprite> startBtn1 = make_shared<CSprite>("Resources/start1.png", 0.0, 0.0);
 

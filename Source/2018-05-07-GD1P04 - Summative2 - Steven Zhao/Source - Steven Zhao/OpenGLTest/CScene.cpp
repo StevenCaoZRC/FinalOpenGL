@@ -37,8 +37,7 @@ using namespace std;
 // Constructor //
 CScene::CScene()
 {
-	
-	
+
 }
 
 // Destructor //
@@ -51,8 +50,11 @@ void CScene::render()
 {
 	for (auto it : v_SpritesInScene)
 	{
-		it->render();
-		
+		////2D
+		//it->render();
+
+		//3D
+		it->render3D();
 	}
 }
 

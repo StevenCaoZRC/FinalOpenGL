@@ -38,6 +38,10 @@ class CSprite : public std::enable_shared_from_this<CSprite>//this allows me to 
 {
 	// Member Functions //
 public:
+	//2D
+	//CSprite(const char* _fileName, float fWidth, float fHeight);
+
+	//3D
 	CSprite(const char* _fileName, float fWidth, float fHeight);
 	~CSprite();
 
@@ -57,8 +61,8 @@ public:
 
 	int iCurrentFrame = 0;
 
-	glm::vec3 objPosition = { 0.0,0.0,0.0 };
-	glm::vec3 objRotate = {0.0,0.0,0.0};
+	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
+	glm::vec3 objRotate = {0.0f,0.0f,0.0f};
 	glm::vec3 objScale = {1.0f,1.0f,1.0f};
 };
 

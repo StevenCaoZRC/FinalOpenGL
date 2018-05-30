@@ -48,7 +48,7 @@ void CLevel::addPlayer()
 	CharacterSpr = make_shared<CPlayer>("Resources/player_character/character_idle_1.png", 0.0f, 0.0f);
 	CharacterSpr->init(5.0f, 10.0f);
 	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png");
-	CharacterSpr->objPosition = { -550.0f,-215.0f,0.0f };
+	CharacterSpr->objPosition = { -550.0f,-215.0f,2.0f };
 	SpritesAdd(CharacterSpr);
 }
 
@@ -57,7 +57,7 @@ void CLevel::addEnemy()
 	//Creating Enemy1
 	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f);
 	SlimeSpr->init(2.0f,2.0f);
-	SlimeSpr->objPosition = { 0.0f,-224.0f,0.0f };
+	SlimeSpr->objPosition = { 0.0f,-224.0f,2.0f };
 	SpritesAdd(SlimeSpr);
 	v_Enemies.push_back(SlimeSpr);
 }

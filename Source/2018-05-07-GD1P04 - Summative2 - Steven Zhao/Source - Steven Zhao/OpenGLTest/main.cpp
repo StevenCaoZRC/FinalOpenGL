@@ -48,8 +48,8 @@ using namespace std;
 void Update(int);
 void render();
 void exit();
-int initialTime = time(NULL);
-int finalTime = time(NULL);
+auto initialTime = time(NULL);
+auto finalTime = time(NULL);
 int frameCount = 0;
 int main(int argc, char **argv)
 {
@@ -73,9 +73,15 @@ int main(int argc, char **argv)
 
 void render()
 {
+	//2D
 	glClear(GL_COLOR_BUFFER_BIT);
+	//3D
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0, 1.0, 0.0, 1.0);//clears a colour
+
 	CSceneManager::GetInstance()->RenderCurrent();
+
+	//FPS 
 	if (frameCount != 60)
 		frameCount++;
 
