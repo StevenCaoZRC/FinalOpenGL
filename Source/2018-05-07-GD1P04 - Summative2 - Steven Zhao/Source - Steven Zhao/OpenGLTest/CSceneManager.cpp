@@ -13,15 +13,17 @@
 //
 
 // Library Includes //
-
+#include <time.h>
 // Local Includes //
 #include "CSound.h"
+#include "CInterface.h"
 // This Includes //
 #include "CSceneManager.h"
 
 // Types //
 using namespace std;
 CSceneManager* CSceneManager::pSceneManager; // Redefining the static variable for class
+
 
 CSceneManager * CSceneManager::InstanceGet()
 {
@@ -46,6 +48,8 @@ void CSceneManager::InstanceDestroy()
 void CSceneManager::RenderCurrent()
 {
 	Scenes[nCurrentScene]->render(); //Rending the current scene 
+	CInterface::InstanceGet()->render();
+	CInterface::InstanceGet()->FPSCounter.Render();
 	
 }
 
@@ -63,9 +67,7 @@ void CSceneManager::init()
 	glEnable(GL_BLEND);
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
 	
-	
-	
-	
+
 	//---------------|Level Scenes Stuff|---------------//
 	//Gets the initial values of the controls
 	CControls::InstanceGet()->init();

@@ -14,6 +14,8 @@
 
 // Library Includes //
 #include <iostream>
+#include <time.h>
+#include <math.h>
 //#include <vld.h>
 
 // Local Includes //
@@ -37,18 +39,21 @@
 #include "TextureLoader.h"
 #include "Utils.h"
 
-
+#define FPS 60
 
 // Types //
 using namespace std;
 
 // Prototypes //
-void Update();
+void Update(int);
 void render();
 void exit();
+int initialTime = time(NULL);
+int finalTime = time(NULL);
+int frameCount = 0;
 int main(int argc, char **argv)
 {
-	
+
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100, 100); 
@@ -58,13 +63,12 @@ int main(int argc, char **argv)
 	glewInit();
 	CSceneManager::InstanceGet()->init();
 	
-	
 	glutDisplayFunc(render);
-	glutIdleFunc(Update);
+	glutTimerFunc(1000/FPS, Update,0);
 	glutCloseFunc(exit);
 	glutMainLoop();
 
-	//CSceneManager::InstanceDestroy();
+	
 }
 
 void render()
@@ -72,8 +76,18 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT);
 	glClearColor(0.0, 1.0, 0.0, 1.0);//clears a colour
 	CSceneManager::InstanceGet()->RenderCurrent();
-	CInterface::InstanceGet()->render();
+	frameCount++;
+	finalTime = time(NULL);
+	if (finalTime - initialTime > 0)
+	{
+		cout << "FPS: " << frameCount / (finalTime - initialTime) << endl;
+		CInterface::InstanceGet()->FPSCounter.SetText("FPS: " + std::to_string(frameCount / (finalTime - initialTime)));
+		frameCount = 0;
+		initialTime = finalTime;
+	}
+	CInterface::InstanceGet()->FPSCounter.Render();
 	glutSwapBuffers();
+	
 }
 void exit()
 {
@@ -82,13 +96,14 @@ void exit()
 	CControls::InstanceDestroy();
 	CInterface::InstanceDestroy();
 	CSound::InstanceDestroy();
-	
 }
-void Update()
+void Update(int)
 {
 	// Update game information.
 	glutPostRedisplay(); //render function is called
+	glutTimerFunc( ( 0.0166666), Update, 0);
 	CInterface::InstanceGet()->update();
 	CSceneManager::InstanceGet()->UpdateCurrent();
 	CControls::InstanceGet()->update();
+	
 }

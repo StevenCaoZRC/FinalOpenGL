@@ -43,6 +43,8 @@ public:
 
 	virtual void render();
 	virtual void update();
+	virtual void render3D();
+	virtual void update3D();
 	void addFrame(const char* _filename);
 	std::vector<GLuint> ImgArray;
 	int nWidth;
@@ -58,9 +60,6 @@ public:
 	glm::vec3 objPosition = { 0.0,0.0,0.0 };
 	glm::vec3 objRotate = {0.0,0.0,0.0};
 	glm::vec3 objScale = {1.0f,1.0f,1.0f};
-       
-			
-
 };
 
 

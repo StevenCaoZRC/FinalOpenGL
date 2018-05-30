@@ -40,6 +40,7 @@ class CInterface
 			TextLabel label;
 			TextLabel WinText;
 			TextLabel LostText;
+			TextLabel FPSCounter;
         private:
 			CInterface();
 			~CInterface();

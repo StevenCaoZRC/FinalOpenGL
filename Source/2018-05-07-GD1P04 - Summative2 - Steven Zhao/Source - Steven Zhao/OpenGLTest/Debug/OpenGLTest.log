@@ -1,11 +1,6 @@
-﻿  CPlayer.cpp
-  CControls.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
-  CSceneManager.cpp
-  CLevel.cpp
-  CInterface.cpp
-  CGameMech.cpp
-  CEnemy.cpp
-  OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Desktop\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe
+﻿  main.cpp
+d:\users\steven.zha7447\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\main.cpp(51): warning C4244: 'initializing': conversion from 'time_t' to 'int', possible loss of data
+d:\users\steven.zha7447\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\main.cpp(52): warning C4244: 'initializing': conversion from 'time_t' to 'int', possible loss of data
+d:\users\steven.zha7447\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\main.cpp(80): warning C4244: '=': conversion from 'time_t' to 'int', possible loss of data
+d:\users\steven.zha7447\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\main.cpp(104): warning C4244: 'argument': conversion from 'double' to 'unsigned int', possible loss of data
+  OpenGLTest.vcxproj -> D:\Users\steven.zha7447\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe

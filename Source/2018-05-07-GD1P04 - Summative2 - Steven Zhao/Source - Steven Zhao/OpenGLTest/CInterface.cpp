@@ -70,13 +70,18 @@ void CInterface::update()
 		
 	}
 
-	if(Level) label.SetText("Score: " + std::to_string(Level->nScore)); 
+	if (Level)
+	{
+		label.SetText("Score: " + std::to_string(Level->nScore));
+		
+	}
 	//have another label for win conditon, 
 }
 
 void CInterface::render()
 {
 	label.Render();
+
 	if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::END)
 	{
 		if (bWon)
@@ -91,13 +96,15 @@ void CInterface::render()
 
 // Constructor //
 CInterface::CInterface()
-	:label("Score: ", "Resources/fonts/waltographUI.ttf", glm::vec2(100.0f, 650.0f)), WinText("You Won!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH/2.5 , (Utility::SCR_HEIGHT / 2) + 100.0f )), LostText("You Lost!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH / 2.5, (Utility::SCR_HEIGHT / 2) + 100.0f))
+	:label("Score: ", "Resources/fonts/waltographUI.ttf", glm::vec2(100.0f, 650.0f)), WinText("You Won!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH/2.5 , (Utility::SCR_HEIGHT / 2) + 100.0f )), LostText("You Lost!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH / 2.5, (Utility::SCR_HEIGHT / 2) + 100.0f)), FPSCounter("FPS: ", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH - 300.0f, 650.0f))
 {
 	WinText.SetScale(1.0f);
+	FPSCounter.SetScale(1.0f);
 	label.SetScale(1.0f);
 	label.SetColor(glm::vec3(1.0f, 1.0f, 0.2f));
 	WinText.SetColor(glm::vec3(0.0f, 1.0f, 0.0f));
 	LostText.SetColor(glm::vec3(1.0f, 0.0f, 0.0f));
+	FPSCounter.SetColor(glm::vec3(1.0f, 0.5f, 0.0f));
 }
 
 // Destructor //
