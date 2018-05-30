@@ -71,8 +71,7 @@ glm::mat4 CCamera::SetMVP(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation,
 	//Projection and Camera
 	float fHalfScrWidth = (float)Utility::SCR_WIDTH/2;  //100pixel in 1 unit
 	float fHalfScrHeight = (float)Utility::SCR_HEIGHT/2;//100pixel in 1 unit
-	m_m4Proj = glm::perspective(50.0f, (GLfloat)Utility::SCR_WIDTH / (GLfloat)Utility::SCR_HEIGHT, 0.1f, 100000.0f);
-	//m_m4Proj = glm::ortho(-fHalfScrWidth, fHalfScrWidth, -fHalfScrHeight, fHalfScrHeight, 0.1f, 100.0f); 
+	m_m4Proj = glm::ortho(-fHalfScrWidth, fHalfScrWidth, -fHalfScrHeight, fHalfScrHeight, 0.1f, 100.0f); 
 	m_m4MVP = m_m4Proj * m_m4View * m_m4Model;
 	return m_m4MVP;
 }
