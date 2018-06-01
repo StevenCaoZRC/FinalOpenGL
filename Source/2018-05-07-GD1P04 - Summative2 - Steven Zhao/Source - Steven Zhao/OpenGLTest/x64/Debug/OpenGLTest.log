@@ -1,0 +1,73 @@
+﻿  CEnemy.cpp
+CControls.obj : error LNK2019: unresolved external symbol __imp_glutKeyboardFunc referenced in function "public: void __cdecl CControls::init(void)" (?init@CControls@@QEAAXXZ)
+CControls.obj : error LNK2019: unresolved external symbol __imp_glutKeyboardUpFunc referenced in function "public: void __cdecl CControls::init(void)" (?init@CControls@@QEAAXXZ)
+CPlayer.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::System::playSound(class FMOD::Sound *,class FMOD::ChannelGroup *,bool,class FMOD::Channel * *)" (?playSound@System@FMOD@@QEAA?AW4FMOD_RESULT@@PEAVSound@2@PEAVChannelGroup@2@_NPEAPEAVChannel@2@@Z) referenced in function "public: void __cdecl CPlayer::init(float,float)" (?init@CPlayer@@QEAAXMM@Z)
+CPlayer.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::ChannelControl::setVolume(float)" (?setVolume@ChannelControl@FMOD@@QEAA?AW4FMOD_RESULT@@M@Z) referenced in function "public: void __cdecl CPlayer::init(float,float)" (?init@CPlayer@@QEAAXMM@Z)
+CSceneManager.obj : error LNK2019: unresolved external symbol __imp_glutIgnoreKeyRepeat referenced in function "public: void __cdecl CSceneManager::init(void)" (?init@CSceneManager@@QEAAXXZ)
+CSound.obj : error LNK2019: unresolved external symbol FMOD_System_Create referenced in function "enum FMOD_RESULT __cdecl FMOD::System_Create(class FMOD::System * *)" (?System_Create@FMOD@@YA?AW4FMOD_RESULT@@PEAPEAVSystem@1@@Z)
+CSound.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::System::init(int,unsigned int,void *)" (?init@System@FMOD@@QEAA?AW4FMOD_RESULT@@HIPEAX@Z) referenced in function "public: bool __cdecl CSound::init(void)" (?init@CSound@@QEAA_NXZ)
+CSound.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::System::createSound(char const *,unsigned int,struct FMOD_CREATESOUNDEXINFO *,class FMOD::Sound * *)" (?createSound@System@FMOD@@QEAA?AW4FMOD_RESULT@@PEBDIPEAUFMOD_CREATESOUNDEXINFO@@PEAPEAVSound@2@@Z) referenced in function "public: bool const __cdecl CSound::addSound(void)" (?addSound@CSound@@QEAA?B_NXZ)
+CSound.obj : error LNK2019: unresolved external symbol "public: enum FMOD_RESULT __cdecl FMOD::Sound::setMode(unsigned int)" (?setMode@Sound@FMOD@@QEAA?AW4FMOD_RESULT@@I@Z) referenced in function "public: bool const __cdecl CSound::addSound(void)" (?addSound@CSound@@QEAA?B_NXZ)
+CSprite.obj : error LNK2019: unresolved external symbol SOIL_load_image referenced in function "public: __cdecl CSprite::CSprite(char const *,float,float)" (??0CSprite@@QEAA@PEBDMM@Z)
+CSprite.obj : error LNK2019: unresolved external symbol SOIL_free_image_data referenced in function "public: __cdecl CSprite::CSprite(char const *,float,float)" (??0CSprite@@QEAA@PEBDMM@Z)
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewActiveTexture
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewActiveTexture
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewBindBuffer
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewBindBuffer
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewBufferData
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewBufferData
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewGenBuffers
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewGenBuffers
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewEnableVertexAttribArray
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewEnableVertexAttribArray
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewGetUniformLocation
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewGetUniformLocation
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewUniform1i
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewUniformMatrix4fv
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewUniformMatrix4fv
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewUseProgram
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewUseProgram
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewVertexAttribPointer
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewVertexAttribPointer
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewGenerateMipmap
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewBindVertexArray
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewBindVertexArray
+CSprite.obj : error LNK2001: unresolved external symbol __imp___glewGenVertexArrays
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewGenVertexArrays
+main.obj : error LNK2019: unresolved external symbol __imp_glewInit referenced in function main
+main.obj : error LNK2019: unresolved external symbol __imp_glutInitWindowPosition referenced in function main
+main.obj : error LNK2019: unresolved external symbol __imp_glutInitWindowSize referenced in function main
+main.obj : error LNK2019: unresolved external symbol __imp_glutInitDisplayMode referenced in function main
+main.obj : error LNK2019: unresolved external symbol __imp_glutMainLoop referenced in function main
+main.obj : error LNK2019: unresolved external symbol __imp_glutPostRedisplay referenced in function "void __cdecl Update(int)" (?Update@@YAXH@Z)
+main.obj : error LNK2019: unresolved external symbol __imp_glutSwapBuffers referenced in function "void __cdecl render(void)" (?render@@YAXXZ)
+main.obj : error LNK2019: unresolved external symbol __imp_glutTimerFunc referenced in function "void __cdecl Update(int)" (?Update@@YAXH@Z)
+main.obj : error LNK2019: unresolved external symbol __imp_glutDisplayFunc referenced in function main
+main.obj : error LNK2019: unresolved external symbol __imp___glutInitWithExit referenced in function glutInit_ATEXIT_HACK
+main.obj : error LNK2019: unresolved external symbol __imp___glutCreateWindowWithExit referenced in function glutCreateWindow_ATEXIT_HACK
+main.obj : error LNK2019: unresolved external symbol __imp_glutCloseFunc referenced in function main
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewAttachShader
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewCompileShader
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewCreateProgram
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewCreateShader
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramInfoLog
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewGetProgramiv
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderInfoLog
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewGetShaderiv
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewLinkProgram
+ShaderLoader.obj : error LNK2001: unresolved external symbol __imp___glewShaderSource
+TextLabel.obj : error LNK2019: unresolved external symbol __imp_FT_Init_FreeType referenced in function "public: __cdecl TextLabel::TextLabel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct glm::tvec2<float,0>)" (??0TextLabel@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0U?$tvec2@M$0A@@glm@@@Z)
+TextLabel.obj : error LNK2019: unresolved external symbol __imp_FT_Done_FreeType referenced in function "public: __cdecl TextLabel::TextLabel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct glm::tvec2<float,0>)" (??0TextLabel@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0U?$tvec2@M$0A@@glm@@@Z)
+TextLabel.obj : error LNK2019: unresolved external symbol __imp_FT_New_Face referenced in function "public: __cdecl TextLabel::TextLabel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct glm::tvec2<float,0>)" (??0TextLabel@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0U?$tvec2@M$0A@@glm@@@Z)
+TextLabel.obj : error LNK2019: unresolved external symbol __imp_FT_Done_Face referenced in function "public: __cdecl TextLabel::TextLabel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct glm::tvec2<float,0>)" (??0TextLabel@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0U?$tvec2@M$0A@@glm@@@Z)
+TextLabel.obj : error LNK2019: unresolved external symbol __imp_FT_Set_Pixel_Sizes referenced in function "public: __cdecl TextLabel::TextLabel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct glm::tvec2<float,0>)" (??0TextLabel@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0U?$tvec2@M$0A@@glm@@@Z)
+TextLabel.obj : error LNK2019: unresolved external symbol __imp_FT_Load_Char referenced in function "public: __cdecl TextLabel::TextLabel(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct glm::tvec2<float,0>)" (??0TextLabel@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0U?$tvec2@M$0A@@glm@@@Z)
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewBufferSubData
+TextLabel.obj : error LNK2001: unresolved external symbol __imp___glewUniform3f
+D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\OpenGLTest\\Dependencies\freeglut\freeglut.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\OpenGLTest\\Dependencies\glew\glew32.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\OpenGLTest\\Dependencies\FMOD\fmod_vc.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\OpenGLTest\\Dependencies\freetype\freeType.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\OpenGLTest\\Dependencies\soil\SOIL.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\OpenGLTest\\Dependencies\freeglut\freeglutd.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\x64\Debug\OpenGLTest.exe : fatal error LNK1120: 54 unresolved externals
