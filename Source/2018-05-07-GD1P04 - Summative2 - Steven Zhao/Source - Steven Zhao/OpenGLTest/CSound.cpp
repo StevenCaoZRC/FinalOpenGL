@@ -26,7 +26,7 @@
 // Types //
 using namespace std;
 CSound * CSound::pSound; 
-CSound * CSound::InstanceGet()
+CSound * CSound::GetInstance()
 {
 	if (!pSound)
 	{
@@ -35,7 +35,7 @@ CSound * CSound::InstanceGet()
 	return pSound;
 }
 
-void CSound::InstanceDestroy()
+void CSound::DestroyInstance()
 {
 	if (pSound)//If the Instance exists
 	{

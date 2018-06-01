@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //
 // Bachelor of Software Engineering
 // Media Design School
@@ -11,6 +12,10 @@
 // Mail          : steven.zha7447mediadesign.school.nz
 //
 // Library Includes
+=======
+// Library Includes
+//#include "stdafx.h"
+>>>>>>> Steven-Test
 #include <chrono>
 
 
@@ -50,6 +55,7 @@ CClock::~CClock()
 
 }
 
+<<<<<<< HEAD
 CClock * CClock::InstanceGet()
 {
 	if (!pClock) // If this does not exist
@@ -68,6 +74,8 @@ void CClock::InstanceDestroy()
 	}
 }
 
+=======
+>>>>>>> Steven-Test
 //****************************************************
 // Initialise: CClock Class Initialiser - sets the first time values
 // @author: 

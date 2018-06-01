@@ -38,7 +38,7 @@ CCamera::~CCamera()
 
 }
 
-CCamera * CCamera::InstanceGet()
+CCamera * CCamera::GetInstance()
 {
 	if (!m_pCamera) //if camera pointer doesnt exist
 	{
@@ -47,7 +47,7 @@ CCamera * CCamera::InstanceGet()
 	return m_pCamera;
 }
 
-void CCamera::InstanceDestroy()
+void CCamera::DestroyInstance()
 {
 	if (m_pCamera) //If a camera instance exists
 	{
@@ -69,10 +69,28 @@ glm::mat4 CCamera::SetMVP(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation,
 	m_m4View = glm::lookAt(m_v3CameraPos, m_v3CameraPos + m_v3CameraForward, m_v3CameraUp);
 
 	//Projection and Camera
-	float fHalfScrWidth = (float)Utility::SCR_WIDTH/2;  //100pixel in 1 unit
-	float fHalfScrHeight = (float)Utility::SCR_HEIGHT/2;//100pixel in 1 unit
-	m_m4Proj = glm::perspective(50.0f, (GLfloat)Utility::SCR_WIDTH / (GLfloat)Utility::SCR_HEIGHT, 0.1f, 100000.0f);
-	//m_m4Proj = glm::ortho(-fHalfScrWidth, fHalfScrWidth, -fHalfScrHeight, fHalfScrHeight, 0.1f, 100.0f); 
+	float fHalfScrWidth = (float)Utility::SCR_WIDTH/2;  
+	float fHalfScrHeight = (float)Utility::SCR_HEIGHT/2;
+	m_m4Proj = glm::ortho(-fHalfScrWidth, fHalfScrWidth, -fHalfScrHeight, fHalfScrHeight, 0.1f, 100.0f); 
+	m_m4MVP = m_m4Proj * m_m4View * m_m4Model;
+	return m_m4MVP;
+}
+
+glm::mat4 CCamera::SetMVP3D(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation, glm::vec3 v3_SetScale)
+{
+	m_m4Translate = glm::translate(glm::mat4(), v3_SetTranslation);
+	m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(v3_SetRotation.y), glm::vec3(0.0f, 0.0f, 1.0f)); //Z
+	m_m4Scale = glm::scale(glm::mat4(), v3_SetScale);
+	//Model Matrix
+	m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
+
+	//view
+	m_m4View = glm::lookAt(glm::vec3(m_v3CamX, m_v3CamHeight ,m_v3CamZ), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+	//Projection and Camera
+	m_m4Proj = glm::perspective(45.0f, (float)Utility::SCR_WIDTH / (float)Utility::SCR_HEIGHT, 0.1f, 10000.0f);
+
+	//MVP
 	m_m4MVP = m_m4Proj * m_m4View * m_m4Model;
 	return m_m4MVP;
 }

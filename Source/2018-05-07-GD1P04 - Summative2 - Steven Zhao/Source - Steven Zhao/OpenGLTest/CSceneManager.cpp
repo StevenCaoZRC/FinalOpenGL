@@ -13,9 +13,10 @@
 //
 
 // Library Includes //
-
+#include <time.h>
 // Local Includes //
 #include "CSound.h"
+#include "CInterface.h"
 // This Includes //
 #include "CSceneManager.h"
 
@@ -23,7 +24,8 @@
 using namespace std;
 CSceneManager* CSceneManager::pSceneManager; // Redefining the static variable for class
 
-CSceneManager * CSceneManager::InstanceGet()
+
+CSceneManager * CSceneManager::GetInstance()
 {
 	if (!pSceneManager) // If this does not exist
 	{
@@ -33,7 +35,7 @@ CSceneManager * CSceneManager::InstanceGet()
 	return pSceneManager;	//Returns the static instance
 }
 
-void CSceneManager::InstanceDestroy()
+void CSceneManager::DestroyInstance()
 {
 	if (pSceneManager) //If the instance exists
 	{
@@ -46,6 +48,9 @@ void CSceneManager::InstanceDestroy()
 void CSceneManager::RenderCurrent()
 {
 	Scenes[nCurrentScene]->render(); //Rending the current scene 
+
+	CInterface::GetInstance()->render();
+	CInterface::GetInstance()->FPSCounter.Render();
 	
 }
 
@@ -63,12 +68,11 @@ void CSceneManager::init()
 	glEnable(GL_BLEND);
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
 	
-	
-	
-	
+
+
 	//---------------|Level Scenes Stuff|---------------//
 	//Gets the initial values of the controls
-	CControls::InstanceGet()->init();
+	CControls::GetInstance()->init();
 	
 	
 	//creaing a shared pointer to level and bgSprite and CharacterSpr
@@ -78,10 +82,10 @@ void CSceneManager::init()
 	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>("Resources/entrance.png", 0.0, 0.0);
 	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>("Resources/exit.png", 0.0, 0.0);
 	Level->EndSpr = ExitSpr;
-	EntranceSpr->objPosition = { -550.0f, -195.0f, 0.0f };
-	ExitSpr->objPosition = { 550.0f,-195.0f,0.0f };
+	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f };
+	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f };
 	//Adding the spr to level
-	Level->SpritesAdd(BackGroundSpr);
+	//Level->SpritesAdd(BackGroundSpr);
 	Level->SpritesAdd(EntranceSpr);
 	Level->SpritesAdd(ExitSpr);
 	Level->addEnemy();
@@ -93,6 +97,7 @@ void CSceneManager::init()
 	std::shared_ptr<CScene> Menu = make_shared<CScene>();
 	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT);
 	std::shared_ptr<CSprite> startBtn0 = make_shared<CSprite>("Resources/start0.png", 0.0, 0.0);
+	startBtn0->objPosition = { 0.0f, 0.0f, 1.0f };
 	//Do if clicked
 	//std::shared_ptr<CSprite> startBtn1 = make_shared<CSprite>("Resources/start1.png", 0.0, 0.0);
 
@@ -105,9 +110,9 @@ void CSceneManager::init()
 
 	End->SpritesAdd(EndSpr);
 	//Adding the level to scenemanager
-	CSceneManager::InstanceGet()->SceneAdd(Menu);
-	CSceneManager::InstanceGet()->SceneAdd(Level);
-	CSceneManager::InstanceGet()->SceneAdd(End);
+	CSceneManager::GetInstance()->SceneAdd(Menu);
+	CSceneManager::GetInstance()->SceneAdd(Level);
+	CSceneManager::GetInstance()->SceneAdd(End);
 	
 }
 

@@ -33,16 +33,25 @@ class CInterface
 {
     // Member Functions //
         public:
+<<<<<<< HEAD
 			static CInterface* InstanceGet();
 			static void InstanceDestroy();
 			int FPSInSecond();
+=======
+			static CInterface* GetInstance();
+			static void DestroyInstance();
+>>>>>>> Steven-Test
 			void update();
 			void render();
 			bool bWon = false;
 			TextLabel label;
 			TextLabel WinText;
 			TextLabel LostText;
+<<<<<<< HEAD
 			int FPSCounter = 0;
+=======
+			TextLabel FPSCounter;
+>>>>>>> Steven-Test
         private:
 			CInterface();
 			~CInterface();

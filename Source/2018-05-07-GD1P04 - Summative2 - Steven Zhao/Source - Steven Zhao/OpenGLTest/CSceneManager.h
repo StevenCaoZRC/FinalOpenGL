@@ -19,6 +19,7 @@
 
 // Library Includes //
 #include <vector>
+#include <time.h>
 #include <memory>
 // Local Includes //
 #include "CCamera.h"
@@ -45,8 +46,8 @@ public:
 		LEVEL,//1
 		END,  //2
 	};
-	static CSceneManager* InstanceGet(); 
-	static void InstanceDestroy();
+	static CSceneManager* GetInstance(); 
+	static void DestroyInstance();
 	void RenderCurrent();
 	void UpdateCurrent(); 
 	void init();
@@ -55,6 +56,7 @@ public:
 	std::shared_ptr<CScene> GetCurrentScene() { return Scenes[nCurrentScene]; }; //Gets the current scene from the scene vector
 	std::vector < std::shared_ptr<CScene> >Scenes;
 	int nCurrentScene = 0;
+	
 private:
 	CSceneManager();
 	~CSceneManager();

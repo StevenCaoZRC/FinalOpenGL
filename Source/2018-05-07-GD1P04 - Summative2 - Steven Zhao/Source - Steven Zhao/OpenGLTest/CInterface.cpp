@@ -27,7 +27,7 @@
 // Types //
 using namespace std;
 CInterface * CInterface::pInterface;
-CInterface * CInterface::InstanceGet()
+CInterface * CInterface::GetInstance()
 {
 	if (!pInterface) // If this does not exist
 	{
@@ -37,7 +37,7 @@ CInterface * CInterface::InstanceGet()
 	return pInterface;	//Returns the static instance
 }
 
-void CInterface::InstanceDestroy()
+void CInterface::DestroyInstance()
 {
 	if (pInterface)//If the instance exists
 	{
@@ -54,37 +54,46 @@ int CInterface::FPSInSecond()
 
 void CInterface::update()
 {
+<<<<<<< HEAD
 	FPSCounter++;
 	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::InstanceGet()->GetCurrentScene());
+=======
+	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
+>>>>>>> Steven-Test
 	
-	if (CControls::InstanceGet()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED)//Set up first pressed 
+	if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED)//Set up first pressed 
 	{
-		if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::MENU)
+		if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::MENU)
 		{
-			CSceneManager::InstanceGet()->switchScene(CSceneManager::LEVEL);
+			CSceneManager::GetInstance()->switchScene(CSceneManager::LEVEL);
 		}	
-		else if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::END)
+		else if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 		{
 			
-			CSceneManager::InstanceGet()->switchScene(CSceneManager::MENU);
+			CSceneManager::GetInstance()->switchScene(CSceneManager::MENU);
 			label.SetPosition(glm::vec2(100.0f, 650.0f));
 		}
 	}
 	
-	if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::END)
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 	{
 		label.SetPosition(glm::vec2(Utility::SCR_WIDTH / 2.5, Utility::SCR_HEIGHT / 2));
 		
 	}
 
-	if(Level) label.SetText("Score: " + std::to_string(Level->nScore)); 
+	if (Level)
+	{
+		label.SetText("Score: " + std::to_string(Level->nScore));
+		
+	}
 	//have another label for win conditon, 
 }
 
 void CInterface::render()
 {
 	label.Render();
-	if (CSceneManager::InstanceGet()->nCurrentScene == CSceneManager::END)
+
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 	{
 		if (bWon)
 		{
@@ -98,13 +107,15 @@ void CInterface::render()
 
 // Constructor //
 CInterface::CInterface()
-	:label("Score: ", "Resources/fonts/waltographUI.ttf", glm::vec2(100.0f, 650.0f)), WinText("You Won!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH/2.5 , (Utility::SCR_HEIGHT / 2) + 100.0f )), LostText("You Lost!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH / 2.5, (Utility::SCR_HEIGHT / 2) + 100.0f))
+	:label("Score: ", "Resources/fonts/waltographUI.ttf", glm::vec2(100.0f, 650.0f)), WinText("You Won!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH/2.5 , (Utility::SCR_HEIGHT / 2) + 100.0f )), LostText("You Lost!", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH / 2.5, (Utility::SCR_HEIGHT / 2) + 100.0f)), FPSCounter("FPS: ", "Resources/fonts/waltographUI.ttf", glm::vec2(Utility::SCR_WIDTH - 300.0f, 650.0f))
 {
 	WinText.SetScale(1.0f);
+	FPSCounter.SetScale(1.0f);
 	label.SetScale(1.0f);
 	label.SetColor(glm::vec3(1.0f, 1.0f, 0.2f));
 	WinText.SetColor(glm::vec3(0.0f, 1.0f, 0.0f));
 	LostText.SetColor(glm::vec3(1.0f, 0.0f, 0.0f));
+	FPSCounter.SetColor(glm::vec3(1.0f, 0.5f, 0.0f));
 }
 
 // Destructor //

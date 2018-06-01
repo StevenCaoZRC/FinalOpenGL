@@ -41,16 +41,16 @@ void CPlayer::init(float _fMovementSpeed, float _fJumpHeight)
 	fJumpHeight = _fJumpHeight;
 	fGravity = 0.5f;
 	//---------------|Sound Stuff|---------------//
-	CSound::InstanceGet()->init();
-	CSound::InstanceGet()->addSound();
-	CSound::InstanceGet()->soundMgr->playSound(CSound::InstanceGet()->bgMusic, 0, false, &CSound::InstanceGet()->BgMusicChannel);\
-	CSound::InstanceGet()->soundEffects->setVolume(0.1f);
+	CSound::GetInstance()->init();
+	CSound::GetInstance()->addSound();
+	CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);\
+	CSound::GetInstance()->soundEffects->setVolume(0.1f);
 }
 
 void CPlayer::update()
 {
 	//Casting current level scene to dirived type CLevel, if it is not Clevel will return nullptr
-	std::shared_ptr<CLevel>RefrenceLevel = std::dynamic_pointer_cast<CLevel>(CSceneManager::InstanceGet()->GetCurrentScene());
+	std::shared_ptr<CLevel>RefrenceLevel = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
 	if (!RefrenceLevel)
 	{
 		return; //if the scene is not a level
@@ -85,88 +85,88 @@ void CPlayer::update()
 	//COMMAND INPUTS 8 DIRECTIONAL
 
 	//UP
-	if (CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED)
+	if (CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.y = +fMovementSpeed;
 	}
 	//DOWN
-	else if (CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED)
+	else if (CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.y = -fMovementSpeed;
 	}
 	//RIGHT
-	if(CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
+	if(CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = +fMovementSpeed;
 		objScale.x = 1;
 	}
 	//LEFT
-	else if (CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
+	else if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = -fMovementSpeed;
 		objScale.x = -1;
 	}
 	//RITGHT UP
-	if (CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
+	if (CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = +fMovementSpeed / 1.414213f;
 		v2_Movement.y = +fMovementSpeed / 1.414213f;
 		objScale.x = 1;
 	}
 	//RIGHT DOWN
-	else if(CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_HOLD)
+	else if(CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_HOLD)
 	{
 		v2_Movement.x = +fMovementSpeed / 1.414213f;
 		v2_Movement.y = -fMovementSpeed / 1.414213f;
 		objScale.x = 1;
 	}
 	//LEFT DOWN
-	if (CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
+	if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = -fMovementSpeed / 1.414213f;
 		v2_Movement.y = +fMovementSpeed / 1.414213f;
 		objScale.x = -1;
 	}
 	//LEFT UP
-	else if (CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_HOLD)
+	else if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_HOLD)
 	{
 		v2_Movement.x = -fMovementSpeed / 1.414213f;
 		v2_Movement.y = -fMovementSpeed / 1.414213f;
 		objScale.x = -1;
 	}
 	//IF NO HORIZONTAL MOVEMENT
-	if (CControls::InstanceGet()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED)
+	if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = 0;
 	}
 	//IF NO VERTICAL MOVEMENT
-	if (CControls::InstanceGet()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
-		&& CControls::InstanceGet()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
+	if (CControls::GetInstance()->cKeyState[(unsigned char)'w'] == CControls::INPUT_RELEASED
+		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.y = 0;
 	}
@@ -180,34 +180,34 @@ void CPlayer::update()
 			{
 				it->bIsAlive = false;
 				RefrenceLevel->delEnemy(it);
-				CSound::InstanceGet()->soundMgr->playSound(CSound::InstanceGet()->sfx, 0, false, &CSound::InstanceGet()->soundEffects);
-				CSound::InstanceGet()->soundEffects->setVolume(0.6f);
+				CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->sfx, 0, false, &CSound::GetInstance()->soundEffects);
+				CSound::GetInstance()->soundEffects->setVolume(0.6f);
 				RefrenceLevel->nScore += 10;
-				CInterface::CInterface::InstanceGet()->bWon = true;
+				CInterface::CInterface::GetInstance()->bWon = true;
 				
 				return;
 			}
 
 			bIsPlayerAlive = false;
-			CSound::InstanceGet()->soundMgr->playSound(CSound::InstanceGet()->sfx, 0, false, &CSound::InstanceGet()->soundEffects);
-			CSound::InstanceGet()->soundEffects->setVolume(0.6f);
+			CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->sfx, 0, false, &CSound::GetInstance()->soundEffects);
+			CSound::GetInstance()->soundEffects->setVolume(0.6f);
 			RefrenceLevel->DeleteSprite(this->shared_from_this());
-			if (CSceneManager::InstanceGet()->nCurrentScene = CSceneManager::LEVEL && bIsPlayerAlive == false)
+			if (CSceneManager::GetInstance()->nCurrentScene = CSceneManager::LEVEL && bIsPlayerAlive == false)
 			{
 				RefrenceLevel->delEnemy(it);
 				RefrenceLevel->DeleteSprite(RefrenceLevel->CharacterSpr);
 				RefrenceLevel->addEnemy();
 				RefrenceLevel->addPlayer();
 				RefrenceLevel->nScore = 0;
-				CSceneManager::InstanceGet()->nCurrentScene = CSceneManager::END;
-				CInterface::CInterface::InstanceGet()->bWon = false;
+				CSceneManager::GetInstance()->nCurrentScene = CSceneManager::END;
+				CInterface::CInterface::GetInstance()->bWon = false;
 				
 			}
 			
 		}	
 		
 	}
-	//CSound::InstanceGet()->soundMgr->playSound(CSound::InstanceGet()->bgMusic, 0, false, &CSound::InstanceGet()->BgMusicChannel);
+	//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);
 
 	
 	objPosition += glm::vec3(v2_Movement,0); 

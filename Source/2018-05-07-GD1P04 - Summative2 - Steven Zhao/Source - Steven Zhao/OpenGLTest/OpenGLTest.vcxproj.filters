@@ -13,38 +13,32 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\FragmentShaders">
+      <UniqueIdentifier>{1df76ce6-df2f-45b5-87d9-aaf62a87885e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\VertexShaders">
+      <UniqueIdentifier>{73ab6065-2199-43fb-9cb4-f3f4203eb9a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Character/Enemy">
+      <UniqueIdentifier>{f73df513-2127-438a-8710-b5050ca2c9bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Character/Enemy">
+      <UniqueIdentifier>{3450bbc7-9ac4-4a17-a493-9a363c15baff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MainEngine%28Singletons%29">
+      <UniqueIdentifier>{0bf1ffd4-81cb-43da-aa9a-bfcac5e30c78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainEngine%28Singleton%29">
+      <UniqueIdentifier>{cbfac480-6cec-4784-80c1-697211bfa2c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Sprite/Loaders/Text">
+      <UniqueIdentifier>{7b008c18-b276-446d-9e30-1bef0aa74f59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Sprite/Loaders/Text">
+      <UniqueIdentifier>{87eefbd9-8fbc-42e6-836d-e9ec19cf2386}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CCamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CSceneManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CSprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CControls.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CEnemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CPlayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -57,42 +51,45 @@
     <ClInclude Include="TextLabel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CEnemy.h">
+      <Filter>Header Files\Character/Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>Header Files\Character/Enemy</Filter>
+    </ClInclude>
     <ClInclude Include="CSound.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
+    <ClInclude Include="CCamera.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
+    <ClInclude Include="CControls.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
+    <ClInclude Include="CInterface.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderLoader.h">
+      <Filter>Header Files\Sprite/Loaders/Text</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneManager.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Header Files\Sprite/Loaders/Text</Filter>
+    </ClInclude>
+    <ClInclude Include="CSprite.h">
+      <Filter>Header Files\Sprite/Loaders/Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
     </ClInclude>
     <ClInclude Include="clock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CCamera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CSceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CSprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ShaderLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CControls.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CEnemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CScene.cpp">
@@ -104,11 +101,38 @@
     <ClCompile Include="CLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextLabel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CEnemy.cpp">
+      <Filter>Source Files\Character/Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>Source Files\Character/Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="CCamera.cpp">
+      <Filter>Source Files\MainEngine%28Singleton%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CControls.cpp">
+      <Filter>Source Files\MainEngine%28Singleton%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CInterface.cpp">
+      <Filter>Source Files\MainEngine%28Singleton%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneManager.cpp">
+      <Filter>Source Files\MainEngine%28Singleton%29</Filter>
     </ClCompile>
     <ClCompile Include="CSound.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MainEngine%28Singleton%29</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files\MainEngine%28Singleton%29</Filter>
+    </ClCompile>
+    <ClCompile Include="CSprite.cpp">
+      <Filter>Source Files\Sprite/Loaders/Text</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderLoader.cpp">
+      <Filter>Source Files\Sprite/Loaders/Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextLabel.cpp">
+      <Filter>Source Files\Sprite/Loaders/Text</Filter>
     </ClCompile>
     <ClCompile Include="clock.cpp">
       <Filter>Source Files</Filter>
@@ -116,16 +140,16 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="FragmentShader.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="VertexShader.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
     <Text Include="TextFragment.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
     <Text Include="TextVertex.txt">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
+    <Text Include="VertexShader.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
     </Text>
   </ItemGroup>
 </Project>

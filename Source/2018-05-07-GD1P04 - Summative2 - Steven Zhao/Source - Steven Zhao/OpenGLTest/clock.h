@@ -20,9 +20,14 @@ class CClock
 {
 	// Member Functions
 public:
+<<<<<<< HEAD
 	static CClock* InstanceGet();
 	static void InstanceDestroy();
 
+=======
+	CClock();
+	~CClock();
+>>>>>>> Steven-Test
 	bool Initialise();
 	void Process();
 	float GetDeltaTick();
@@ -30,11 +35,16 @@ public:
 protected:
 
 private:
+<<<<<<< HEAD
 	CClock();
 	~CClock();
 	static CClock* pClock;
 	CClock(const CClock&) = delete;
 	CClock& operator= (const CClock&) = delete;
+=======
+	CClock(const CClock& _kr);
+	CClock& operator= (const CClock& _kr);
+>>>>>>> Steven-Test
 
 	// Member Variables
 public:

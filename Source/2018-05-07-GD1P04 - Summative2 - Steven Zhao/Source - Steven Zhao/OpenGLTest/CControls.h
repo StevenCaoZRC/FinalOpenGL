@@ -36,8 +36,8 @@ public:
 		MOUSE_MIDDLE,		//1
 		MOUSE_RIGHT,		//2
 	};
-	static CControls* InstanceGet();
-	static void InstanceDestroy();
+	static CControls* GetInstance();
+	static void DestroyInstance();
 
 	unsigned char cKeyState[255];
 	unsigned char cMouse[3];	
