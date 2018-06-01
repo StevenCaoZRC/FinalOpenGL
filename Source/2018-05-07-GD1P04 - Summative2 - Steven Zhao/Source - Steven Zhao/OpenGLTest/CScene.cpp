@@ -24,6 +24,7 @@
 #include "ShaderLoader.h"
 #include "Utils.h" 
 #include "CCamera.h"
+#include "Sphere.h"
 // This Includes //
 #include "CScene.h"
 
@@ -55,6 +56,7 @@ void CScene::render()
 
 		//3D
 		it->render3D();
+
 	}
 }
 

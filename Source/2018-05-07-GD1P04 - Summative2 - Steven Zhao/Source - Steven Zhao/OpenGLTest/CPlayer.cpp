@@ -41,10 +41,10 @@ void CPlayer::init(float _fMovementSpeed, float _fJumpHeight)
 	fJumpHeight = _fJumpHeight;
 	fGravity = 0.5f;
 	//---------------|Sound Stuff|---------------//
-	CSound::GetInstance()->init();
-	CSound::GetInstance()->addSound();
-	CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);\
-	CSound::GetInstance()->soundEffects->setVolume(0.1f);
+	//CSound::GetInstance()->init();
+	//CSound::GetInstance()->addSound();
+	//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);
+	//CSound::GetInstance()->soundEffects->setVolume(0.1f);
 }
 
 void CPlayer::update()

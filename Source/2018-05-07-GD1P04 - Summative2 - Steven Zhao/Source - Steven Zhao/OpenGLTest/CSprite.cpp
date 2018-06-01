@@ -146,85 +146,85 @@ CSprite::CSprite(const char* _fileName, float fWidth, float fHeight)
 	}
 
 	//-----------------------Going 3D-----------------------//
-	//GLfloat cubeVertices[] =
-	//{
-	//// Positions         // Colour       // Tex Coords
+	GLfloat cubeVertices[] =
+	{
+	// Positions         // Colour       // Tex Coords
+	// Front Face
+	-HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f, // 0
+	 HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f, // 1
+	 HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f, // 2
+	-HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f, // 3
 
-	//// Front Face
-	//-HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f, // 0
-	// HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f, // 1
-	// HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f, // 2
-	//-HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f, // 3
+	// Right Face
+	HalfWidth,  HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
+	HalfWidth,  HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
+	HalfWidth, -HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
+	HalfWidth, -HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
 
-	//// Right Face
-	//HalfWidth,  HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
-	//HalfWidth,  HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
-	//HalfWidth, -HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
-	//HalfWidth, -HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
+	// Back Face
+	 HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f, // 8
+	-HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
+	-HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
+	 HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f, // 11
 
-	//// Back Face
-	// HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f, // 8
-	//-HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
-	//-HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
-	// HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f, // 11
+	// Left Face
+	-HalfWidth,  HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
+	-HalfWidth,  HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
+	-HalfWidth, -HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
+	-HalfWidth, -HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
 
-	//// Left Face
-	//-HalfWidth,  HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
-	//-HalfWidth,  HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
-	//-HalfWidth, -HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
-	//-HalfWidth, -HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
-
-	//// Top Face
-	//-HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
-	// HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
-	// HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
-	//-HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
-
-	//// Bottom Face
-	//-HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
-	// HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
-	// HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
-	//-HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
-	//};
-	GLfloat cubeVertices[] = {
-		// Positions         // Normals         // Tex Coords
-
-// Front Face
--1.0f,  1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // 0
-1.0f,  1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 1.0f, 0.0f, // 1
-1.0f, -1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 1.0f, 1.0f, // 2
--1.0f, -1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 0.0f, 1.0f, // 3
-
-// Right Face
-1.0f,  1.0f,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
-1.0f,  1.0f, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
-1.0f, -1.0f, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
-1.0f, -1.0f,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
-
-// Back Face
-1.0f,  1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f, // 8
--1.0f,  1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
--1.0f, -1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
-1.0f, -1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f, // 11
-
-// Left Face
--1.0f,  1.0f, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
--1.0f,  1.0f,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
--1.0f, -1.0f,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
--1.0f, -1.0f, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
-
-// Top Face
--1.0f,  1.0f, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
-1.0f,  1.0f, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
-1.0f,  1.0f,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
--1.0f,  1.0f,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
+	// Top Face
+	-HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
+	 HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
+	 HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
+	-HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
 
 	// Bottom Face
-	-1.0f, -1.0f,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
-	1.0f, -1.0f,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
-	1.0f, -1.0f, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
-	-1.0f, -1.0f, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
+	-HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
+	 HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
+	 HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
+	-HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
 	};
+
+	//GLfloat cubeVertices[] = {
+	//	// Positions         // Normals         // Tex Coords
+
+	//// Front Face
+	//-1.0f,  1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // 0
+	// 1.0f,  1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 1.0f, 0.0f, // 1
+	// 1.0f, -1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 1.0f, 1.0f, // 2
+	//-1.0f, -1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 0.0f, 1.0f, // 3
+
+	//// Right Face
+	//1.0f,  1.0f,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
+	//1.0f,  1.0f, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
+	//1.0f, -1.0f, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
+	//1.0f, -1.0f,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
+
+	//// Back Face
+	// 1.0f,  1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f, // 8
+	//-1.0f,  1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
+	//-1.0f, -1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
+	// 1.0f, -1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f, // 11
+
+	//// Left Face
+	//-1.0f,  1.0f, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
+	//-1.0f,  1.0f,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
+	//-1.0f, -1.0f,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
+	//-1.0f, -1.0f, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
+
+	//// Top Face
+	//-1.0f,  1.0f, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
+	// 1.0f,  1.0f, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
+	// 1.0f,  1.0f,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
+	//-1.0f,  1.0f,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
+
+	//// Bottom Face
+	//-1.0f, -1.0f,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
+	// 1.0f, -1.0f,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
+	// 1.0f, -1.0f, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
+	//-1.0f, -1.0f, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
+	//};
 
 	GLuint cubeIndices[] = {
 
@@ -321,15 +321,11 @@ void CSprite::render()
 
 	glBindVertexArray(vao);			  // Bind VAO
 	
-	//////------2D MVP------//
-	//glm::mat4 MVP = CCamera::GetInstance()->SetMVP(objPosition,objRotate,objScale);
-	//GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
-	//glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
-
-	//------3D MVP------//
-	glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
+	//------2D MVP------//
+	glm::mat4 MVP = CCamera::GetInstance()->SetMVP(objPosition,objRotate,objScale);
 	GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
 	glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
+
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 

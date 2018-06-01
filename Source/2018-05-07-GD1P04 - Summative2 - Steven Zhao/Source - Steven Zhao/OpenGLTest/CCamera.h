@@ -45,16 +45,16 @@ class CCamera
 			//---------------| Getting MVP Matrices for 3D|---------------//
 			glm::mat4 SetMVP3D(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation, glm::vec3 v3_SetScale);
 			
-			GLfloat m_v3CamX = 1.0f;
-			GLfloat m_v3CamHeight = 1.0f;
-			GLfloat m_v3CamZ = 5.0f;
+			GLfloat m_v3CamX = 0.0f;
+			GLfloat m_v3CamHeight = 0.0f;
+			GLfloat m_v3CamZ = 50.0f;
         private:
 			static CCamera* m_pCamera;
 			CCamera();
 			~CCamera();
 			CCamera(CCamera const&) = delete; //Deletes copy constructor
 			void operator = (CCamera const&) = delete; //Deletes operator assigned to the copy constructor		
-			float cameraSpeed = 0.25f;
+	
 			//---------------| Matrices for MVP |---------------//
 			glm::mat4 m_m4Proj;
 			glm::mat4 m_m4Model;

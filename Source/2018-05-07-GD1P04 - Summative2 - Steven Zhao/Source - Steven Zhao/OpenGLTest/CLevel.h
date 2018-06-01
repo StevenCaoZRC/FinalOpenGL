@@ -41,6 +41,9 @@ class CLevel : public CScene
             ~CLevel();
 			void addPlayer();
 			void addEnemy();
+			void addLevel();
+			void addMenu();
+			void addEndMenu();
 			void render();
 			void update();
 			void resetLevel();

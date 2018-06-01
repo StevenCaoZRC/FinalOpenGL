@@ -17,6 +17,7 @@
 // Local Includes //
 #include "CSound.h"
 #include "CInterface.h"
+#include "Sphere.h"
 // This Includes //
 #include "CSceneManager.h"
 
@@ -51,7 +52,7 @@ void CSceneManager::RenderCurrent()
 
 	CInterface::GetInstance()->render();
 	CInterface::GetInstance()->FPSCounter.Render();
-	
+
 }
 
 void CSceneManager::UpdateCurrent()
@@ -78,37 +79,22 @@ void CSceneManager::init()
 	//creaing a shared pointer to level and bgSprite and CharacterSpr
 	std::shared_ptr<CLevel>Level = make_shared<CLevel>();
 	
-	std::shared_ptr<CSprite>BackGroundSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT);
-	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>("Resources/entrance.png", 0.0, 0.0);
-	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>("Resources/exit.png", 0.0, 0.0);
-	Level->EndSpr = ExitSpr;
-	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f };
-	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f };
-	//Adding the spr to level
-	//Level->SpritesAdd(BackGroundSpr);
-	Level->SpritesAdd(EntranceSpr);
-	Level->SpritesAdd(ExitSpr);
+	Level->addLevel();
 	Level->addEnemy();
 	Level->addPlayer();
 	//Adding the level to scenemanager
 	
-	
 	//---------------|Menu Scenes Stuff|---------------//
-	std::shared_ptr<CScene> Menu = make_shared<CScene>();
-	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT);
-	std::shared_ptr<CSprite> startBtn0 = make_shared<CSprite>("Resources/start0.png", 0.0, 0.0);
-	startBtn0->objPosition = { 0.0f, 0.0f, 1.0f };
+	std::shared_ptr<CLevel> Menu = make_shared<CLevel>();
+	Menu->addMenu();
 	//Do if clicked
 	//std::shared_ptr<CSprite> startBtn1 = make_shared<CSprite>("Resources/start1.png", 0.0, 0.0);
 
-	Menu->SpritesAdd(MenuSpr);
-	Menu->SpritesAdd(startBtn0);
-
 	//---------------|End Scenes Stuff|---------------//
-	std::shared_ptr<CScene> End = make_shared<CScene>();
-	std::shared_ptr<CSprite> EndSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT);
+	std::shared_ptr<CLevel> End = make_shared<CLevel>();
+	
 
-	End->SpritesAdd(EndSpr);
+	End->addEndMenu();
 	//Adding the level to scenemanager
 	CSceneManager::GetInstance()->SceneAdd(Menu);
 	CSceneManager::GetInstance()->SceneAdd(Level);
