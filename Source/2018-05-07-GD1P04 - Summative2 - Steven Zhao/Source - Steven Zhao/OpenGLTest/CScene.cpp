@@ -63,7 +63,6 @@ void CScene::update()
 	for (auto it : v_SpritesInScene)
 	{
 		it->update();
-		
 	}
 }
 

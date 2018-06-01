@@ -37,10 +37,14 @@ class CEnemy : public CSprite
 			float fJumpHeight;
 			float fMoveSpeed;
 			void init(float _fMoveSpeed, float _fJumpHeight);
-			void update();
+			void update(glm::vec3 _pos);
+			void AISeek(glm::vec3 _pos);
+			void AIFlee(glm::vec3 _pos);
 			bool bIsAlive = true;
 			bool bIsGoingRight = true;
+			float FindMagnitude(glm::vec3 _v3);
         private:
+			glm::vec3 m_vCurVelocity = { 0.0f,0.0f,0.0f };
 
 };
 

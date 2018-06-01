@@ -46,9 +46,10 @@ void CLevel::addPlayer()
 {
 	//Creating Player
 	CharacterSpr = make_shared<CPlayer>("Resources/player_character/character_idle_1.png", 0.0f, 0.0f);
-	CharacterSpr->init(5.0f, 10.0f);
+	CharacterSpr->init(1.5f, 10.0f);
 	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png");
-	CharacterSpr->objPosition = { -550.0f,-215.0f,2.0f };
+	CharacterSpr->objPosition = { 0.0f,0.0f,0.0f };
+
 	SpritesAdd(CharacterSpr);
 }
 
@@ -56,9 +57,9 @@ void CLevel::addEnemy()
 {
 	//Creating Enemy1
 	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f);
-	SlimeSpr->init(2.0f,2.0f);
-	SlimeSpr->objPosition = { 0.0f,-200.0f,-200.0f };
-	SlimeSpr->objScale = { 10.0f, 10.0f, 10.0f };
+	SlimeSpr->init(1.0f,2.0f);
+	SlimeSpr->objPosition = { -100.0,0.0f,0.0f };
+	SlimeSpr->objScale = { 2.0f, 2.0f, 2.0f };
 	SpritesAdd(SlimeSpr);
 	v_Enemies.push_back(SlimeSpr);
 }
@@ -66,18 +67,28 @@ void CLevel::addEnemy()
 void CLevel::render()
 {
 	CScene::render();
-
 }
 
 void CLevel::update()
 {
 	CScene::update();
-	
-	if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED && (abs(CharacterSpr->objPosition.x - EndSpr->objPosition.x) < 30) && abs(CharacterSpr->objPosition.y - EndSpr->objPosition.y) < 30 && v_Enemies.empty())
+	glm::vec3 playerpos;
+	if (CharacterSpr != nullptr)
 	{
-		resetLevel();
-		CSceneManager::GetInstance()->switchScene(CSceneManager::END);
+		playerpos = CharacterSpr->objPosition;
 	}
+	for (auto it : v_Enemies)
+	{
+		if (CharacterSpr != nullptr)
+		{
+			it->update(playerpos);
+		}
+	}
+	//if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED && (abs(CharacterSpr->objPosition.x - EndSpr->objPosition.x) < 30) && abs(CharacterSpr->objPosition.y - EndSpr->objPosition.y) < 30 && v_Enemies.empty())
+	//{
+	//	resetLevel();
+	//	CSceneManager::GetInstance()->switchScene(CSceneManager::END);
+	//}
 	
 }
 
