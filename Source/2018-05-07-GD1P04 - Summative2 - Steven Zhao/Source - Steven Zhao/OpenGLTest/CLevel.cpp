@@ -57,7 +57,8 @@ void CLevel::addEnemy()
 	//Creating Enemy1
 	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f);
 	SlimeSpr->init(2.0f,2.0f);
-	SlimeSpr->objPosition = { 0.0f,-224.0f,2.0f };
+	SlimeSpr->objPosition = { 0.0f,-200.0f,-200.0f };
+	SlimeSpr->objScale = { 10.0f, 10.0f, 10.0f };
 	SpritesAdd(SlimeSpr);
 	v_Enemies.push_back(SlimeSpr);
 }

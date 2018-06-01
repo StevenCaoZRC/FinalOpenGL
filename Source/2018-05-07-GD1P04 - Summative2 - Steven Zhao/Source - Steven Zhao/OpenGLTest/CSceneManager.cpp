@@ -85,7 +85,7 @@ void CSceneManager::init()
 	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f };
 	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f };
 	//Adding the spr to level
-	Level->SpritesAdd(BackGroundSpr);
+	//Level->SpritesAdd(BackGroundSpr);
 	Level->SpritesAdd(EntranceSpr);
 	Level->SpritesAdd(ExitSpr);
 	Level->addEnemy();
