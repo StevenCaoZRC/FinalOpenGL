@@ -149,8 +149,8 @@
     <ClInclude Include="CSceneManager.h" />
     <ClInclude Include="CSound.h" />
     <ClInclude Include="CSprite.h" />
+    <ClInclude Include="CubeMap.h" />
     <ClInclude Include="ShaderLoader.h" />
-    <ClInclude Include="Sphere.h" />
     <ClInclude Include="TextLabel.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="Utils.h" />
@@ -167,14 +167,16 @@
     <ClCompile Include="CSceneManager.cpp" />
     <ClCompile Include="CSound.cpp" />
     <ClCompile Include="CSprite.cpp" />
+    <ClCompile Include="CubeMap.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
-    <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="TextLabel.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="FragmentShader.txt" />
+    <Text Include="LightFragment.txt" />
+    <Text Include="LightVertexShader.txt" />
     <Text Include="TextFragment.txt" />
     <Text Include="TextVertex.txt" />
     <Text Include="VertexShader.txt" />

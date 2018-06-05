@@ -79,7 +79,7 @@ glm::mat4 CCamera::SetMVP(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation,
 glm::mat4 CCamera::SetMVP3D(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation, glm::vec3 v3_SetScale)
 {
 	m_m4Translate = glm::translate(glm::mat4(), v3_SetTranslation);
-	m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(v3_SetRotation.z), glm::vec3(0.0f, 0.0f, 1.0f)); //Z
+	m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(v3_SetRotation.y), glm::vec3(0.0f, 0.0f, 1.0f)); //Z
 	m_m4Scale = glm::scale(glm::mat4(), v3_SetScale);
 	//Model Matrix
 	m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;

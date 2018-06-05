@@ -42,7 +42,11 @@ public:
 	//CSprite(const char* _fileName, float fWidth, float fHeight);
 
 	//3D
-	CSprite(const char* _fileName, float fWidth, float fHeight);
+	enum Shapes {
+		CUBE = 0,
+		SPHERE,
+	};
+	CSprite(const char* _fileName, float fWidth, float fHeight, int iShape);
 	~CSprite();
 
 	virtual void render();
@@ -53,13 +57,18 @@ public:
 	std::vector<GLuint> ImgArray;
 	int nWidth;
 	int nHeight;
+	int m_iShape;
 
 	GLuint vao;
 	std::vector<GLuint> textures;
+	GLuint tex;
 	//GLuint tex1;
 	//GLuint tex2;
 
 	int iCurrentFrame = 0;
+	int DrawType;
+
+	GLuint IndiceCount;
 
 	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
 	glm::vec3 objRotate = {0.0f,0.0f,0.0f};

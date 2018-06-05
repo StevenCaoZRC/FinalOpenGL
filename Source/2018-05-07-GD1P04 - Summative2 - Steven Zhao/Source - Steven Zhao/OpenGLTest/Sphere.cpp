@@ -2,6 +2,8 @@
 #include "Utils.h"
 #include "CCamera.h"
 #include "TextureLoader.h"
+
+
 Sphere::Sphere()
 {
 	float radius = 1.0f;

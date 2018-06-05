@@ -53,7 +53,10 @@ void CControls::init()
 {
 	glutKeyboardFunc(InitKeyDown);
 	glutKeyboardUpFunc(InitKeyUp);
-
+	for (int i = 0; i < 255; i++)
+	{
+		cKeyState[i] = INPUT_RELEASED;
+	}
 }
 
 void CControls::update()

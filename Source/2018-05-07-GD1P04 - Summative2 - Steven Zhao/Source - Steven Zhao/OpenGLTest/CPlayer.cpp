@@ -23,8 +23,8 @@
 using namespace std;
 
 // Constructor //
-CPlayer::CPlayer(const char* _fileName, float fWidth, float fHeight)
-	:  CSprite(_fileName, fWidth, fHeight)
+CPlayer::CPlayer(const char* _fileName, float fWidth, float fHeight, int iShape)
+	:  CSprite(_fileName, fWidth, fHeight, iShape)
 {
 
 }
@@ -107,7 +107,6 @@ void CPlayer::update()
 		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = +fMovementSpeed;
-		objScale.x = 1;
 	}
 	//LEFT
 	else if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
@@ -116,7 +115,6 @@ void CPlayer::update()
 		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = -fMovementSpeed;
-		objScale.x = -1;
 	}
 	//RITGHT UP
 	if (CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
@@ -126,7 +124,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = +fMovementSpeed / 1.414213f;
 		v2_Movement.y = +fMovementSpeed / 1.414213f;
-		objScale.x = 1;
 	}
 	//RIGHT DOWN
 	else if(CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
@@ -136,7 +133,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = +fMovementSpeed / 1.414213f;
 		v2_Movement.y = -fMovementSpeed / 1.414213f;
-		objScale.x = 1;
 	}
 	//LEFT DOWN
 	if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
@@ -146,7 +142,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = -fMovementSpeed / 1.414213f;
 		v2_Movement.y = +fMovementSpeed / 1.414213f;
-		objScale.x = -1;
 	}
 	//LEFT UP
 	else if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
@@ -156,7 +151,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = -fMovementSpeed / 1.414213f;
 		v2_Movement.y = -fMovementSpeed / 1.414213f;
-		objScale.x = -1;
 	}
 	//IF NO HORIZONTAL MOVEMENT
 	if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
@@ -173,7 +167,7 @@ void CPlayer::update()
 
 	for (auto it : RefrenceLevel->v_Enemies) //Refrence level is current level
 	{
-		if (CGameMech::bIsDetectingCollision(this->shared_from_this(), it, v2_Movement))
+		/*if (CGameMech::bIsDetectingCollision(this->shared_from_this(), it, v2_Movement))
 		{
 			if (this->shared_from_this()->objPosition.x + this->shared_from_this()->nWidth + v2_Movement.x > it->objPosition.x &&
 				this->shared_from_this()->objPosition.x + v2_Movement.x < it->objPosition.x + it->nWidth)
@@ -204,7 +198,7 @@ void CPlayer::update()
 				
 			}
 			
-		}	
+		}	*/
 		
 	}
 	//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);
