@@ -23,8 +23,8 @@
 using namespace std;
 
 // Constructor //
-CPlayer::CPlayer(const char* _fileName, float fWidth, float fHeight)
-	:  CSprite(_fileName, fWidth, fHeight)
+CPlayer::CPlayer(const char* _fileName, float fWidth, float fHeight, int iShape)
+	:  CSprite(_fileName, fWidth, fHeight, iShape)
 {
 
 }
@@ -41,10 +41,10 @@ void CPlayer::init(float _fMovementSpeed, float _fJumpHeight)
 	fJumpHeight = _fJumpHeight;
 	fGravity = 0.5f;
 	//---------------|Sound Stuff|---------------//
-	CSound::GetInstance()->init();
-	CSound::GetInstance()->addSound();
-	CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);\
-	CSound::GetInstance()->soundEffects->setVolume(0.1f);
+	//CSound::GetInstance()->init();
+	//CSound::GetInstance()->addSound();
+	//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);
+	//CSound::GetInstance()->soundEffects->setVolume(0.1f);
 }
 
 void CPlayer::update()
@@ -107,7 +107,6 @@ void CPlayer::update()
 		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = +fMovementSpeed;
-		objScale.x = 1;
 	}
 	//LEFT
 	else if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
@@ -116,7 +115,6 @@ void CPlayer::update()
 		&& CControls::GetInstance()->cKeyState[(unsigned char)'s'] == CControls::INPUT_RELEASED)
 	{
 		v2_Movement.x = -fMovementSpeed;
-		objScale.x = -1;
 	}
 	//RITGHT UP
 	if (CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
@@ -126,7 +124,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = +fMovementSpeed / 1.414213f;
 		v2_Movement.y = +fMovementSpeed / 1.414213f;
-		objScale.x = 1;
 	}
 	//RIGHT DOWN
 	else if(CControls::GetInstance()->cKeyState[(unsigned char)'d'] == CControls::INPUT_HOLD
@@ -136,7 +133,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = +fMovementSpeed / 1.414213f;
 		v2_Movement.y = -fMovementSpeed / 1.414213f;
-		objScale.x = 1;
 	}
 	//LEFT DOWN
 	if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
@@ -146,7 +142,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = -fMovementSpeed / 1.414213f;
 		v2_Movement.y = +fMovementSpeed / 1.414213f;
-		objScale.x = -1;
 	}
 	//LEFT UP
 	else if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_HOLD
@@ -156,7 +151,6 @@ void CPlayer::update()
 	{
 		v2_Movement.x = -fMovementSpeed / 1.414213f;
 		v2_Movement.y = -fMovementSpeed / 1.414213f;
-		objScale.x = -1;
 	}
 	//IF NO HORIZONTAL MOVEMENT
 	if (CControls::GetInstance()->cKeyState[(unsigned char)'a'] == CControls::INPUT_RELEASED
@@ -173,6 +167,7 @@ void CPlayer::update()
 
 	for (auto it : RefrenceLevel->v_Enemies) //Refrence level is current level
 	{
+<<<<<<< HEAD
 		//if (CGameMech::bIsDetectingCollision(this->shared_from_this(), it, v2_Movement))
 		//{
 		//	if (this->shared_from_this()->objPosition.x + this->shared_from_this()->nWidth + v2_Movement.x > it->objPosition.x &&
@@ -205,6 +200,40 @@ void CPlayer::update()
 		//	}
 		//	
 		//}	
+=======
+		/*if (CGameMech::bIsDetectingCollision(this->shared_from_this(), it, v2_Movement))
+		{
+			if (this->shared_from_this()->objPosition.x + this->shared_from_this()->nWidth + v2_Movement.x > it->objPosition.x &&
+				this->shared_from_this()->objPosition.x + v2_Movement.x < it->objPosition.x + it->nWidth)
+			{
+				it->bIsAlive = false;
+				RefrenceLevel->delEnemy(it);
+				CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->sfx, 0, false, &CSound::GetInstance()->soundEffects);
+				CSound::GetInstance()->soundEffects->setVolume(0.6f);
+				RefrenceLevel->nScore += 10;
+				CInterface::CInterface::GetInstance()->bWon = true;
+				
+				return;
+			}
+
+			bIsPlayerAlive = false;
+			CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->sfx, 0, false, &CSound::GetInstance()->soundEffects);
+			CSound::GetInstance()->soundEffects->setVolume(0.6f);
+			RefrenceLevel->DeleteSprite(this->shared_from_this());
+			if (CSceneManager::GetInstance()->nCurrentScene = CSceneManager::LEVEL && bIsPlayerAlive == false)
+			{
+				RefrenceLevel->delEnemy(it);
+				RefrenceLevel->DeleteSprite(RefrenceLevel->CharacterSpr);
+				RefrenceLevel->addEnemy();
+				RefrenceLevel->addPlayer();
+				RefrenceLevel->nScore = 0;
+				CSceneManager::GetInstance()->nCurrentScene = CSceneManager::END;
+				CInterface::CInterface::GetInstance()->bWon = false;
+				
+			}
+			
+		}	*/
+>>>>>>> Steven-Test
 		
 	}
 	//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);

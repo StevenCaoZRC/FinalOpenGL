@@ -50,6 +50,7 @@ public:
 	};
 	
 	static GLuint program;
+	static GLuint CubemapProgram;
 
 	
 

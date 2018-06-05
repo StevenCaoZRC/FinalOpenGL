@@ -84,6 +84,9 @@
     <ClInclude Include="Utils.h">
       <Filter>Header Files\MainEngine%28Singletons%29</Filter>
     </ClInclude>
+    <ClInclude Include="CubeMap.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -131,6 +134,9 @@
     <ClCompile Include="TextLabel.cpp">
       <Filter>Source Files\Sprite/Loaders/Text</Filter>
     </ClCompile>
+    <ClCompile Include="CubeMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FragmentShader.txt">
@@ -143,6 +149,18 @@
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
     <Text Include="VertexShader.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
+    <Text Include="LightVertexShader.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
+    <Text Include="LightFragment.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="CubeMapFrag.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="CubeMapVer.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
   </ItemGroup>

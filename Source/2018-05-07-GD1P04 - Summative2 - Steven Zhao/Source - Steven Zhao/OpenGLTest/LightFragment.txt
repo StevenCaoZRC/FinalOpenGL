@@ -1,0 +1,19 @@
+#version 450 core
+
+in vec2 fragTexCoord;
+
+out vec4 color;
+
+
+uniform float currentTime;
+uniform sampler2D tex;
+uniform sampler2D tex2;
+uniform float ambientStr; // 0.05f
+uniform vec3 ambientColor;// v3(1,1,1)
+void main() {
+	//vec3 colorTemp = fragColor * abs(sin(currentTime)); 
+	//color = vec4(colorTemp, 1.0f) ; 
+	vec3 ambient = ambientStr * ambientColor;
+	color = vec4(ambient, 1.0f) * texture(tex, fragTexCoord);
+	
+}

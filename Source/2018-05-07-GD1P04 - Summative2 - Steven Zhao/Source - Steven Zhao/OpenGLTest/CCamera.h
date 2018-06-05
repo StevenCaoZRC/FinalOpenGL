@@ -54,7 +54,7 @@ class CCamera
 			~CCamera();
 			CCamera(CCamera const&) = delete; //Deletes copy constructor
 			void operator = (CCamera const&) = delete; //Deletes operator assigned to the copy constructor		
-			float cameraSpeed = 0.25f;
+	
 			//---------------| Matrices for MVP |---------------//
 			glm::mat4 m_m4Proj;
 			glm::mat4 m_m4Model;

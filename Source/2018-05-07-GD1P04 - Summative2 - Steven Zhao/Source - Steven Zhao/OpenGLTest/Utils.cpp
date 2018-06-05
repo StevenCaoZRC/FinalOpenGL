@@ -18,6 +18,7 @@
 #include "Utils.h"
 // Global Variables // 
 GLuint CUtility::program;
+GLuint CUtility::CubemapProgram;
 CUtility::CUtility()
 {
 

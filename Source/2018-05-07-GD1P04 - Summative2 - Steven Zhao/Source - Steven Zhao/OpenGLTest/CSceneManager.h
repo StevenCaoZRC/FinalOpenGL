@@ -63,7 +63,6 @@ private:
 	static CSceneManager* pSceneManager;
 	CSceneManager(CSceneManager const&) = delete; //Deletes copy constructor
 	void operator = (CSceneManager const&) = delete; //Deletes the operator assigned to the copy constructor
-
 };
 
 #endif // _CSCENEMANAGER_H__

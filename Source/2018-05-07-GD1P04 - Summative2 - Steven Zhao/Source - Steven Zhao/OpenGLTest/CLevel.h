@@ -33,6 +33,8 @@ class CEnemy;
 class CPlayer;
 class CSprite;
 class TextLabel;
+class CCubeMap;
+
 class CLevel : public CScene
 {
     // Member Functions //
@@ -41,6 +43,10 @@ class CLevel : public CScene
             ~CLevel();
 			void addPlayer();
 			void addEnemy();
+			void addLevel();
+			void addMenu();
+			void addCubeMap();
+			void addEndMenu();
 			void render();
 			void update();
 			void resetLevel();
@@ -51,6 +57,8 @@ class CLevel : public CScene
 			
 			int nScore = 0;
         private:
+
+			CCubeMap * m_cubemap;
 };
 
 #endif // _CLEVEL_H__
