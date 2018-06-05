@@ -19,12 +19,17 @@
 class CCubeMap
 {
 public:
-	CCubeMap(const char* _fileName);
+	CCubeMap(std::vector<std::string> _filePaths);
 	~CCubeMap();
+	void render();
 	GLuint VAO;
 	GLuint VBO;
 	GLuint EBO;
-	std::vector<std::shared_ptr<CSprite>> v_CubeFace;
+	GLuint tex;
+	GLuint cubemapProgram;
+	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
+	glm::vec3 objRotate = { 0.0f,0.0f,0.0f };
+	glm::vec3 objScale = { 1.0f,1.0f,1.0f };
 
 };
 

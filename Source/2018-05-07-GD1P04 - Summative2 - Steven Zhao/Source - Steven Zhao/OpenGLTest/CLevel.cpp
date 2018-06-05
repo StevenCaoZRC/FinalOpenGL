@@ -19,7 +19,7 @@
 #include "CEnemy.h"
 #include "CInterface.h"
 #include "TextLabel.h"
-
+#include "CubeMap.h"
 // This Includes //
 #include "CLevel.h"
 
@@ -92,6 +92,20 @@ void CLevel::addMenu()
 
 }
 
+void CLevel::addCubeMap()
+{
+	std::vector<std::string> cubemapPaths =
+	{
+		"right.jpg",
+		"left.jpg",
+		"top.jpg",
+		"bottom.jpg",
+		"back.jpg",
+		"front.jpg"
+	};
+	m_cubemap = new CCubeMap(cubemapPaths);
+}
+
 void CLevel::addEndMenu()
 {
 	std::shared_ptr<CSprite> EndSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
@@ -100,6 +114,8 @@ void CLevel::addEndMenu()
 
 void CLevel::render()
 {
+	m_cubemap->render();
+
 	CScene::render();
 	
 }

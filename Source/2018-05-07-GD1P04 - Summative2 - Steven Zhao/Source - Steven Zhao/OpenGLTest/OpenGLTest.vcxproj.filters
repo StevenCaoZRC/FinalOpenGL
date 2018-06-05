@@ -157,5 +157,11 @@
     <Text Include="LightFragment.txt">
       <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
+    <Text Include="CubeMapFrag.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="CubeMapVer.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -68,6 +68,7 @@ void CSceneManager::init()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
+	CUtility::CubemapProgram = shaderloader.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
 	
 
 
@@ -80,6 +81,7 @@ void CSceneManager::init()
 	std::shared_ptr<CLevel>Level = make_shared<CLevel>();
 	
 	Level->addLevel();
+	Level->addCubeMap();
 	Level->addEnemy();
 	Level->addPlayer();
 	//Adding the level to scenemanager
@@ -87,6 +89,7 @@ void CSceneManager::init()
 	//---------------|Menu Scenes Stuff|---------------//
 	std::shared_ptr<CLevel> Menu = make_shared<CLevel>();
 	Menu->addMenu();
+	Menu->addCubeMap();
 	//Do if clicked
 	//std::shared_ptr<CSprite> startBtn1 = make_shared<CSprite>("Resources/start1.png", 0.0, 0.0);
 
