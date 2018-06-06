@@ -169,5 +169,11 @@
     <Text Include="CubeMapVer.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
+    <Text Include="ModelFragShader.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="ModelVertShader.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
   </ItemGroup>
 </Project>

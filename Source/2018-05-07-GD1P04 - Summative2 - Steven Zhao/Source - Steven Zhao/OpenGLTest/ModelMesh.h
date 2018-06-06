@@ -1,3 +1,4 @@
+#pragma once
 // Std. Includes
 #include <string>
 #include <fstream>
@@ -30,10 +31,7 @@ public:
 	vector<GLuint> indices;
 	vector<MeshTexture> textures;
 
-	//For MVP
-	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
-	glm::vec3 objRotate = { 0.0f,0.0f,0.0f };
-	glm::vec3 objScale = { 1.0f,1.0f,1.0f };
+
 	/*  Functions  */
 	// Constructor
 	ModelMesh(vector<Vertex> vertices, vector<GLuint> indices, vector<MeshTexture> textures)
@@ -46,7 +44,7 @@ public:
 	}
 
 	// Render the mesh
-	void Render(CCamera* camera, GLuint program)
+	void Render(GLuint program, glm::vec3 objPosition, glm::vec3 objRotate, glm::vec3 objScale)
 	{
 
 		glUseProgram(program);

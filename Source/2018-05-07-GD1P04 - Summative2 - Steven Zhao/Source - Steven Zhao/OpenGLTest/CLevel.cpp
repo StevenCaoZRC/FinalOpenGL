@@ -16,10 +16,12 @@
 #include <vector>
 // Local Includes //
 #include "CPlayer.h"
-#include "CEnemy.h"
 #include "CInterface.h"
 #include "TextLabel.h"
 #include "CubeMap.h"
+#include "Model.h"
+#include "ModelMesh.h"
+  
 // This Includes //
 #include "CLevel.h"
 
@@ -120,6 +122,13 @@ void CLevel::addCubeMap()
 	m_cubemap = new CCubeMap(cubemapPaths);
 }
 
+void CLevel::addModels()
+{
+	Tank = make_shared<Model>("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
+	
+	//Tank = new Model("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
+}
+
 void CLevel::addEndMenu()
 {
 	std::shared_ptr<CSprite> EndSpr = make_shared<CSprite>();
@@ -129,10 +138,12 @@ void CLevel::addEndMenu()
 
 void CLevel::render()
 {
+	Tank->Render({ 0.0f, 50.0f, 0.0f }, { 90.0f,90.0f, 0.0f }, {30.0f,30.0f,30.0f});
 	m_cubemap->render();	//calls render function of cubemap
 
 	CScene::render();		//calls scene render which goes through the spritevector and renders everything
 	
+
 }
 
 void CLevel::update()

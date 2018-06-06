@@ -93,7 +93,7 @@ void CSceneManager::init()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
-	CUtility::CubemapProgram = shaderloader.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
+	CUtility::modelProgram = shaderloader.CreateProgram("ModelVertShader.txt", "ModelFragShader.txt");
 	
 
 
@@ -103,16 +103,19 @@ void CSceneManager::init()
 	
 	//creaing a shared pointer to level and bgSprite and CharacterSpr
 	std::shared_ptr<CLevel>Level = make_shared<CLevel>();
-	
+
+	//Adding the level to scenemanager
 	Level->addLevel();
 	Level->addCubeMap();
+	Level->addModels();
 	Level->addEnemy();
 	Level->addPlayer();
-	//Adding the level to scenemanager
+
 	
 	//---------------|Menu Scenes Stuff|---------------//
 	std::shared_ptr<CLevel> Menu = make_shared<CLevel>();
 	Menu->addMenu();
+	Menu->addModels();
 	Menu->addCubeMap();
 	//Do if clicked
 	//std::shared_ptr<CSprite> startBtn1 = make_shared<CSprite>("Resources/start1.png", 0.0, 0.0);

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <memory>
 using namespace std;
 // GL Includes
 
@@ -32,25 +33,23 @@ class Model
 public:
 	
 	GLuint program;
-	CCamera* camera;
 	
 	/*  Functions   */
 	// Constructor, expects a filepath to a 3D model.
-	Model(std::string path, CCamera* camera, GLuint program){
+	Model(std::string path, GLuint program){
 
 		this->program = program;
-		this->camera = camera;
 		this->loadModel(path);
 	}
 
 	// Draws the model, and thus all its meshes
-	void Render()
+	void Render(glm::vec3 objPosition, glm::vec3 objRotate, glm::vec3 objScale)
 	{
 		for (GLuint i = 0; i < this->meshes.size(); i++) {
 
 		//printf("mesh size: %d \n", meshes.size());
 
-			this->meshes[i].Render(camera, program);
+			this->meshes[i].Render(program, objPosition, objRotate, objScale);
 		}
 	}
 
