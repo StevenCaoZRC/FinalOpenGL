@@ -46,6 +46,7 @@ void CSound::DestroyInstance()
 
 bool CSound::init()
 {
+	
 	FMOD_RESULT result;
 	result = FMOD::System_Create(&soundMgr);
 	if(result != FMOD_OK)
@@ -60,6 +61,7 @@ bool CSound::init()
 const bool CSound::addSound()
 {
 	FMOD_RESULT result;
+	//loads the sounds from resource folder and assigns it to a channel
 	result = soundMgr->createSound("Resources/sound/Background.mp3", FMOD_DEFAULT, 0, &bgMusic);
 	result = soundMgr->createSound("Resources/sound/Thump.wav", FMOD_DEFAULT, 0, &sfx);
 	bgMusic->setMode(FMOD_LOOP_NORMAL);

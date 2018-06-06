@@ -32,12 +32,14 @@ class CEnemy : public CSprite
 {
     // Member Functions //
 public:
-	CEnemy(const char* _fileName, float fWidth, float fHeight, int iShape);
+	CEnemy();
 	~CEnemy();
 	float fJumpHeight;
 	float fMoveSpeed;
 	void init(float _fMoveSpeed, float _fJumpHeight);
 	void update(CPlayer &_player);
+
+	//AI functions
 	void AISeek(glm::vec3 _pos);
 	void AIFlee(glm::vec3 _pos);
 	void AIChase(CPlayer &_player);
@@ -50,6 +52,7 @@ public:
 	bool bIsAlive = true;
 	bool bIsGoingRight = true;
 	float FindMagnitude(glm::vec3 _v3);
+
 private:
 	float m_fSteeringRatio = 20.0f;
 	glm::vec3 m_vCurVelocity = { 0.0f,0.0f,0.0f };

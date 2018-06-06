@@ -38,21 +38,21 @@ class CSprite : public std::enable_shared_from_this<CSprite>//this allows me to 
 {
 	// Member Functions //
 public:
-	//2D
-	//CSprite(const char* _fileName, float fWidth, float fHeight);
-
-	//3D
 	enum Shapes {
 		CUBE = 0,
 		SPHERE,
 	};
-	CSprite(const char* _fileName, float fWidth, float fHeight, int iShape);
+	CSprite();
 	~CSprite();
-
-	virtual void render();
-	virtual void update();
+	//3D
+	void init3D(const char* _fileName, float fWidth, float fHeight, int iShape);
 	virtual void render3D();
-	virtual void update3D();
+	//2D
+	void init2D(const char* _fileName, float fWidth, float fHeight);
+	virtual void render();
+
+	virtual void CSprite::update();
+
 	void addFrame(const char* _filename);
 	std::vector<GLuint> ImgArray;
 	int nWidth;
@@ -62,14 +62,13 @@ public:
 	GLuint vao;
 	std::vector<GLuint> textures;
 	GLuint tex;
-	//GLuint tex1;
-	//GLuint tex2;
 
 	int iCurrentFrame = 0;
+	//Sphere stuff
 	int DrawType;
-
 	GLuint IndiceCount;
 
+	//For MVP
 	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
 	glm::vec3 objRotate = {0.0f,0.0f,0.0f};
 	glm::vec3 objScale = {1.0f,1.0f,1.0f};

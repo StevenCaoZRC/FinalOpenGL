@@ -27,7 +27,7 @@
 using namespace std;
 
 // Constructor //
-CEnemy::CEnemy(const char * _fileName, float fWidth, float fHeight, int iShape) : CSprite(_fileName, fWidth, fHeight, iShape)
+CEnemy::CEnemy()
 {
 }
 

@@ -27,6 +27,7 @@
 // Types //
 using namespace std;
 CInterface * CInterface::pInterface;
+
 CInterface * CInterface::GetInstance()
 {
 	if (!pInterface) // If this does not exist
@@ -48,8 +49,10 @@ void CInterface::DestroyInstance()
 
 void CInterface::update()
 {
+	// casts the current scene to the sp of level
 	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
 	
+	//When spacebar is pressed 
 	if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED)//Set up first pressed 
 	{
 		if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::MENU)

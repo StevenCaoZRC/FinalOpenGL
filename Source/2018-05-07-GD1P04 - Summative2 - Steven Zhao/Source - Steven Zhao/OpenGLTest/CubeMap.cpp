@@ -18,10 +18,11 @@
 #include <string>
 CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 {
+	//Program which contains the vertex shader and fragment shader for the cubemaping
 	static ShaderLoader shaderl;
 	cubemapProgram = shaderl.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
 
-
+	//Cube vertices that only contain the position 
 	GLfloat cubeVertices[] = {
 	// Positions    
 	// Front Face
@@ -61,6 +62,7 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 	-1.0f, -1.0f, -1.0f, // 23
 	};
 
+	//Cub indices
 	GLuint cubeIndices[] = {
 
 		// Front Face	// Left Face
@@ -76,14 +78,18 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 		8, 10, 11,		20, 22, 23,
 	};
 
+	//Generating the texture specifing number of textures generated and stores in tex
 	glGenTextures(1, &tex);
+	//Binding texture stored to target
 	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
 
 	int iWidth, iHeight;
 	unsigned char* image;
 
+	//Loop, going through creating six textures and loading an image on to each using SOIL
 	for (GLuint i = 0; i < 6; i++)
 	{
+		//Prevent repetition in code
 		std::string fullPathName = "Resources/CubeMap/";
 		fullPathName.append(_filePaths[i]);
 
@@ -92,11 +98,13 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 		SOIL_free_image_data(image);
 
 	}
+
+	//Texture parameters, making sure we also do texture wrapping on the x axis
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);	//X
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);	//Y
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);	//Z
 	glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
@@ -123,6 +131,7 @@ CCubeMap::~CCubeMap()
 
 void CCubeMap::render()
 {
+	//Using the cubemapProgram which had cubemap vertex and frag shaders
 	glUseProgram(cubemapProgram);
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 	glDisable(GL_CULL_FACE);

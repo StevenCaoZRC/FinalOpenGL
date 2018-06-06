@@ -87,6 +87,12 @@
     <ClInclude Include="CubeMap.h">
       <Filter>Header Files\MainEngine%28Singletons%29</Filter>
     </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelMesh.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

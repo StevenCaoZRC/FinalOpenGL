@@ -52,8 +52,6 @@ public:
 	static GLuint program;
 	static GLuint CubemapProgram;
 
-	
-
 private: 
 	float fWidth;
 	float fHeight;

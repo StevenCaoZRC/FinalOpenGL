@@ -45,36 +45,45 @@ CLevel::~CLevel()
 void CLevel::addPlayer()
 {
 	//Creating Player
-	CharacterSpr = make_shared<CPlayer>("Resources/player_character/character_idle_1.png", 0.0f, 0.0f, 1);
-	CharacterSpr->init(5.0f, 10.0f);
-	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png");
-	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };
-	CharacterSpr->objScale = { 30.0f, 30.0f, 10.0f };
-	SpritesAdd(CharacterSpr);
+	CharacterSpr = make_shared<CPlayer>();
+	CharacterSpr->init3D("Resources/player_character/character_idle_1.png", 0.0f, 0.0f, 1);
+	CharacterSpr->init(5.0f, 10.0f);	//Sets Move speed and jumpheight
+	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png"); //addes first frame of the jump animation
+	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };	//sets the players spawning locatin
+	CharacterSpr->objScale = { 30.0f, 30.0f, 10.0f };	//sets their scale
+	SpritesAdd(CharacterSpr);							//Adds to the spr vector
 }
 
 void CLevel::addEnemy()
 {
 	//Creating Enemy1
-	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
-	SlimeSpr->init(2.0f,2.0f);
-	SlimeSpr->objPosition = { 100.0f,-50.0f,0.0f };
+	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>();
+	SlimeSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
+	SlimeSpr->init(2.0f,2.0f);						//Sets Move speed and jumpheight
+	SlimeSpr->objPosition = { 100.0f,-50.0f,0.0f }; //Sets the enemy position
 	//SlimeSpr->objScale = { 0.5f, 0.5f, 0.5f };
-	SpritesAdd(SlimeSpr);
-	v_Enemies.push_back(SlimeSpr);
+	SpritesAdd(SlimeSpr);							//Adds to Sprite vector
+	v_Enemies.push_back(SlimeSpr);					//Adds to enemy vector to keep track of enemies
+
 }
 
 void CLevel::addLevel()
 {
-	std::shared_ptr<CSprite>BackGroundSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
-	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>("Resources/entrance.png", 0.0, 0.0, 0);
-	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>("Resources/exit.png", 0.0, 0.0 , 0);
-	EndSpr = ExitSpr;
-	BackGroundSpr->objPosition = { 0.0f, 0.0f, -200.0f };
+	std::shared_ptr<CSprite>BackGroundSpr = make_shared<CSprite>();
+	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>();
+	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>();
+	//loads sprites for the different objects in level
+	BackGroundSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
+	EntranceSpr->init3D("Resources/entrance.png", 0.0, 0.0, 0);
+	ExitSpr->init3D("Resources/exit.png", 0.0, 0.0, 0);
+
+	EndSpr = ExitSpr;		
+	BackGroundSpr->objPosition = { 0.0f, 0.0f, -200.0f };	//its position in the world space
 	//BackGroundSpr->objScale = { 30.0f, 30.0f, 30.0f };
 	//BackGroundSpr->objScale = { 5.0f,2.5f,1.0f};
-	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f };
-	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f };
+	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f }; //its position in the world space
+	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f }; //its position in the world space
+	//adding them to spr vec
 	SpritesAdd(BackGroundSpr);
 	SpritesAdd(EntranceSpr);
 	SpritesAdd(ExitSpr);
@@ -82,8 +91,12 @@ void CLevel::addLevel()
 
 void CLevel::addMenu()
 {
-	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
-	std::shared_ptr<CSprite> startBtn0 = make_shared<CSprite>("Resources/start0.png", 0.0, 0.0, 0);
+	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>();
+	std::shared_ptr<CSprite> startBtn0 = make_shared<CSprite>();
+
+	MenuSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
+	startBtn0->init3D("Resources/start0.png", 0.0, 0.0, 0);
+
 	MenuSpr->objPosition = { 0.0f, 0.0f, -200.0f };
 	startBtn0->objPosition = { 0.0f, 0.0f, -150.0f };
 
@@ -94,6 +107,7 @@ void CLevel::addMenu()
 
 void CLevel::addCubeMap()
 {
+	//Storing the correct order of file paths
 	std::vector<std::string> cubemapPaths =
 	{
 		"right.jpg",
@@ -108,15 +122,16 @@ void CLevel::addCubeMap()
 
 void CLevel::addEndMenu()
 {
-	std::shared_ptr<CSprite> EndSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
+	std::shared_ptr<CSprite> EndSpr = make_shared<CSprite>();
+	EndSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
 	SpritesAdd(EndSpr);
 }
 
 void CLevel::render()
 {
-	m_cubemap->render();
+	m_cubemap->render();	//calls render function of cubemap
 
-	CScene::render();
+	CScene::render();		//calls scene render which goes through the spritevector and renders everything
 	
 }
 
@@ -124,14 +139,11 @@ void CLevel::update()
 {
 	CScene::update();
 
-	if (CharacterSpr != nullptr)
+	for (auto it : v_Enemies)
 	{
-		for (auto it : v_Enemies)
+		if (CharacterSpr != nullptr)
 		{
-			if (CharacterSpr != nullptr)
-			{
-				it->update(*CharacterSpr);
-			}
+			it->update(*CharacterSpr);
 		}
 	}
 	/*
@@ -145,6 +157,7 @@ void CLevel::update()
 
 void CLevel::resetLevel()
 {
+	//Checks if the enemy vector is empty or not, if not empty goes through and deletes the enemy 
 	if (!v_Enemies.empty())
 	{
 		for (auto it : v_Enemies)
@@ -153,9 +166,13 @@ void CLevel::resetLevel()
 		}
 		
 	}
+	//adds the enemy again
 	addEnemy();
+	//deletes the sprite
 	DeleteSprite(CharacterSpr);
+	//adds the player again
 	addPlayer();
+	//resets the score
 	nScore = 0;
 
 }
