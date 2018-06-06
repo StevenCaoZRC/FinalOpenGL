@@ -87,6 +87,9 @@
     <ClInclude Include="CubeMap.h">
       <Filter>Header Files\MainEngine%28Singletons%29</Filter>
     </ClInclude>
+    <ClInclude Include="CCollisionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -135,6 +138,9 @@
       <Filter>Source Files\Sprite/Loaders/Text</Filter>
     </ClCompile>
     <ClCompile Include="CubeMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

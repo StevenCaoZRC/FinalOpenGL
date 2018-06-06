@@ -41,16 +41,6 @@ void CEnemy::init(float _fMoveSpeed, float _fJumpHeight)
 {
 	fMoveSpeed = _fMoveSpeed;
 	fJumpHeight = _fJumpHeight;
-<<<<<<< HEAD
-	m_vCurVelocity = { 0.0f, 1000.0f, 0.0f };
-}
-
-void CEnemy::update(glm::vec3 _pos)
-{
-	if (bIsAlive)
-	{
-		AIFlee(_pos);
-=======
 	m_vCurVelocity = { 0.0f, 0.0f, 0.0f };
 	m_iWanderTimer = 0;
 	m_fWanderAngle = 0.0f;
@@ -60,19 +50,19 @@ void CEnemy::update(glm::vec3 _pos)
 	m_vPoints.push_back(glm::vec3(50.0f, -50.0f, 0.0f));
 	m_vPoints.push_back(glm::vec3(0.0f, 0.0f, 0.0f));
 	m_iPointsReached = 0;
+	m_fSeeAheadDistance = 5.0f;
 }
 
-void CEnemy::update(CPlayer &_player)
+void CEnemy::update(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects)
 {
 	if (bIsAlive)
 	{
-		AIPathFollow(&m_vPoints);
+		Movement(_player, _CollisionObjects);
 	}
 	m_iWanderTimer++;
 	if (m_iWanderTimer >= 1)
 	{
 		m_iWanderTimer = 0;
->>>>>>> Steven-Test
 	}
 	//if (bIsAlive)
 	//{
@@ -95,24 +85,20 @@ void CEnemy::update(CPlayer &_player)
 	//}
 }
 
-void CEnemy::AISeek(glm::vec3 _pos)
+glm::vec3 CEnemy::AISeek(glm::vec3 _pos)
 {
 	//current pos = current position of this item
-	glm::vec3 curPos = this->objPosition;
+	glm::vec3 curPos = objPosition;
 	glm::vec3 seekPos;
 	glm::vec3 nextPosSeek;
 	glm::vec3 nextPos = objPosition + m_vCurVelocity;
-<<<<<<< HEAD
 	float steeringratio = 9.0f;
-=======
->>>>>>> Steven-Test
 	if (objPosition != _pos) // making sure that you are not right on top of the position your seeking and causing divide by 0 errors
 	{
 
 		glm::vec3 v2 = _pos - curPos;
 		float v2mag = sqrtf(powf(v2.x, 2) + powf(v2.y, 2) + powf(v2.z, 2));
 		if (v2mag > 0.005)
-<<<<<<< HEAD
 		{
 			glm::vec3 v2I = v2 / v2mag;
 			nextPosSeek = curPos + (v2I * fMoveSpeed);
@@ -126,65 +112,25 @@ void CEnemy::AISeek(glm::vec3 _pos)
 		float vFinalMag = sqrtf(powf(vFinal.x, 2) + powf(vFinal.y, 2) + powf(vFinal.z, 2));
 		if (vFinalMag > 0.005)
 		{
-			glm::vec3 vFinalI = vFinal / vFinalMag;
-			m_vCurVelocity = vFinalI;
+			float DistanceSeek = FindMagnitude((_pos - curPos));
+			if (DistanceSeek < 2.0f)
+			{
+				return glm::vec3(0.0f, 0.0f, 0.0f);
+			}
+			else
+			{
+				glm::vec3 vFinalI = vFinal / vFinalMag;
+				return (vFinalI * fMoveSpeed);
+			}
 		}
-	}
-	float DistanceSeek = FindMagnitude((_pos - curPos));
-	if (DistanceSeek < 3.0f)
-	{
-		m_vCurVelocity = { 0.0f,0.0f,0.0f };
-	}
-	objPosition += m_vCurVelocity;
-
-}
-
-void CEnemy::AIFlee(glm::vec3 _pos)
-{
-	glm::vec3 curPos = this->objPosition;
-	glm::vec3 fleepos = { -_pos.x, -_pos.y, -_pos.z };
-	float DistanceSeek = FindMagnitude((_pos - curPos));
-	if (DistanceSeek > 190.0f)
-	{
-		m_vCurVelocity = { 0.0f,0.0f,0.0f };
-		objPosition = m_vCurVelocity;
-	}
-	else
-	{
-		AISeek(fleepos);
-	}
-}
-
-=======
+		else
 		{
-			glm::vec3 v2I = v2 / v2mag;
-			nextPosSeek = curPos + (v2I * fMoveSpeed);
-		}
-
-		glm::vec3 vSteering = nextPosSeek - nextPos;
-		vSteering = vSteering / m_fSteeringRatio;
-		seekPos = nextPos + vSteering;
-
-		glm::vec3 vFinal = seekPos - curPos;
-		float vFinalMag = sqrtf(powf(vFinal.x, 2) + powf(vFinal.y, 2) + powf(vFinal.z, 2));
-		if (vFinalMag > 0.005)
-		{
-			glm::vec3 vFinalI = vFinal / vFinalMag;
-			m_vCurVelocity = vFinalI * fMoveSpeed;
+			return glm::vec3(0.0f, 0.0f, 0.0f);
 		}
 	}
-	float DistanceSeek = FindMagnitude((_pos - curPos));
-	if (DistanceSeek < 2.0f)
-	{
-		m_vCurVelocity = { 0.0f,0.0f,0.0f };
-	}
-	if (FindMagnitude(m_vCurVelocity) > 0.001f)
-	{
-		objPosition += m_vCurVelocity;
-	}
+	return glm::vec3(0.0f, 0.0f, 0.0f);
 }
-
-void CEnemy::AIFlee(glm::vec3 _pos)
+glm::vec3 CEnemy::AIFlee(glm::vec3 _pos)
 {
 	glm::vec3 curPos = this->objPosition;
 	glm::vec3 fleepos;
@@ -208,15 +154,15 @@ void CEnemy::AIFlee(glm::vec3 _pos)
 	float DistanceSeek = FindMagnitude((_pos - curPos));
 	if (DistanceSeek > 50.0f)
 	{
-		m_vCurVelocity = { 0.0f,0.0f,0.0f };
+		return (glm::vec3(0.0f, 0.0f, 0.0f));
 	}
 	else
 	{
-		AISeek(fleepos);
+		return (AISeek(fleepos));
 	}
 }
 
-void CEnemy::AIChase(CPlayer &_player)
+glm::vec3 CEnemy::AIChase(CPlayer &_player)
 {
 	float fDistanceFromPLayer = FindMagnitude((_player.objPosition - this->objPosition));
 	float fTImeForward = fDistanceFromPLayer / fMoveSpeed;
@@ -224,10 +170,10 @@ void CEnemy::AIChase(CPlayer &_player)
 	glm::vec3 vPosObj = _player.objPosition;
 	glm::vec3 futureMovement = { vVeloObj.x * fTImeForward, vVeloObj.y * fTImeForward ,vVeloObj.z * fTImeForward };
 	glm::vec3 seekPos = vPosObj + futureMovement;
-	AISeek(seekPos);
+	return (AISeek(seekPos));
 }
 
-void CEnemy::AIEvade(CPlayer & _player)
+glm::vec3 CEnemy::AIEvade(CPlayer & _player)
 {
 	float fDistanceFromPLayer = FindMagnitude((_player.objPosition - this->objPosition));
 	float fTImeForward = fDistanceFromPLayer / fMoveSpeed;
@@ -237,17 +183,19 @@ void CEnemy::AIEvade(CPlayer & _player)
 		glm::vec3 vPosObj = _player.objPosition;
 		glm::vec3 futureMovement = { vVeloObj.x * fTImeForward, vVeloObj.y * fTImeForward ,vVeloObj.z * fTImeForward };
 		glm::vec3 seekPos = vPosObj + futureMovement;
-		AIFlee(seekPos);
+		return (AIFlee(seekPos));
 	}
+	return glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
-void CEnemy::AIArrivalSeek(glm::vec3 _pos, float _fArrivalRadius)
+glm::vec3 CEnemy::AIArrivalSeek(glm::vec3 _pos, float _fArrivalRadius)
 {
 	//current pos = current position of this item
 	glm::vec3 curPos = this->objPosition;
 	glm::vec3 seekPos;
 	glm::vec3 nextPosSeek;
 	glm::vec3 nextPos = objPosition + m_vCurVelocity;
+	glm::vec3 vFinal;
 	if (objPosition != _pos) // making sure that you are not right on top of the position your seeking and causing divide by 0 errors
 	{
 
@@ -263,32 +211,32 @@ void CEnemy::AIArrivalSeek(glm::vec3 _pos, float _fArrivalRadius)
 		vSteering = vSteering / m_fSteeringRatio;
 		seekPos = nextPos + vSteering;
 
-		glm::vec3 vFinal = seekPos - curPos;
+		vFinal = seekPos - curPos;
 		float vFinalMag = sqrtf(powf(vFinal.x, 2) + powf(vFinal.y, 2) + powf(vFinal.z, 2));
 		if (vFinalMag > 0.005)
 		{
 			glm::vec3 vFinalI = vFinal / vFinalMag;
-			m_vCurVelocity = vFinalI * fMoveSpeed;
+			vFinal = vFinalI * fMoveSpeed;
 		}
 	}
 	float DistanceSeek = FindMagnitude((_pos - curPos));
 	if (DistanceSeek < 2.0f)
 	{
-		m_vCurVelocity = { 0.0f,0.0f,0.0f };
+		return glm::vec3(0.0f, 0.0f, 0.0f);
 	}
 	else if (DistanceSeek < _fArrivalRadius && objPosition != _pos)
 	{
 		float fDecelerateRate;
-		fDecelerateRate = DistanceSeek / 15.0f;
-		m_vCurVelocity = fDecelerateRate * (m_vCurVelocity / FindMagnitude(m_vCurVelocity));
+		fDecelerateRate = (DistanceSeek) / _fArrivalRadius;
+		return (fDecelerateRate * vFinal);
 	}
-	if (FindMagnitude(m_vCurVelocity) > 0.001f)
+	else
 	{
-		objPosition += glm::vec3(m_vCurVelocity.x, m_vCurVelocity.y, 0.0f);
+		return vFinal;
 	}
 }
 
-void CEnemy::AIWander(int _iTimer)
+glm::vec3 CEnemy::AIWander(int _iTimer)
 {
 	if (_iTimer == 0)
 	{
@@ -321,23 +269,54 @@ void CEnemy::AIWander(int _iTimer)
 		}*/
 	}
 	//objPosition += m_vCurVelocity;
+	return { 0.0f,0.0f,0.0f };
 }
 
-void CEnemy::AIObstacleAvoid()
+glm::vec3 CEnemy::AIObstacleAvoid(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects)
 {
-
+	glm::vec3 SeeAhead = objPosition + (m_vCurVelocity / FindMagnitude(m_vCurVelocity)) * fMoveSpeed * 5.0f;
+	glm::vec3 SeeAheadHalf = SeeAhead * 0.5f;
+	glm::vec3 AvoidanceVector = glm::vec3(0.0f,0.0f,0.0f);
+	CSprite *ClosestCollision = nullptr;
+	if (!_CollisionObjects->empty())
+	{
+		for (auto it1 : *_CollisionObjects)
+		{
+			if (it1->iObjectType == CUtility::IMOBIL_WALL)
+			{
+				if (FindMagnitude(SeeAhead - it1->objPosition) <= it1->fRadius
+					|| FindMagnitude(SeeAheadHalf - it1->objPosition) <= it1->fRadius
+					&& this != it1.get())
+				{
+					if (ClosestCollision != nullptr
+						&& FindMagnitude(objPosition - ClosestCollision->objPosition) > FindMagnitude(objPosition - it1->objPosition))
+					{
+						AvoidanceVector = SeeAhead - it1->objPosition;
+						AvoidanceVector = AvoidanceVector / FindMagnitude(AvoidanceVector) * fMoveSpeed * 0.3f;
+					}
+					else
+					{
+						ClosestCollision = it1.get();
+						AvoidanceVector = SeeAhead - it1->objPosition;
+						AvoidanceVector = AvoidanceVector / FindMagnitude(AvoidanceVector) * fMoveSpeed * 0.3f;
+					}
+				}
+			}
+		}
+	}
+	return (AvoidanceVector);
 }
 
-void CEnemy::AIFLocking(CPlayer & _player)
+glm::vec3 CEnemy::AIFLocking(CPlayer & _player)
 {
-
+	return { 0.0f,0.0f,0.0f };
 }
 
-void CEnemy::AIPathFollow(std::vector<glm::vec3>* _points)
+glm::vec3 CEnemy::AIPathFollow(std::vector<glm::vec3>* _points)
 {
 	if ((unsigned)m_iPointsReached < _points->size())
 	{
-		AISeek(_points->at(m_iPointsReached));
+		return (AISeek(_points->at(m_iPointsReached)));
 	}
 	if ((unsigned)m_iPointsReached < _points->size())
 	{
@@ -350,16 +329,31 @@ void CEnemy::AIPathFollow(std::vector<glm::vec3>* _points)
 	{
 		m_iPointsReached = 0;
 	}
+	return glm::vec3(0.0f, 0.0f, 0.0f);
+}
+
+void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects)
+{
+	glm::vec3 new_movement;
+	new_movement += AISeek(_player.objPosition);
+	new_movement += AIObstacleAvoid(_CollisionObjects);
+	if (FindMagnitude(new_movement) > 0.0005f)
+	{
+		new_movement = new_movement / FindMagnitude(new_movement) * fMoveSpeed;
+	}
+	else
+	{
+		new_movement = glm::vec3(0.0f, 0.0f, 0.0f);
+	}
+	m_vCurVelocity = new_movement;
+	objPosition += m_vCurVelocity;
 }
 
 
->>>>>>> Steven-Test
+
 float CEnemy::FindMagnitude(glm::vec3 _v3)
 {
 	float vFinalMag = sqrtf(powf(_v3.x, 2) + powf(_v3.y, 2) + powf(_v3.z, 2));
 	return vFinalMag;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Steven-Test
+

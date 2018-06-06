@@ -167,40 +167,6 @@ void CPlayer::update()
 
 	for (auto it : RefrenceLevel->v_Enemies) //Refrence level is current level
 	{
-<<<<<<< HEAD
-		//if (CGameMech::bIsDetectingCollision(this->shared_from_this(), it, v2_Movement))
-		//{
-		//	if (this->shared_from_this()->objPosition.x + this->shared_from_this()->nWidth + v2_Movement.x > it->objPosition.x &&
-		//		this->shared_from_this()->objPosition.x + v2_Movement.x < it->objPosition.x + it->nWidth)
-		//	{
-		//		//it->bIsAlive = false;
-		//		//RefrenceLevel->delEnemy(it);
-		//		//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->sfx, 0, false, &CSound::GetInstance()->soundEffects);
-		//		//CSound::GetInstance()->soundEffects->setVolume(0.6f);
-		//		//RefrenceLevel->nScore += 10;
-		//		//CInterface::CInterface::GetInstance()->bWon = true;
-		//		
-		//		return;
-		//	}
-
-		//	bIsPlayerAlive = false;
-		//	CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->sfx, 0, false, &CSound::GetInstance()->soundEffects);
-		//	CSound::GetInstance()->soundEffects->setVolume(0.6f);
-		//	RefrenceLevel->DeleteSprite(this->shared_from_this());
-		//	if (CSceneManager::GetInstance()->nCurrentScene = CSceneManager::LEVEL && bIsPlayerAlive == false)
-		//	{
-		//		RefrenceLevel->delEnemy(it);
-		//		RefrenceLevel->DeleteSprite(RefrenceLevel->CharacterSpr);
-		//		RefrenceLevel->addEnemy();
-		//		RefrenceLevel->addPlayer();
-		//		RefrenceLevel->nScore = 0;
-		//		CSceneManager::GetInstance()->nCurrentScene = CSceneManager::END;
-		//		CInterface::CInterface::GetInstance()->bWon = false;
-		//		
-		//	}
-		//	
-		//}	
-=======
 		/*if (CGameMech::bIsDetectingCollision(this->shared_from_this(), it, v2_Movement))
 		{
 			if (this->shared_from_this()->objPosition.x + this->shared_from_this()->nWidth + v2_Movement.x > it->objPosition.x &&
@@ -233,8 +199,6 @@ void CPlayer::update()
 			}
 			
 		}	*/
->>>>>>> Steven-Test
-		
 	}
 	//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);
 

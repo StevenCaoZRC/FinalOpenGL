@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CCamera.h" />
+    <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="CControls.h" />
     <ClInclude Include="CEnemy.h" />
     <ClInclude Include="CGameMech.h" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCamera.cpp" />
+    <ClCompile Include="CCollisionManager.cpp" />
     <ClCompile Include="CControls.cpp" />
     <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="CGameMech.cpp" />

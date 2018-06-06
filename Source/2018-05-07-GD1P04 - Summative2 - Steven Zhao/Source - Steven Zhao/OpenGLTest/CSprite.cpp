@@ -21,7 +21,7 @@
 #include <math.h>
 // This Includes //
 #include "CSprite.h"
-
+#include "Utils.h"
 // Types //
 
 using namespace std;
@@ -127,6 +127,7 @@ using namespace std;
 
 CSprite::CSprite(const char* _fileName, float fWidth, float fHeight, int iShape)
 {
+	iObjectType = CUtility::NON_SOLID;
 	GLuint vbo;
 	GLuint ebo;
 	m_iShape = iShape;
@@ -145,8 +146,9 @@ CSprite::CSprite(const char* _fileName, float fWidth, float fHeight, int iShape)
 			SOIL_LOAD_RGBA);
 		SOIL_free_image_data(image);
 
-		HalfWidth = nWidth / 2;
-		HalfHeight = nHeight / 2;
+		HalfWidth = (float)nWidth / 2;
+		HalfHeight = (float)nHeight / 2;
+		fRadius = (nWidth + nHeight) / 2;
 	}
 
 	switch (iShape)
@@ -312,9 +314,9 @@ CSprite::CSprite(const char* _fileName, float fWidth, float fHeight, int iShape)
 
 			for (int j = 0; j < sections; j++)
 			{
-				float x = cos(phi) * sin(theta);
-				float y = cos(theta);
-				float z = sin(phi) * sin(theta);
+				float x = (float)(cos(phi) * sin(theta));
+				float y = (float)(cos(theta));
+				float z = (float)(sin(phi) * sin(theta));
 
 				vertices[offset++] = x * radius;
 				vertices[offset++] = y * radius;
@@ -430,6 +432,7 @@ void CSprite::render()
 
 void CSprite::update()
 {
+
 }
 
 void CSprite::render3D()
@@ -502,6 +505,12 @@ void CSprite::addFrame(const char* _filename)
 	textureloader.TexImage2D(CSprite::nWidth, CSprite::nHeight, textureloader.imageloader(_filename, CSprite::nWidth, CSprite::nHeight));
 
 	textures.push_back(tex);
+}
+
+void CSprite::ScaleSprite(float _scale)
+{
+	objScale * _scale;
+	fRadius = fRadius * _scale;
 }
 
 

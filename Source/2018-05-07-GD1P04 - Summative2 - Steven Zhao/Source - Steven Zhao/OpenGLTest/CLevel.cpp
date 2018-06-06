@@ -22,6 +22,7 @@
 #include "CubeMap.h"
 // This Includes //
 #include "CLevel.h"
+#include "Utils.h"
 
 // Static Variables //
 
@@ -45,38 +46,36 @@ CLevel::~CLevel()
 void CLevel::addPlayer()
 {
 	//Creating Player
-<<<<<<< HEAD
-	CharacterSpr = make_shared<CPlayer>("Resources/player_character/character_idle_1.png", 0.0f, 0.0f);
-	CharacterSpr->init(1.5f, 10.0f);
-	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png");
-	CharacterSpr->objPosition = { 0.0f,0.0f,0.0f };
-
-=======
 	CharacterSpr = make_shared<CPlayer>("Resources/player_character/character_idle_1.png", 0.0f, 0.0f, 1);
 	CharacterSpr->init(5.0f, 10.0f);
 	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png");
 	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };
 	CharacterSpr->objScale = { 30.0f, 30.0f, 10.0f };
->>>>>>> Steven-Test
 	SpritesAdd(CharacterSpr);
+	v_CollisionObjects.push_back(CharacterSpr);
+	CharacterSpr->iObjectType = CUtility::ENEMY;
 }
+
 
 void CLevel::addEnemy()
 {
 	//Creating Enemy1
-<<<<<<< HEAD
-	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f);
-	SlimeSpr->init(1.0f,2.0f);
-	SlimeSpr->objPosition = { -100.0,0.0f,0.0f };
-	SlimeSpr->objScale = { 2.0f, 2.0f, 2.0f };
-=======
 	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
 	SlimeSpr->init(2.0f,2.0f);
 	SlimeSpr->objPosition = { 100.0f,-50.0f,0.0f };
 	//SlimeSpr->objScale = { 0.5f, 0.5f, 0.5f };
->>>>>>> Steven-Test
 	SpritesAdd(SlimeSpr);
 	v_Enemies.push_back(SlimeSpr);
+	v_CollisionObjects.push_back(SlimeSpr);
+	SlimeSpr->iObjectType = CUtility::ENEMY;
+
+	//Creating Obstacle
+	std::shared_ptr<CSprite>Obstacle = make_shared<CSprite>("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
+	Obstacle->objPosition = { 0.0f,0.0f,0.0f };
+	Obstacle->objScale = { 1.0f,1.0f,1.0f };
+	Obstacle->iObjectType = CUtility::IMOBIL_WALL;
+	SpritesAdd(Obstacle);
+	v_CollisionObjects.push_back(Obstacle);
 }
 
 void CLevel::addLevel()
@@ -129,38 +128,14 @@ void CLevel::addEndMenu()
 
 void CLevel::render()
 {
-<<<<<<< HEAD
-	CScene::render();
-=======
 	m_cubemap->render();
 
 	CScene::render();
-	
->>>>>>> Steven-Test
 }
 
 void CLevel::update()
 {
 	CScene::update();
-<<<<<<< HEAD
-	glm::vec3 playerpos;
-	if (CharacterSpr != nullptr)
-	{
-		playerpos = CharacterSpr->objPosition;
-	}
-	for (auto it : v_Enemies)
-	{
-		if (CharacterSpr != nullptr)
-		{
-			it->update(playerpos);
-		}
-	}
-	//if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED && (abs(CharacterSpr->objPosition.x - EndSpr->objPosition.x) < 30) && abs(CharacterSpr->objPosition.y - EndSpr->objPosition.y) < 30 && v_Enemies.empty())
-	//{
-	//	resetLevel();
-	//	CSceneManager::GetInstance()->switchScene(CSceneManager::END);
-	//}
-=======
 
 	if (CharacterSpr != nullptr)
 	{
@@ -168,7 +143,7 @@ void CLevel::update()
 		{
 			if (CharacterSpr != nullptr)
 			{
-				it->update(*CharacterSpr);
+				it->update(*CharacterSpr, &v_CollisionObjects);
 			}
 		}
 	}
@@ -178,8 +153,6 @@ void CLevel::update()
 		resetLevel();
 		CSceneManager::GetInstance()->switchScene(CSceneManager::END);
 	}*/
->>>>>>> Steven-Test
-	
 }
 
 void CLevel::resetLevel()

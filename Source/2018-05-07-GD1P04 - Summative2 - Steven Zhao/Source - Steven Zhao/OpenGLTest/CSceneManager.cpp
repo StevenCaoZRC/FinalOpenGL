@@ -102,7 +102,6 @@ void CSceneManager::init()
 	CSceneManager::GetInstance()->SceneAdd(Menu);
 	CSceneManager::GetInstance()->SceneAdd(Level);
 	CSceneManager::GetInstance()->SceneAdd(End);
-	
 }
 
 void CSceneManager::switchScene(int nNewScene)

@@ -51,7 +51,14 @@ public:
 	
 	static GLuint program;
 	static GLuint CubemapProgram;
-
+	enum SpriteType
+	{
+		ENEMY = 0,
+		PLAYER,
+		IMOBIL_WALL,
+		MOBIL_WALL,
+		NON_SOLID,
+	};
 	
 
 private: 

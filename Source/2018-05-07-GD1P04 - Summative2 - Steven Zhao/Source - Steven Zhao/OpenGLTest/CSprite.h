@@ -67,12 +67,15 @@ public:
 
 	int iCurrentFrame = 0;
 	int DrawType;
-
+	int iObjectType;
+	void ScaleSprite(float _scale);
 	GLuint IndiceCount;
 
 	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
 	glm::vec3 objRotate = {0.0f,0.0f,0.0f};
 	glm::vec3 objScale = {1.0f,1.0f,1.0f};
+
+	float fRadius;
 };
 
 
