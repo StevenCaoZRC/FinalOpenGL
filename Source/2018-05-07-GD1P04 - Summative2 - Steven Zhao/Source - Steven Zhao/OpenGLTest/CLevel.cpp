@@ -50,7 +50,7 @@ void CLevel::addPlayer()
 	CharacterSpr->init(5.0f, 10.0f);
 	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png");
 	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };
-	CharacterSpr->objScale = { 30.0f, 30.0f, 10.0f };
+	CharacterSpr->objScale = { 10.0f, 10.0f, 10.0f };
 	SpritesAdd(CharacterSpr);
 	v_CollisionObjects.push_back(CharacterSpr);
 	CharacterSpr->iObjectType = CUtility::ENEMY;
@@ -59,16 +59,19 @@ void CLevel::addPlayer()
 
 void CLevel::addEnemy()
 {
-	//Creating Enemy1
-	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
-	SlimeSpr->init(2.0f,2.0f);
-	SlimeSpr->objPosition = { 100.0f,-50.0f,0.0f };
-	//SlimeSpr->objScale = { 0.5f, 0.5f, 0.5f };
-	SpritesAdd(SlimeSpr);
-	v_Enemies.push_back(SlimeSpr);
-	v_CollisionObjects.push_back(SlimeSpr);
-	SlimeSpr->iObjectType = CUtility::ENEMY;
-
+	std::shared_ptr<CEnemy>SlimeSpr = nullptr;
+	int amount = 10;
+	for (int i = 0; i < 10; i++)
+	{
+		SlimeSpr = make_shared<CEnemy>("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
+		SlimeSpr->init(2.0f, 2.0f);
+		SlimeSpr->objPosition = { 100.0f,(-100.0f + (20.0f * i)),0.0f };
+		SlimeSpr->objScale = { 0.5f,0.5f,0.5f };
+		SpritesAdd(SlimeSpr);
+		v_Enemies.push_back(SlimeSpr);
+		v_CollisionObjects.push_back(SlimeSpr);
+		SlimeSpr->iObjectType = CUtility::ENEMY;
+	}
 	//Creating Obstacle
 	std::shared_ptr<CSprite>Obstacle = make_shared<CSprite>("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
 	Obstacle->objPosition = { 0.0f,0.0f,0.0f };
@@ -96,13 +99,10 @@ void CLevel::addLevel()
 
 void CLevel::addMenu()
 {
-	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
-	std::shared_ptr<CSprite> startBtn0 = make_shared<CSprite>("Resources/start0.png", 0.0, 0.0, 0);
-	MenuSpr->objPosition = { 0.0f, 0.0f, -200.0f };
-	startBtn0->objPosition = { 0.0f, 0.0f, -150.0f };
+	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>("Resources/start0.png", 0.0, 0.0, 0);
+	MenuSpr->objPosition = { 0.0f, 0.0f, 0.0f };
 
 	SpritesAdd(MenuSpr);
-	SpritesAdd(startBtn0);
 
 }
 
