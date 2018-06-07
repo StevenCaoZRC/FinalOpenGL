@@ -146,27 +146,12 @@ void CLevel::addModels()
 	Model3D4->objScale = { 30.0f, 30.0f, 30.0f };
 
 	std::shared_ptr<CSprite>model3d5 = make_shared<CSprite>();
-	model3d5->initModel("resources/models/pugenemy/Dog1.obj", CUtility::modelProgram);
+	model3d5->initModel("resources/models/pugenemy/Dog 1.obj", CUtility::modelProgram);
 	SpritesAdd(model3d5);
 	model3d5->objPosition = { -400.0f, 0.0f, 0.0f };
 	model3d5->objRotate = { 90.0f, 90.0f, 0.0f };
 	model3d5->objScale = { 30.0f, 30.0f, 30.0f };
 
-
-	std::shared_ptr<CSprite>Model3D6 = make_shared<CSprite>();
-	Model3D6->initModel("Resources/Models/justigue league flying vehicle/justigue_league_flying_vehicle.obj", CUtility::modelProgram);
-	SpritesAdd(Model3D6);
-	Model3D6->objPosition = { -400.0f, -100.0f, 0.0f };
-	Model3D6->objRotate = { 90.0f, 90.0f, 0.0f };
-	Model3D6->objScale = { 30.0f, 30.0f, 30.0f };
-
-
-	std::shared_ptr<CSprite>Model3D7 = make_shared<CSprite>();
-	Model3D7->initModel("Resources/Models/Wraith Raider Starship/Wraith Raider Starship.obj", CUtility::modelProgram);
-	SpritesAdd(Model3D7);
-	Model3D7->objPosition = { -400.0f, -100.0f, 0.0f };
-	Model3D7->objRotate = { 90.0f, 90.0f, 0.0f };
-	Model3D7->objScale = { 30.0f, 30.0f, 30.0f };
 
 	
 }
