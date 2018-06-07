@@ -19,7 +19,10 @@
 // Global Variables // 
 GLuint CUtility::program;
 GLuint CUtility::CubemapProgram;
+<<<<<<< HEAD
 GLuint CUtility::modelProgram;
+=======
+>>>>>>> Michael-Test
 CUtility::CUtility()
 {
 

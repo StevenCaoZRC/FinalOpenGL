@@ -34,7 +34,7 @@
 // Constants //
 
 // Prototypes //
-
+class CEnemy;
 class CSprite : public std::enable_shared_from_this<CSprite>//this allows me to return shared ptr form itself(using keyword THIS)
 {
 	// Member Functions //
@@ -44,7 +44,16 @@ public:
 		SPHERE,
 	};
 
+<<<<<<< HEAD
 	CSprite();
+=======
+	//3D
+	enum Shapes {
+		CUBE = 0,
+		SPHERE,
+	};
+	CSprite(const char* _fileName, float fWidth, float fHeight, int iShape);
+>>>>>>> Michael-Test
 	~CSprite();
 	//3D
 	void init3D(const char* _fileName, float fWidth, float fHeight, int iShape);
@@ -66,6 +75,7 @@ public:
 	GLuint vao;
 	std::vector<GLuint> textures;
 	GLuint tex;
+<<<<<<< HEAD
 	std::shared_ptr<Model> m_3DModel;
 	int m_iObjType;
 
@@ -74,9 +84,22 @@ public:
 	int DrawType;
 	GLuint IndiceCount;
 	//For MVP
+=======
+	//GLuint tex1;
+	//GLuint tex2;
+
+	int iCurrentFrame = 0;
+	int DrawType;
+	int iObjectType;
+	void ScaleSprite(float _scale);
+	GLuint IndiceCount;
+
+>>>>>>> Michael-Test
 	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
 	glm::vec3 objRotate = {0.0f,0.0f,0.0f};
 	glm::vec3 objScale = {1.0f,1.0f,1.0f};
+	CEnemy* m_myEnemy;
+	float fRadius;
 };
 
 

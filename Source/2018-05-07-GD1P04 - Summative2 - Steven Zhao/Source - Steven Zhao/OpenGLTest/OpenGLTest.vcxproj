@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CCamera.h" />
+    <ClInclude Include="CCollisionManager.h" />
     <ClInclude Include="CControls.h" />
     <ClInclude Include="CEnemy.h" />
     <ClInclude Include="CGameMech.h" />
@@ -150,8 +151,11 @@
     <ClInclude Include="CSound.h" />
     <ClInclude Include="CSprite.h" />
     <ClInclude Include="CubeMap.h" />
+<<<<<<< HEAD
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelMesh.h" />
+=======
+>>>>>>> Michael-Test
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="TextLabel.h" />
     <ClInclude Include="TextureLoader.h" />
@@ -159,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCamera.cpp" />
+    <ClCompile Include="CCollisionManager.cpp" />
     <ClCompile Include="CControls.cpp" />
     <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="CGameMech.cpp" />
@@ -181,8 +186,11 @@
     <Text Include="FragmentShader.txt" />
     <Text Include="LightFragment.txt" />
     <Text Include="LightVertexShader.txt" />
+<<<<<<< HEAD
     <Text Include="ModelFragShader.txt" />
     <Text Include="ModelVertShader.txt" />
+=======
+>>>>>>> Michael-Test
     <Text Include="TextFragment.txt" />
     <Text Include="TextVertex.txt" />
     <Text Include="VertexShader.txt" />

@@ -87,11 +87,16 @@
     <ClInclude Include="CubeMap.h">
       <Filter>Header Files\MainEngine%28Singletons%29</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Model.h">
       <Filter>Header Files\MainEngine%28Singletons%29</Filter>
     </ClInclude>
     <ClInclude Include="ModelMesh.h">
       <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+=======
+    <ClInclude Include="CCollisionManager.h">
+      <Filter>Header Files</Filter>
+>>>>>>> Michael-Test
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +148,12 @@
     <ClCompile Include="CubeMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="CCollisionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+>>>>>>> Michael-Test
   </ItemGroup>
   <ItemGroup>
     <Text Include="FragmentShader.txt">
@@ -169,11 +180,14 @@
     <Text Include="CubeMapVer.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
+<<<<<<< HEAD
     <Text Include="ModelFragShader.txt">
       <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
     <Text Include="ModelVertShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
+=======
+>>>>>>> Michael-Test
   </ItemGroup>
 </Project>

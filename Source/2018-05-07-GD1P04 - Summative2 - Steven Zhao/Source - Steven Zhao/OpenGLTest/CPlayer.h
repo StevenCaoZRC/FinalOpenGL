@@ -34,7 +34,11 @@ class CPlayer : public CSprite
 {
 
 public:
+<<<<<<< HEAD
     CPlayer();
+=======
+    CPlayer(const char* _fileName, float fWidth, float fHeight, int iShape);
+>>>>>>> Michael-Test
     ~CPlayer();
 	float fMovementSpeed;
 	float fJumpHeight;
@@ -43,7 +47,7 @@ public:
 	void init(float _fMovementSpeed, float _fJumpHeight);
 	void update();
 	bool bIsPlayerAlive = true;
-	
+	glm::vec3 new_movement;
 };
 
 #endif // _CPLAYER_H__

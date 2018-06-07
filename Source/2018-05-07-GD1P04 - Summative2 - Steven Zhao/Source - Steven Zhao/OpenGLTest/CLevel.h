@@ -47,7 +47,10 @@ class CLevel : public CScene
 			void addLevel();
 			void addMenu();
 			void addCubeMap();
+<<<<<<< HEAD
 			void addModels();
+=======
+>>>>>>> Michael-Test
 			void addEndMenu();
 			void render();
 			void update();
@@ -56,10 +59,14 @@ class CLevel : public CScene
 			std::vector<std::shared_ptr<CEnemy>> v_Enemies;
 			std::shared_ptr<CPlayer>CharacterSpr;
 			std::shared_ptr<CSprite>EndSpr;
-			
+			std::vector<std::shared_ptr<CSprite>> v_CollisionObjects;
 			int nScore = 0;
         private:
+<<<<<<< HEAD
 			std::shared_ptr<Model> Tank;
+=======
+
+>>>>>>> Michael-Test
 			CCubeMap * m_cubemap;
 };
 
