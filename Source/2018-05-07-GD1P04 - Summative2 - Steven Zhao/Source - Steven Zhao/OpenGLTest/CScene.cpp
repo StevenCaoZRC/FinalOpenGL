@@ -52,7 +52,6 @@ void CScene::render()
 	//Loop, Goes through an renders everything stored in the vector
 	for (auto it : v_SpritesInScene)
 	{
-<<<<<<< HEAD
 		if (it->m_iObjType == CUtility::TWOD)
 		{
 			it->render();
@@ -65,14 +64,6 @@ void CScene::render()
 		{
 			it->renderModel();
 		}
-=======
-		////2D
-		//it->render();
-
-		//3D
-		it->render3D();
-
->>>>>>> Michael-Test
 	}
 }
 

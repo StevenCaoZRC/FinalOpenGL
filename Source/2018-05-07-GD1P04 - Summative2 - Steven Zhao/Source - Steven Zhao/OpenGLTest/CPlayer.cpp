@@ -25,7 +25,7 @@ using namespace std;
 // Constructor //
 CPlayer::CPlayer() {}
 CPlayer::CPlayer(const char* _fileName, float fWidth, float fHeight, int iShape)
-	:  CSprite(_fileName, fWidth, fHeight, iShape)
+	:  CSprite()
 {
 
 }

@@ -46,13 +46,12 @@ public:
 
 	CSprite();
 	//3D
-	CSprite(const char* _fileName, float fWidth, float fHeight, int iShape);
 	~CSprite();
 	//3D
 	void init3D(const char* _fileName, float fWidth, float fHeight, int iShape);
 	virtual void render3D();
 	//2D
-	void init2D(const char* _fileName, float fWidth, float fHeight);
+	void init2D(const char * _fileName, float fWidth, float fHeight);
 	virtual void render();
 	void initModel(std::string path, GLuint program);
 	virtual void renderModel();
@@ -79,8 +78,6 @@ public:
 	//GLuint tex1;
 	//GLuint tex2;
 
-	int iCurrentFrame = 0;
-	int DrawType;
 	int iObjectType;
 	void ScaleSprite(float _scale);
 
