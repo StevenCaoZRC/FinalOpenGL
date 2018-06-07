@@ -164,8 +164,6 @@ void CLevel::render()
 	m_cubemap->render();	//calls render function of cubemap
 
 	CScene::render();		//calls scene render which goes through the spritevector and renders everything
-
-	CScene::render();
 }
 
 void CLevel::update()
