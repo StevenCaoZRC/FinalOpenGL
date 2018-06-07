@@ -47,7 +47,9 @@ class CCamera
 			
 			GLfloat m_v3CamX = 0.0f;
 			GLfloat m_v3CamHeight = 0.0f;
-			GLfloat m_v3CamZ = 100.0f;
+			GLfloat m_v3CamZ = 300.0f;
+
+
         private:
 			static CCamera* m_pCamera;
 			CCamera();

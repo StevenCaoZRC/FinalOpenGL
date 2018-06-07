@@ -48,9 +48,16 @@ public:
 		float fB;
 		float fA;
 	};
+	enum ObjType
+	{
+		TWOD,
+		THREED,
+		MODEL,
+	};
 	
 	static GLuint program;
 	static GLuint CubemapProgram;
+<<<<<<< HEAD
 	enum SpriteType
 	{
 		ENEMY = 0,
@@ -61,6 +68,9 @@ public:
 	};
 	
 
+=======
+	static GLuint modelProgram;
+>>>>>>> master
 private: 
 	float fWidth;
 	float fHeight;

@@ -70,12 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\Dependencies\vld\include;$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\vld\lib\Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\assimp;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\vld\lib\Win32;$(LibraryPath);$(ProjectDir)\Dependencies\assimp</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\assimp;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(LibraryPath);$(ProjectDir)\Dependencies\assimp</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(IncludePath)</IncludePath>
@@ -93,7 +93,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32.lib;fmod_vc.lib;freeType.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32.lib;fmod_vc.lib;freeType.lib;SOIL.lib;assimp-vc130-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -119,7 +119,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32.lib;fmod_vc.lib;freeType.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;freeglut.lib;glew32.lib;fmod_vc.lib;freeType.lib;SOIL.lib;assimp-vc130-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,6 +151,8 @@
     <ClInclude Include="CSound.h" />
     <ClInclude Include="CSprite.h" />
     <ClInclude Include="CubeMap.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="ModelMesh.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="TextLabel.h" />
     <ClInclude Include="TextureLoader.h" />
@@ -181,6 +183,8 @@
     <Text Include="FragmentShader.txt" />
     <Text Include="LightFragment.txt" />
     <Text Include="LightVertexShader.txt" />
+    <Text Include="ModelFragShader.txt" />
+    <Text Include="ModelVertShader.txt" />
     <Text Include="TextFragment.txt" />
     <Text Include="TextVertex.txt" />
     <Text Include="VertexShader.txt" />

@@ -34,7 +34,7 @@ class CPlayer : public CSprite
 {
 
 public:
-    CPlayer(const char* _fileName, float fWidth, float fHeight, int iShape);
+    CPlayer();
     ~CPlayer();
 	float fMovementSpeed;
 	float fJumpHeight;

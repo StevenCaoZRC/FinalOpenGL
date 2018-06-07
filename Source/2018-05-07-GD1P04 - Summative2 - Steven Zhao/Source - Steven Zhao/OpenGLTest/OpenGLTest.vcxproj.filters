@@ -87,8 +87,16 @@
     <ClInclude Include="CubeMap.h">
       <Filter>Header Files\MainEngine%28Singletons%29</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="CCollisionManager.h">
       <Filter>Header Files</Filter>
+=======
+    <ClInclude Include="Model.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelMesh.h">
+      <Filter>Header Files\MainEngine%28Singletons%29</Filter>
+>>>>>>> master
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +175,12 @@
       <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
     <Text Include="CubeMapVer.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
+    <Text Include="ModelFragShader.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="ModelVertShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
   </ItemGroup>

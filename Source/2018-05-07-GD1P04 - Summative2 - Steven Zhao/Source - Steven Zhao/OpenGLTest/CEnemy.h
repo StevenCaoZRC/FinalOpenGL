@@ -32,11 +32,12 @@ class CEnemy : public CSprite
 {
     // Member Functions //
 public:
-	CEnemy(const char* _fileName, float fWidth, float fHeight, int iShape);
+	CEnemy();
 	~CEnemy();
 	float fJumpHeight;
 	float fMoveSpeed;
 	void init(float _fMoveSpeed, float _fJumpHeight);
+<<<<<<< HEAD
 	void update(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects);
 	glm::vec3 AISeek(glm::vec3 _pos);
 	glm::vec3 AIFlee(glm::vec3 _pos);
@@ -48,9 +49,24 @@ public:
 	glm::vec3 AIFLocking(CPlayer &_player);
 	glm::vec3 AIPathFollow(std::vector<glm::vec3>* _points);
 	void Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects);
+=======
+	void update(CPlayer &_player);
+
+	//AI functions
+	void AISeek(glm::vec3 _pos);
+	void AIFlee(glm::vec3 _pos);
+	void AIChase(CPlayer &_player);
+	void AIEvade(CPlayer &_player);
+	void AIArrivalSeek(glm::vec3 _pos, float _fArrivalRadius);
+	void AIWander(int _iTimer);
+	void AIObstacleAvoid();
+	void AIFLocking(CPlayer &_player);
+	void AIPathFollow(std::vector<glm::vec3>* _points);
+>>>>>>> master
 	bool bIsAlive = true;
 	bool bIsGoingRight = true;
 	float FindMagnitude(glm::vec3 _v3);
+
 private:
 	float m_fSteeringRatio = 20.0f;
 	glm::vec3 m_vCurVelocity = { 0.0f,0.0f,0.0f };

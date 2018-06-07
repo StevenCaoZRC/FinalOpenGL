@@ -27,7 +27,7 @@
 #include "Sphere.h"
 // This Includes //
 #include "CScene.h"
-
+#include "Utils.h"
 // Static Variables //
 
 // Static Function Prototypes //
@@ -49,19 +49,27 @@ CScene::~CScene()
 
 void CScene::render()
 {
+	//Loop, Goes through an renders everything stored in the vector
 	for (auto it : v_SpritesInScene)
 	{
-		////2D
-		//it->render();
-
-		//3D
-		it->render3D();
-
+		if (it->m_iObjType == CUtility::TWOD)
+		{
+			it->render();
+		}
+		else if (it->m_iObjType == CUtility::THREED)
+		{
+			it->render3D();
+		}
+		else if (it->m_iObjType == CUtility::MODEL)
+		{
+			it->renderModel();
+		}
 	}
 }
 
 void CScene::update()
 {
+	//Goes through and calles the update function of every sprite in the vector
 	for (auto it : v_SpritesInScene)
 	{
 		it->update();
@@ -70,6 +78,8 @@ void CScene::update()
 
 void CScene::DeleteSprite(std::shared_ptr<CSprite> TobeDeleted)
 {
+	//goes through and finds all the sprites that will be deleted and delete them
+	//decides what needs to be deleted by the parameter passed in, a sharedptr of sprite
 	for (auto it = v_SpritesInScene.begin(); it != v_SpritesInScene.end(); it++)
 	{
 		if ((*it) == TobeDeleted)
@@ -83,6 +93,7 @@ void CScene::DeleteSprite(std::shared_ptr<CSprite> TobeDeleted)
 
 void CScene::SpritesAdd(std::shared_ptr<CSprite> AddSpr)
 {
+	//Adds spr sharedptr to the vector of sprites in scene
 	v_SpritesInScene.push_back(AddSpr);
 }
 

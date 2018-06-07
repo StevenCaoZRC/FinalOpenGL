@@ -19,6 +19,7 @@
 // Global Variables // 
 GLuint CUtility::program;
 GLuint CUtility::CubemapProgram;
+GLuint CUtility::modelProgram;
 CUtility::CUtility()
 {
 

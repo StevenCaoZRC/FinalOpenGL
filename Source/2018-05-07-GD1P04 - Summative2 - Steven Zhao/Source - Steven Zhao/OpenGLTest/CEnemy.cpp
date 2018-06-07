@@ -27,7 +27,7 @@
 using namespace std;
 
 // Constructor //
-CEnemy::CEnemy(const char * _fileName, float fWidth, float fHeight, int iShape) : CSprite(_fileName, fWidth, fHeight, iShape)
+CEnemy::CEnemy()
 {
 }
 
@@ -57,7 +57,11 @@ void CEnemy::update(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _Co
 {
 	if (bIsAlive)
 	{
+<<<<<<< HEAD
 		Movement(_player, _CollisionObjects);
+=======
+
+>>>>>>> master
 	}
 	m_iWanderTimer++;
 	if (m_iWanderTimer >= 1)

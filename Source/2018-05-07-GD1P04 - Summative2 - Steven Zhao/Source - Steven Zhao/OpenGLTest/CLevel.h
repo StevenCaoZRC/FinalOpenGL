@@ -23,6 +23,7 @@
 // Local Includes //
 #include "CScene.h"
 #include"TextLabel.h"
+#include "Model.h"
 
 // Types //
 
@@ -46,6 +47,7 @@ class CLevel : public CScene
 			void addLevel();
 			void addMenu();
 			void addCubeMap();
+			void addModels();
 			void addEndMenu();
 			void render();
 			void update();
@@ -57,7 +59,7 @@ class CLevel : public CScene
 			std::vector<std::shared_ptr<CSprite>> v_CollisionObjects;
 			int nScore = 0;
         private:
-
+			std::shared_ptr<Model> Tank;
 			CCubeMap * m_cubemap;
 };
 

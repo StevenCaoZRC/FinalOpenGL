@@ -9,7 +9,7 @@
 // File Name	:	CSceneManager.cpp
 // Description	:	main implementation for CSceneManager
 // Author		:	Steven Zhao
-// Mail 		:	steven.zha7447@mediadesign.school.nz
+// Mail 		:	steven.zha7447@mediadesign.school.nz, michael.xu7480@mediadesign.school.nz
 //
 
 // Library Includes //
@@ -25,7 +25,12 @@
 using namespace std;
 CSceneManager* CSceneManager::pSceneManager; // Redefining the static variable for class
 
-
+/****************
+* GetInstance: creates a single instance of scenemanager 
+* @author(s): Steven, Michael
+* @parameter: N/A
+* @return: pointer to Scenemanager instance
+*****************/
 CSceneManager * CSceneManager::GetInstance()
 {
 	if (!pSceneManager) // If this does not exist
@@ -36,6 +41,12 @@ CSceneManager * CSceneManager::GetInstance()
 	return pSceneManager;	//Returns the static instance
 }
 
+/****************
+* DestroyInstance: checks if the pointer exists, if so delete the pointer and set it to nullptr
+* @author(s): Steven, Michael
+* @parameter: N/A
+* @return: N/A
+*****************/
 void CSceneManager::DestroyInstance()
 {
 	if (pSceneManager) //If the instance exists
@@ -46,10 +57,17 @@ void CSceneManager::DestroyInstance()
 
 }
 
+/****************
+* RenderCurrent: Renders the current scene selected along with the user interface.
+* @author(s): Steven, Michael
+* @parameter: N/A
+* @return: N/A
+*****************/
 void CSceneManager::RenderCurrent()
 {
+	//Renders the current scene, as scenemanager manages multiple scenes.
 	Scenes[nCurrentScene]->render(); //Rending the current scene 
-
+	//renders text UI
 	CInterface::GetInstance()->render();
 	CInterface::GetInstance()->FPSCounter.Render();
 
@@ -57,10 +75,17 @@ void CSceneManager::RenderCurrent()
 
 void CSceneManager::UpdateCurrent()
 {
+	//Loads multiple Scenes
 	Scenes[nCurrentScene]->update();
 	
 }
 
+/****************
+* Update:
+* @author(s): Steven, Michael
+* @parameter:
+* @return:
+*****************/
 void CSceneManager::init()
 {
 	glutIgnoreKeyRepeat(1);
@@ -68,7 +93,7 @@ void CSceneManager::init()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
-	CUtility::CubemapProgram = shaderloader.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
+	CUtility::modelProgram = shaderloader.CreateProgram("ModelVertShader.txt", "ModelFragShader.txt");
 	
 
 
@@ -76,19 +101,21 @@ void CSceneManager::init()
 	//Gets the initial values of the controls
 	CControls::GetInstance()->init();
 	
-	
 	//creaing a shared pointer to level and bgSprite and CharacterSpr
 	std::shared_ptr<CLevel>Level = make_shared<CLevel>();
-	
+
+	//Adding the level to scenemanager
 	Level->addLevel();
 	Level->addCubeMap();
+	Level->addModels();
 	Level->addEnemy();
 	Level->addPlayer();
-	//Adding the level to scenemanager
+
 	
 	//---------------|Menu Scenes Stuff|---------------//
 	std::shared_ptr<CLevel> Menu = make_shared<CLevel>();
 	Menu->addMenu();
+	//Menu->addModels();
 	Menu->addCubeMap();
 	//Do if clicked
 	//std::shared_ptr<CSprite> startBtn1 = make_shared<CSprite>("Resources/start1.png", 0.0, 0.0);
@@ -98,7 +125,7 @@ void CSceneManager::init()
 	
 
 	End->addEndMenu();
-	//Adding the level to scenemanager
+	//Adding the different scenes into a vector of scenes
 	CSceneManager::GetInstance()->SceneAdd(Menu);
 	CSceneManager::GetInstance()->SceneAdd(Level);
 	CSceneManager::GetInstance()->SceneAdd(End);
@@ -106,6 +133,7 @@ void CSceneManager::init()
 
 void CSceneManager::switchScene(int nNewScene)
 {
+	//switches to the scene passed in the paramters, the different scenes are enums
 	nCurrentScene = nNewScene;
 }
 
@@ -123,6 +151,6 @@ CSceneManager::CSceneManager()
 // Destructor //
 CSceneManager::~CSceneManager()
 {
-	Scenes.clear();
+	Scenes.clear(); //Clears the vector
 }
 
