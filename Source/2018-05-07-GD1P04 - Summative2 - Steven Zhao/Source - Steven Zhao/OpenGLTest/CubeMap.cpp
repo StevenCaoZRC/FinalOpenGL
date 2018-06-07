@@ -24,42 +24,42 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 
 	//Cube vertices that only contain the position 
 	GLfloat cubeVertices[] = {
-	// Positions    
-	// Front Face
-	-1.0f,  1.0f,  1.0f,  // 0
-	 1.0f,  1.0f,  1.0f,  // 1
-	 1.0f, -1.0f,  1.0f,  // 2
-	-1.0f, -1.0f,  1.0f,  // 3
+		// Positions    
+		// Front Face
+		-1.0f,  1.0f,  1.0f,  // 0
+		1.0f,  1.0f,  1.0f,  // 1
+		1.0f, -1.0f,  1.0f,  // 2
+		-1.0f, -1.0f,  1.0f,  // 3
 
-	// Right Face
-	1.0f,  1.0f,  1.0f,   // 4
-	1.0f,  1.0f, -1.0f,   // 5
-	1.0f, -1.0f, -1.0f,   // 6
-	1.0f, -1.0f,  1.0f,   // 7
+		// Right Face
+		1.0f,  1.0f,  1.0f,   // 4
+		1.0f,  1.0f, -1.0f,   // 5
+		1.0f, -1.0f, -1.0f,   // 6
+		1.0f, -1.0f,  1.0f,   // 7
 
-	// Back Face
-	 1.0f,  1.0f, -1.0f, // 8
-	-1.0f,  1.0f, -1.0f, // 9
-	-1.0f, -1.0f, -1.0f, // 10
-	 1.0f, -1.0f, -1.0f, // 11
+		// Back Face
+		1.0f,  1.0f, -1.0f, // 8
+		-1.0f,  1.0f, -1.0f, // 9
+		-1.0f, -1.0f, -1.0f, // 10
+		1.0f, -1.0f, -1.0f, // 11
 
-	// Left Face
-	-1.0f,  1.0f, -1.0f, // 12
-	-1.0f,  1.0f,  1.0f, // 13
-	-1.0f, -1.0f,  1.0f, // 14
-	-1.0f, -1.0f, -1.0f, // 15
+		// Left Face
+		-1.0f,  1.0f, -1.0f, // 12
+		-1.0f,  1.0f,  1.0f, // 13
+		-1.0f, -1.0f,  1.0f, // 14
+		-1.0f, -1.0f, -1.0f, // 15
 
-	// Top Face
-	-1.0f,  1.0f, -1.0f, // 16
-	 1.0f,  1.0f, -1.0f, // 17
-	 1.0f,  1.0f,  1.0f, // 18
-	-1.0f,  1.0f,  1.0f, // 19
+		// Top Face
+		-1.0f,  1.0f, -1.0f, // 16
+		1.0f,  1.0f, -1.0f, // 17
+		1.0f,  1.0f,  1.0f, // 18
+		-1.0f,  1.0f,  1.0f, // 19
 
-	// Bottom Face
-	-1.0f, -1.0f,  1.0f, // 20
-	 1.0f, -1.0f,  1.0f, // 21
-	 1.0f, -1.0f, -1.0f, // 22
-	-1.0f, -1.0f, -1.0f, // 23
+		// Bottom Face
+		-1.0f, -1.0f,  1.0f, // 20
+		1.0f, -1.0f,  1.0f, // 21
+		1.0f, -1.0f, -1.0f, // 22
+		-1.0f, -1.0f, -1.0f, // 23
 	};
 
 	//Cub indices
@@ -81,16 +81,15 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 	//Generating the texture specifing number of textures generated and stores in tex
 	glGenTextures(1, &tex);
 	//Binding texture stored to target
-	glGenTextures(1, &tex);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
 
 	int iWidth, iHeight;
 	unsigned char* image;
 
 	//Loop, going through creating six textures and loading an image on to each using SOIL
-		//Prevent repetition in code
 	for (GLuint i = 0; i < 6; i++)
 	{
+		//Prevent repetition in code
 		std::string fullPathName = "Resources/CubeMap/";
 		fullPathName.append(_filePaths[i]);
 
@@ -110,7 +109,7 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 
-	
+
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
 
@@ -133,7 +132,6 @@ CCubeMap::~CCubeMap()
 void CCubeMap::render()
 {
 	//Using the cubemapProgram which had cubemap vertex and frag shaders
-
 	glUseProgram(cubemapProgram);
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 	glDisable(GL_CULL_FACE);
@@ -142,7 +140,7 @@ void CCubeMap::render()
 	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
 	glUniform1i(glGetUniformLocation(cubemapProgram, "skybox"), 0);
 
-	glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
+	glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, glm::vec3(1000.0f, 1000.0f, 1000.0f));
 	glUniformMatrix4fv(glGetUniformLocation(cubemapProgram, "MVP"), 1, GL_FALSE, glm::value_ptr(MVP));
 
 	// Bind the VAO and draw the cube map

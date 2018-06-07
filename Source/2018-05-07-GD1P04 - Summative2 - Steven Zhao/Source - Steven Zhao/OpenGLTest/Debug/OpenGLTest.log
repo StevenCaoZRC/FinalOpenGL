@@ -1,5 +1,28 @@
-﻿  CLevel.cpp
+﻿  Utils.cpp
+  TextLabel.cpp
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\textlabel.cpp(61): warning C4838: conversion from 'FT_Pos' to 'GLuint' requires a narrowing conversion
+  CubeMap.cpp
+  CSprite.cpp
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(228): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(229): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(230): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  CSceneManager.cpp
+  CScene.cpp
+  CPlayer.cpp
+  CLevel.cpp
 d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(78): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
 d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(99): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
 d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(158): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+  CEnemy.cpp
+  CCollisionManager.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  CInterface.cpp
+  CGameMech.cpp
+  CCamera.cpp
+  LINK : D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe
