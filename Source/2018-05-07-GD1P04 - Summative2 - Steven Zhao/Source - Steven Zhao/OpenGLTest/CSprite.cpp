@@ -409,21 +409,21 @@ void CSprite::init2D(const char * _fileName, float fWidth, float fHeight)
 		glEnableVertexAttribArray(2);
 }
 
-void CSprite::render()
+void CSprite::render(GLuint program)
 {
-	glUseProgram(CUtility::program);
+	glUseProgram(program);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	// Activating the texture and binding it
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, textures[iCurrentFrame]);
-	glUniform1i(glGetUniformLocation(CUtility::program, "tex"), 0);
+	glUniform1i(glGetUniformLocation(program, "tex"), 0);
 
 	glBindVertexArray(vao);			  // Bind VAO
 	
 	//------3D MVP------//
 	glm::mat4 MVP = CCamera::GetInstance()->SetMVP(objPosition,objRotate,objScale);
-	GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
+	GLint MVPLoc = glGetUniformLocation(program, "MVP");
 	glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
 
 
@@ -437,26 +437,26 @@ void CSprite::update()
 {
 }
 
-void CSprite::render3D()
+void CSprite::render3D(GLuint program)
 {
 	//Depending what iShape was passed in, it will decide what render function will be used
 	switch (m_iShape)
 	{
 	case 0:
 	{
-		glUseProgram(CUtility::program);
+		glUseProgram(program);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		// Activating the texture and binding it
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textures[iCurrentFrame]);
-		glUniform1i(glGetUniformLocation(CUtility::program, "tex"), 0);
+		glUniform1i(glGetUniformLocation(program, "tex"), 0);
 
 		glBindVertexArray(vao);			  // Bind VAO
 
 										  //------3D MVP------//
 		glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
-		GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
+		GLint MVPLoc = glGetUniformLocation(program, "MVP");
 		glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
 
    		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
@@ -466,20 +466,20 @@ void CSprite::render3D()
 	}
 	case 1:
 	{
-		glUseProgram(CUtility::program);
+		glUseProgram(program);
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		// Activating the texture and binding it
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, tex);
-		glUniform1i(glGetUniformLocation(CUtility::program, "tex"), 0);
+		glUniform1i(glGetUniformLocation(program, "tex"), 0);
 
 		glBindVertexArray(vao);			  // Bind VAO
 
 										  //------3D MVP------//
 		glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
-		GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
+		GLint MVPLoc = glGetUniformLocation(program, "MVP");
 		glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
 
 		glDrawElements(GL_TRIANGLES, IndiceCount, GL_UNSIGNED_INT, 0);

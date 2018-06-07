@@ -5,12 +5,15 @@ layout (location = 1) in vec3 normal;
 layout (location = 2) in vec2 texCoord;
 
 out vec2 fragTexCoord;
+out vec3 fragNormal;
 
 uniform mat4 MVP;
+uniform mat4 normalMatrix;
 
 void main(void)                                                 
 {                                                                 
 	gl_Position = MVP * vec4(position, 1.0);  
-	//gl_Position = scale * vec4(position, 1.0);   
+	fragPos = vec3(normalMatrix * vec4(position, 1.0f));
+	fragNormal = mat3(transpose(inverse(model))) * normal;
 	fragTexCoord = texCoord;
 } 

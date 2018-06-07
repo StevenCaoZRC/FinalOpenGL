@@ -56,7 +56,7 @@ void CScene::render()
 		//it->render();
 
 		//3D
-		it->render3D();
+		it->render3D(CUtility::PhongLightProgram);
 
 	}
 }

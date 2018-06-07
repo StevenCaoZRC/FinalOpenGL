@@ -179,8 +179,8 @@
     <Text Include="CubeMapFrag.txt" />
     <Text Include="CubeMapVer.txt" />
     <Text Include="FragmentShader.txt" />
-    <Text Include="LightFragment.txt" />
-    <Text Include="LightVertexShader.txt" />
+    <Text Include="PhongFragShader.txt" />
+    <Text Include="PhongVertShader.txt" />
     <Text Include="ModelFragShader.txt" />
     <Text Include="ModelVertShader.txt" />
     <Text Include="TextFragment.txt" />

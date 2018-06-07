@@ -18,6 +18,7 @@
 #include "CSound.h"
 #include "CInterface.h"
 #include "Sphere.h"
+#include "Utils.h"
 // This Includes //
 #include "CSceneManager.h"
 
@@ -94,7 +95,7 @@ void CSceneManager::init()
 	glEnable(GL_BLEND);
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
 	CUtility::modelProgram = shaderloader.CreateProgram("ModelVertShader.txt", "ModelFragShader.txt");
-	
+	CUtility::PhongLightProgram = shaderloader.CreateProgram("PhongVertShader.txt", "PhongFragShader.txt");
 
 
 	//---------------|Level Scenes Stuff|---------------//

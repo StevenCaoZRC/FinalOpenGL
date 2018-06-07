@@ -157,12 +157,6 @@
     <Text Include="VertexShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="LightVertexShader.txt">
-      <Filter>Resource Files\VertexShaders</Filter>
-    </Text>
-    <Text Include="LightFragment.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
     <Text Include="CubeMapFrag.txt">
       <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
@@ -174,6 +168,12 @@
     </Text>
     <Text Include="ModelVertShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
+    <Text Include="PhongVertShader.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
+    <Text Include="PhongFragShader.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
   </ItemGroup>
 </Project>

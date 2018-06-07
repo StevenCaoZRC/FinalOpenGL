@@ -52,6 +52,7 @@ public:
 	static GLuint program;
 	static GLuint CubemapProgram;
 	static GLuint modelProgram;
+	static GLuint PhongLightProgram;
 private: 
 	float fWidth;
 	float fHeight;
