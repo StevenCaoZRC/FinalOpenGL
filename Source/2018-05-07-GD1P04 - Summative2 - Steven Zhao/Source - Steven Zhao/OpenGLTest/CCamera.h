@@ -47,13 +47,7 @@ class CCamera
 			
 			GLfloat m_v3CamX = 0.0f;
 			GLfloat m_v3CamHeight = 0.0f;
-<<<<<<< HEAD
-			GLfloat m_v3CamZ = 300.0f;
-
-
-=======
 			GLfloat m_v3CamZ = 450.0f;
->>>>>>> Michael-Test
         private:
 			static CCamera* m_pCamera;
 			CCamera();

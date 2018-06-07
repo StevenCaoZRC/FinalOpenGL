@@ -57,9 +57,7 @@ public:
 	
 	static GLuint program;
 	static GLuint CubemapProgram;
-<<<<<<< HEAD
 	static GLuint modelProgram;
-=======
 	enum SpriteType
 	{
 		ENEMY = 0,
@@ -68,9 +66,6 @@ public:
 		MOBIL_WALL,
 		NON_SOLID,
 	};
-	
-
->>>>>>> Michael-Test
 private: 
 	float fWidth;
 	float fHeight;

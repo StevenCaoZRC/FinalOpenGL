@@ -23,12 +23,9 @@
 using namespace std;
 
 // Constructor //
-<<<<<<< HEAD
-CPlayer::CPlayer()
-=======
+CPlayer::CPlayer() {}
 CPlayer::CPlayer(const char* _fileName, float fWidth, float fHeight, int iShape)
 	:  CSprite(_fileName, fWidth, fHeight, iShape)
->>>>>>> Michael-Test
 {
 
 }
@@ -203,10 +200,6 @@ void CPlayer::update()
 			}
 			
 		}	*/
-<<<<<<< HEAD
-		
-=======
->>>>>>> Michael-Test
 	}
 	//CSound::GetInstance()->soundMgr->playSound(CSound::GetInstance()->bgMusic, 0, false, &CSound::GetInstance()->BgMusicChannel);
 

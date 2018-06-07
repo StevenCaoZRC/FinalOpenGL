@@ -18,18 +18,11 @@
 #include <string>
 CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 {
-<<<<<<< HEAD
 	//Program which contains the vertex shader and fragment shader for the cubemaping
 	static ShaderLoader shaderl;
 	cubemapProgram = shaderl.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
 
 	//Cube vertices that only contain the position 
-=======
-	static ShaderLoader shaderl;
-	cubemapProgram = shaderl.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
-
-
->>>>>>> Michael-Test
 	GLfloat cubeVertices[] = {
 	// Positions    
 	// Front Face
@@ -69,10 +62,7 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 	-1.0f, -1.0f, -1.0f, // 23
 	};
 
-<<<<<<< HEAD
 	//Cub indices
-=======
->>>>>>> Michael-Test
 	GLuint cubeIndices[] = {
 
 		// Front Face	// Left Face
@@ -88,27 +78,19 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 		8, 10, 11,		20, 22, 23,
 	};
 
-<<<<<<< HEAD
 	//Generating the texture specifing number of textures generated and stores in tex
 	glGenTextures(1, &tex);
 	//Binding texture stored to target
-=======
 	glGenTextures(1, &tex);
->>>>>>> Michael-Test
 	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
 
 	int iWidth, iHeight;
 	unsigned char* image;
 
-<<<<<<< HEAD
 	//Loop, going through creating six textures and loading an image on to each using SOIL
-	for (GLuint i = 0; i < 6; i++)
-	{
 		//Prevent repetition in code
-=======
 	for (GLuint i = 0; i < 6; i++)
 	{
->>>>>>> Michael-Test
 		std::string fullPathName = "Resources/CubeMap/";
 		fullPathName.append(_filePaths[i]);
 
@@ -117,7 +99,6 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 		SOIL_free_image_data(image);
 
 	}
-<<<<<<< HEAD
 
 	//Texture parameters, making sure we also do texture wrapping on the x axis
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -125,13 +106,6 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);	//X
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);	//Y
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);	//Z
-=======
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
->>>>>>> Michael-Test
 	glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
 
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
@@ -158,10 +132,7 @@ CCubeMap::~CCubeMap()
 
 void CCubeMap::render()
 {
-<<<<<<< HEAD
 	//Using the cubemapProgram which had cubemap vertex and frag shaders
-=======
->>>>>>> Michael-Test
 	glUseProgram(cubemapProgram);
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 	glDisable(GL_CULL_FACE);
@@ -170,11 +141,7 @@ void CCubeMap::render()
 	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
 	glUniform1i(glGetUniformLocation(cubemapProgram, "skybox"), 0);
 
-<<<<<<< HEAD
-	glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, glm::vec3(1000.0f, 1000.0f, 1000.0f));
-=======
 	glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
->>>>>>> Michael-Test
 	glUniformMatrix4fv(glGetUniformLocation(cubemapProgram, "MVP"), 1, GL_FALSE, glm::value_ptr(MVP));
 
 	// Bind the VAO and draw the cube map
