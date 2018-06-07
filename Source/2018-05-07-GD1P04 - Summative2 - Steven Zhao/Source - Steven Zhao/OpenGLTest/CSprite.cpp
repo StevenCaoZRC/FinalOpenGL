@@ -74,39 +74,39 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 			// Positions         // Colour       // Tex Coords
 			// Front Face
 			-HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f, // 0
-			 HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f,	// 1
-			 HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f,	// 2
+			HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f,	// 1
+			HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f,	// 2
 			-HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f, // 3
 
-			// Right Face
-			HalfWidth,  HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
-			HalfWidth,  HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
-			HalfWidth, -HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
-			HalfWidth, -HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
+																			// Right Face
+																			HalfWidth,  HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
+																			HalfWidth,  HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
+																			HalfWidth, -HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
+																			HalfWidth, -HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
 
-			// Back Face
-			 HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,	// 8
-			-HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
-			-HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
-			 HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f,	// 11
+																																		  // Back Face
+																																		  HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,	// 8
+																																		  -HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
+																																		  -HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
+																																		  HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f,	// 11
 
-			// Left Face
-			-HalfWidth,  HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
-			-HalfWidth,  HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
-			-HalfWidth, -HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
-			-HalfWidth, -HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
+																																																			// Left Face
+																																																			-HalfWidth,  HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
+																																																			-HalfWidth,  HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
+																																																			-HalfWidth, -HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
+																																																			-HalfWidth, -HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
 
-			// Top Face
-			-HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
-			 HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
-			 HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
-			-HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
+																																																																			// Top Face
+																																																																			-HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
+																																																																			HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
+																																																																			HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
+																																																																			-HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
 
-			// Bottom Face
-			-HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
-			 HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
-			 HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
-			-HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
+																																																																																		   // Bottom Face
+																																																																																		   -HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
+																																																																																		   HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
+																																																																																		   HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
+																																																																																		   -HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
 		};
 
 		//GLfloat cubeVertices[] = {
@@ -209,6 +209,7 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 	{
 		//For make a sphere
 		float radius = 1.0f;
+
 		const int sections = 20;
 		const int vertexAttrib = 8;
 		const int indexPerQuad = 6;
@@ -228,259 +229,89 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 				float y = cos(theta);
 				float z = sin(phi) * sin(theta);
 
-				switch (iShape)
-				{
-				case 0:
-				{
-					//-----------------------Going 3D-----------------------//
-					GLfloat cubeVertices[] =
-					{
-						// Positions         // Colour       // Tex Coords
-						// Front Face
-						-HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f, // 0
-						HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f, // 1
-						HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f, // 2
-						-HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f, // 3
+				vertices[offset++] = x * radius;
+				vertices[offset++] = y * radius;
+				vertices[offset++] = z * radius;
 
-						// Right Face
-						HalfWidth,  HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
-						HalfWidth,  HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
-						HalfWidth, -HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
-						HalfWidth, -HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
+				vertices[offset++] = x;
+				vertices[offset++] = y;
+				vertices[offset++] = z;
 
-						// Back Face
-						HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f, // 8
-						-HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
-						-HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
-						HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f, // 11
+				vertices[offset++] = (float)i / (sections - 1);
+				vertices[offset++] = (float)j / (sections - 1);
 
-						// Left Face
-						-HalfWidth,  HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
-						-HalfWidth,  HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
-						-HalfWidth, -HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
-						-HalfWidth, -HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
+				theta += (M_PI / (sections - 1));
+			}
 
-						// Top Face
-						-HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
-						HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
-						HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
-						-HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
-
-						// Bottom Face
-						-HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
-						HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
-						HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
-						-HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
-					};
-
-					//GLfloat cubeVertices[] = {
-					//	// Positions         // Normals         // Tex Coords
-					//// Front Face
-					//-1.0f,  1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 0.0f, 0.0f, // 0
-					// 1.0f,  1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 1.0f, 0.0f, // 1
-					// 1.0f, -1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 1.0f, 1.0f, // 2
-					//-1.0f, -1.0f,  1.0f,  0.0f, 0.0f, 1.0f, 0.0f, 1.0f, // 3
-					//// Right Face
-					//1.0f,  1.0f,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
-					//1.0f,  1.0f, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
-					//1.0f, -1.0f, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
-					//1.0f, -1.0f,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
-					//// Back Face
-					// 1.0f,  1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f, // 8
-					//-1.0f,  1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
-					//-1.0f, -1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
-					// 1.0f, -1.0f, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f, // 11
-					//// Left Face
-					//-1.0f,  1.0f, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
-					//-1.0f,  1.0f,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
-					//-1.0f, -1.0f,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
-					//-1.0f, -1.0f, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
-					//// Top Face
-					//-1.0f,  1.0f, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
-					// 1.0f,  1.0f, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
-					// 1.0f,  1.0f,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
-					//-1.0f,  1.0f,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
-					//// Bottom Face
-					//-1.0f, -1.0f,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
-					// 1.0f, -1.0f,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
-					// 1.0f, -1.0f, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
-					//-1.0f, -1.0f, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
-					//};
-
-					GLuint cubeIndices[] = {
-
-						// Front Face	// Left Face
-						0, 1, 2,		12, 13, 14,
-						0, 2, 3,		12, 14, 15,
-
-						// Right Face	// Top Face
-						4, 5, 6,		16, 17, 18,
-						4, 6, 7,		16, 18, 19,
-
-						// Back Face	// Bottom Face
-						8, 9, 10,		20, 21, 22,
-						8, 10, 11,		20, 22, 23,
-					};
+			phi += (2 * M_PI) / (sections - 1);
+		}
 
 
+		GLuint indices[(sections) * (sections)* indexPerQuad];
+		offset = 0;
+		for (int i = 0; i < sections; i++)
+		{
+			for (int j = 0; j < sections; j++)
+			{
+				indices[offset++] = (((i + 1) % sections) * sections) + ((j + 1) % sections);
+				indices[offset++] = (((i + 1) % sections) * sections) + (j);
+				indices[offset++] = (i * sections) + (j);
 
-
-					glGenVertexArrays(1, &vao);
-					glBindVertexArray(vao);
-					glGenBuffers(1, &vbo);
-					glBindBuffer(GL_ARRAY_BUFFER, vbo);
-					glBufferData(GL_ARRAY_BUFFER,
-						sizeof(cubeVertices),
-						cubeVertices,
-						GL_STATIC_DRAW);
-					glVertexAttribPointer(
-						0,						// Layout location on vertex shader
-						3,						// 3 float components (eg position)
-						GL_FLOAT,				// Type of data
-						GL_FALSE,				// Data Normalised?
-						8 * sizeof(GLfloat),	// Stride of the entire single vertex
-						(GLvoid*)0);			// Offset
-
-					glEnableVertexAttribArray(0);
-
-					// New AttribPointer for Colour
-					glVertexAttribPointer(
-						1,									// Layout location on vertex shader
-						3,									// 3 float components (eg position)
-						GL_FLOAT,							// Type of data
-						GL_FALSE,							// Data Normalised?
-						8 * sizeof(GLfloat),				// Stride of the entire single vertex
-						(GLvoid*)(3 * sizeof(GLfloat)));		// Offset
-					glEnableVertexAttribArray(1);
-
-					// EBO
-					glGenBuffers(1, &ebo);
-					glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-					glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-						sizeof(cubeIndices),
-						cubeIndices,
-						GL_STATIC_DRAW);
-
-
-					//Face Culling / Depth testing
-					glCullFace(GL_BACK); //Cull the back faces (basicly deletes the faces that are going in CCW)
-					glFrontFace(GL_CW);  //Front face is Clockwise order
-					glEnable(GL_CULL_FACE);
-					glEnable(GL_DEPTH_TEST);
-
-
-
-					break;
-				}
-				case 1:
-				{
-					float radius = 1.0f;
-
-					const int sections = 20;
-					const int vertexAttrib = 8;
-					const int indexPerQuad = 6;
-
-					double phi = 0;
-					double theta = 0;
-
-					float vertices[(sections) * (sections)* vertexAttrib];
-					int offset = 0;
-					for (int i = 0; i < sections; i++)
-					{
-						theta = 0;
-
-						for (int j = 0; j < sections; j++)
-						{
-							float x = (float)(cos(phi) * sin(theta));
-							float y = (float)(cos(theta));
-							float z = (float)(sin(phi) * sin(theta));
-							vertices[offset++] = x * radius;
-							vertices[offset++] = y * radius;
-							vertices[offset++] = z * radius;
-
-							vertices[offset++] = x;
-							vertices[offset++] = y;
-							vertices[offset++] = z;
-
-							vertices[offset++] = (float)i / (sections - 1);
-							vertices[offset++] = (float)j / (sections - 1);
-
-							theta += (M_PI / (sections - 1));
-						}
-
-						phi += (2 * M_PI) / (sections - 1);
-					}
-
-
-					GLuint indices[(sections) * (sections)* indexPerQuad];
-					offset = 0;
-					for (int i = 0; i < sections; i++)
-					{
-						for (int j = 0; j < sections; j++)
-						{
-							indices[offset++] = (((i + 1) % sections) * sections) + ((j + 1) % sections);
-							indices[offset++] = (((i + 1) % sections) * sections) + (j);
-							indices[offset++] = (i * sections) + (j);
-
-							indices[offset++] = (i * sections) + ((j + 1) % sections);
-							indices[offset++] = (((i + 1) % sections) * sections) + ((j + 1) % sections);
-							indices[offset++] = (i * sections) + (j);
-						}
-					}
-
-					GLuint VBO, EBO;
-
-					glGenVertexArrays(1, &vao);
-					glBindVertexArray(vao);
-
-					glGenBuffers(1, &VBO);
-					glBindBuffer(GL_ARRAY_BUFFER, VBO);
-					glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-					glGenBuffers(1, &EBO);
-					glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-					glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-					glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)0);
-					glEnableVertexAttribArray(0);
-
-					glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
-					glEnableVertexAttribArray(1);
-
-					glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(6 * sizeof(GLfloat)));
-					glEnableVertexAttribArray(2);
-
-					IndiceCount = sizeof(indices) / sizeof(GLuint);
-					DrawType = GL_TRIANGLES;
-					break;
-				}
-				default:
-					break;
-				}
-
-
-				glGenTextures(1, &tex);
-				glBindTexture(GL_TEXTURE_2D, tex);
-				//Texture class to load images.
-				textures.push_back(tex);
-				//loading a texture, taking the width and height of the sprite and image loaded
-				textureloader.TexImage2D(CSprite::nWidth, CSprite::nHeight, textureloader.imageloader(_fileName, CSprite::nWidth, CSprite::nHeight));
-
-				//Text Coord attribute pointer
-				glVertexAttribPointer(
-					2,			//Layout location on vertex shader
-					2,			//2 float components for texture coords
-					GL_FLOAT,    //Type of data
-					GL_FALSE,   //Data normalised?
-					8 * sizeof(GLfloat),		//Stride
-					(GLvoid*)(6 * sizeof(GLfloat)));
-				glEnableVertexAttribArray(2);
-
-				}
+				indices[offset++] = (i * sections) + ((j + 1) % sections);
+				indices[offset++] = (((i + 1) % sections) * sections) + ((j + 1) % sections);
+				indices[offset++] = (i * sections) + (j);
 			}
 		}
+
+		GLuint VBO, EBO;
+
+		glGenVertexArrays(1, &vao);
+		glBindVertexArray(vao);
+
+		glGenBuffers(1, &VBO);
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		glGenBuffers(1, &EBO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)0);
+		glEnableVertexAttribArray(0);
+
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+		glEnableVertexAttribArray(1);
+
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(6 * sizeof(GLfloat)));
+		glEnableVertexAttribArray(2);
+
+		IndiceCount = sizeof(indices) / sizeof(GLuint);
+		DrawType = GL_TRIANGLES;
+		break;
 	}
-};
+	default:
+		break;
+	}
+
+
+	glGenTextures(1, &tex);
+	glBindTexture(GL_TEXTURE_2D, tex);
+	//Texture class to load images.
+	textures.push_back(tex);
+	//loading a texture, taking the width and height of the sprite and image loaded
+	textureloader.TexImage2D(CSprite::nWidth, CSprite::nHeight, textureloader.imageloader(_fileName, CSprite::nWidth, CSprite::nHeight));
+
+	//Text Coord attribute pointer
+	glVertexAttribPointer(
+		2,			//Layout location on vertex shader
+		2,			//2 float components for texture coords
+		GL_FLOAT,    //Type of data
+		GL_FALSE,   //Data normalised?
+		8 * sizeof(GLfloat),		//Stride
+		(GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
+
+}
 
 void CSprite::init2D(const char * _fileName, float fWidth, float fHeight)
 {

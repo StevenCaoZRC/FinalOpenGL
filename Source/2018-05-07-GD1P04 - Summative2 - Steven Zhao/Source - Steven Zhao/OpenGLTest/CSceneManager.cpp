@@ -115,8 +115,8 @@ void CSceneManager::init()
 	//---------------|Menu Scenes Stuff|---------------//
 	std::shared_ptr<CLevel> Menu = make_shared<CLevel>();
 	Menu->addMenu();
-	//Menu->addModels();
-	//Menu->addCubeMap();
+	Menu->addModels();
+	Menu->addCubeMap();
 	//Do if clicked
 	//std::shared_ptr<CSprite> startBtn1 = make_shared<CSprite>("Resources/start1.png", 0.0, 0.0);
 
