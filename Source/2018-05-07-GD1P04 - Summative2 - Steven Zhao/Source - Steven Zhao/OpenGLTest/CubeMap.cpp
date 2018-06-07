@@ -133,23 +133,24 @@ CCubeMap::~CCubeMap()
 void CCubeMap::render()
 {
 	//Using the cubemapProgram which had cubemap vertex and frag shaders
-	glUseProgram(cubemapProgram);
-	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
-	glDisable(GL_CULL_FACE);
 
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
-	glUniform1i(glGetUniformLocation(cubemapProgram, "skybox"), 0);
+	//glUseProgram(cubemapProgram);
+	//glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+	//glDisable(GL_CULL_FACE);
 
-	glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
-	glUniformMatrix4fv(glGetUniformLocation(cubemapProgram, "MVP"), 1, GL_FALSE, glm::value_ptr(MVP));
+	//glActiveTexture(GL_TEXTURE0);
+	//glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
+	//glUniform1i(glGetUniformLocation(cubemapProgram, "skybox"), 0);
 
-	// Bind the VAO and draw the cube map
-	glBindVertexArray(VAO);
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	//glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
+	//glUniformMatrix4fv(glGetUniformLocation(cubemapProgram, "MVP"), 1, GL_FALSE, glm::value_ptr(MVP));
 
-	// Clean up after render
-	glBindVertexArray(0);
-	glUseProgram(0);
-	glDisable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+	//// Bind the VAO and draw the cube map
+	//glBindVertexArray(VAO);
+	//glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+
+	//// Clean up after render
+	//glBindVertexArray(0);
+	//glUseProgram(0);
+	//glDisable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 }
