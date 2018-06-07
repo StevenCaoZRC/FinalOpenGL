@@ -39,6 +39,7 @@ CSprite::~CSprite()
 
 void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iShape)
 {
+	m_iObjType = CUtility::THREED;
 	GLuint vbo;
 	GLuint ebo;
 	m_iShape = iShape;
@@ -314,6 +315,7 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 
 void CSprite::init2D(const char * _fileName, float fWidth, float fHeight)
 {
+		m_iObjType = CUtility::TWOD;
 		GLuint vbo;
 		GLuint ebo;
 		GLuint tex;
@@ -331,8 +333,8 @@ void CSprite::init2D(const char * _fileName, float fWidth, float fHeight)
 				SOIL_LOAD_RGBA);
 			SOIL_free_image_data(image);
 	
-			HalfWidth = nWidth;
-			HalfHeight = nHeight;
+			HalfWidth = (float)nWidth / 2.0f;
+			HalfHeight = (float)nHeight / 2.0f;
 		}
 		GLfloat vertices[36] = {
 			// Position			 //Colour			 //Tex Coords
@@ -433,6 +435,17 @@ void CSprite::render()
 	
 }
 
+void CSprite::initModel(std::string path, GLuint program)
+{
+	m_3DModel = make_shared<Model>(path, program);
+	m_iObjType = CUtility::MODEL;
+}
+
+void CSprite::renderModel()
+{
+	m_3DModel->Render(objPosition, objRotate, objScale);
+}
+
 void CSprite::update()
 {
 }
@@ -492,8 +505,6 @@ void CSprite::render3D()
 	
 }
 
-
-
 void CSprite::addFrame(const char* _filename)
 {
 	GLuint tex;
@@ -507,6 +518,7 @@ void CSprite::addFrame(const char* _filename)
 
 	textures.push_back(tex);
 }
+
 
 
 

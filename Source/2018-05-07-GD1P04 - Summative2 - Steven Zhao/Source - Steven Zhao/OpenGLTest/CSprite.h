@@ -28,6 +28,7 @@
 #include "ShaderLoader.h"
 #include "Utils.h" 
 #include "CCamera.h"
+#include "Model.h"
 // Types //
 
 // Constants //
@@ -42,6 +43,7 @@ public:
 		CUBE = 0,
 		SPHERE,
 	};
+
 	CSprite();
 	~CSprite();
 	//3D
@@ -50,6 +52,8 @@ public:
 	//2D
 	void init2D(const char* _fileName, float fWidth, float fHeight);
 	virtual void render();
+	void initModel(std::string path, GLuint program);
+	virtual void renderModel();
 
 	virtual void CSprite::update();
 
@@ -62,12 +66,13 @@ public:
 	GLuint vao;
 	std::vector<GLuint> textures;
 	GLuint tex;
+	std::shared_ptr<Model> m_3DModel;
+	int m_iObjType;
 
 	int iCurrentFrame = 0;
 	//Sphere stuff
 	int DrawType;
 	GLuint IndiceCount;
-
 	//For MVP
 	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };
 	glm::vec3 objRotate = {0.0f,0.0f,0.0f};

@@ -56,7 +56,7 @@ void CEnemy::update(CPlayer &_player)
 {
 	if (bIsAlive)
 	{
-		AIPathFollow(&m_vPoints);
+
 	}
 	m_iWanderTimer++;
 	if (m_iWanderTimer >= 1)

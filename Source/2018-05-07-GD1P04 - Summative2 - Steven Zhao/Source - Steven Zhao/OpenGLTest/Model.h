@@ -45,9 +45,10 @@ public:
 	// Draws the model, and thus all its meshes
 	void Render(glm::vec3 objPosition, glm::vec3 objRotate, glm::vec3 objScale)
 	{
-		for (GLuint i = 0; i < this->meshes.size(); i++) {
+		for (GLuint i = 0; i < this->meshes.size(); i++) 
+		{
 
-		//printf("mesh size: %d \n", meshes.size());
+			//printf("mesh size: %d \n", meshes.size());
 
 			this->meshes[i].Render(program, objPosition, objRotate, objScale);
 		}

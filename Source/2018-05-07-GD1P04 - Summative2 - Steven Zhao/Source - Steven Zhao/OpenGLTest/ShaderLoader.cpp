@@ -12,7 +12,7 @@ std::string ShaderLoader::ReadShader(const char *filename)
 	std::string shaderCode;
 	std::ifstream file(filename, std::ios::in);
 
-	if (!file.good()){
+	if (!file.good()) {
 		std::cout << "Can't read file " << filename << std::endl;
 		std::terminate();
 	}
@@ -22,13 +22,13 @@ std::string ShaderLoader::ReadShader(const char *filename)
 	file.seekg(0, std::ios::beg);
 	file.read(&shaderCode[0], shaderCode.size());
 	file.close();
+
 	return shaderCode;
 }
 
 GLuint ShaderLoader::CreateShader(GLenum shaderType, std::string
 	source, const char* shaderName)
 {
-
 	int compile_result = 0;
 
 	GLuint shader = glCreateShader(shaderType);
@@ -56,14 +56,37 @@ GLuint ShaderLoader::CreateShader(GLenum shaderType, std::string
 GLuint ShaderLoader::CreateProgram(const char* vertexShaderFilename,
 	const char* fragmentShaderFilename)
 {
-
+	GLuint vertex_shader;
+	GLuint fragment_shader;
 	//read the shader files and save the code
-	std::string vertex_shader_code = ReadShader(vertexShaderFilename);
-	std::string fragment_shader_code = ReadShader(fragmentShaderFilename);
-
-	GLuint vertex_shader = CreateShader(GL_VERTEX_SHADER, vertex_shader_code, "vertex shader");
-	GLuint fragment_shader = CreateShader(GL_FRAGMENT_SHADER, fragment_shader_code, "fragment shader");
-
+	if (m_mShaderMap.count(vertexShaderFilename) == 1)
+	{
+		vertex_shader = m_mShaderMap[vertexShaderFilename];
+	}
+	else
+	{
+		std::string vertex_shader_code = ReadShader(vertexShaderFilename);
+		vertex_shader = CreateShader(GL_VERTEX_SHADER, vertex_shader_code, "vertex shader");
+	}
+	if (m_mShaderMap.count(fragmentShaderFilename) == 1)
+	{
+		fragment_shader = m_mShaderMap[fragmentShaderFilename];
+	}
+	else
+	{
+		std::string fragment_shader_code = ReadShader(fragmentShaderFilename);
+		fragment_shader = CreateShader(GL_FRAGMENT_SHADER, fragment_shader_code, "fragment shader");
+	}
+	sProgram temp;
+	temp._kVS = vertexShaderFilename;
+	temp._kFS = fragmentShaderFilename;
+	for (auto it = m_mProgramMap.begin(); it != m_mProgramMap.end(); it++)
+	{
+		if (it->first->_kVS == vertexShaderFilename && it->first->_kFS == fragmentShaderFilename)
+		{
+			return it->second;
+		}
+	}
 	int link_result = 0;
 	//create the program handle, attatch the shaders and link it
 	GLuint program = glCreateProgram();
@@ -83,5 +106,6 @@ GLuint ShaderLoader::CreateProgram(const char* vertexShaderFilename,
 		std::cout << "Shader Loader : LINK ERROR" << std::endl << &program_log[0] << std::endl;
 		return 0;
 	}
+	m_mProgramMap[&temp] = program;
 	return program;
 }

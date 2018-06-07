@@ -48,6 +48,12 @@ public:
 		float fB;
 		float fA;
 	};
+	enum ObjType
+	{
+		TWOD,
+		THREED,
+		MODEL,
+	};
 	
 	static GLuint program;
 	static GLuint CubemapProgram;

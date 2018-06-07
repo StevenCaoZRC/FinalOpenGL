@@ -79,7 +79,7 @@ void CLevel::addLevel()
 	EntranceSpr->init3D("Resources/entrance.png", 0.0, 0.0, 0);
 	ExitSpr->init3D("Resources/exit.png", 0.0, 0.0, 0);
 
-	EndSpr = ExitSpr;		
+	EndSpr = ExitSpr;
 	BackGroundSpr->objPosition = { 0.0f, 0.0f, -200.0f };	//its position in the world space
 	//BackGroundSpr->objScale = { 30.0f, 30.0f, 30.0f };
 	//BackGroundSpr->objScale = { 5.0f,2.5f,1.0f};
@@ -124,9 +124,51 @@ void CLevel::addCubeMap()
 
 void CLevel::addModels()
 {
-	Tank = make_shared<Model>("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
+	std::shared_ptr<CSprite>Model3D = make_shared<CSprite>();
+	Model3D->initModel("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
+	SpritesAdd(Model3D);
+	Model3D->objPosition = { -400.0f, 200.0f, 0.0f };
+	Model3D->objRotate = { 90.0f, 90.0f, 0.0f };
+	Model3D->objScale = { 30.0f, 30.0f, 30.0f };
+
+	std::shared_ptr<CSprite>Model3D3 = make_shared<CSprite>();
+	Model3D3->initModel("Resources/Models/nanosuit/nanosuit.obj", CUtility::modelProgram);
+	SpritesAdd(Model3D3);
+	Model3D3->objPosition = { -400.0f, 100.0f, 0.0f };
+	Model3D3->objRotate = { 90.0f, 90.0f, 0.0f };
+	Model3D3->objScale = { 30.0f, 30.0f, 30.0f };
+
+	std::shared_ptr<CSprite>Model3D4 = make_shared<CSprite>();
+	Model3D4->initModel("Resources/Models/pug/Dog 1.obj", CUtility::modelProgram);
+	SpritesAdd(Model3D4);
+	Model3D4->objPosition = { -400.0f, 50.0f, 0.0f };
+	Model3D4->objRotate = { 90.0f, 90.0f, 0.0f };
+	Model3D4->objScale = { 30.0f, 30.0f, 30.0f };
+
+	std::shared_ptr<CSprite>model3d5 = make_shared<CSprite>();
+	model3d5->initModel("resources/models/pugenemy/Dog1.obj", CUtility::modelProgram);
+	SpritesAdd(model3d5);
+	model3d5->objPosition = { -400.0f, 0.0f, 0.0f };
+	model3d5->objRotate = { 90.0f, 90.0f, 0.0f };
+	model3d5->objScale = { 30.0f, 30.0f, 30.0f };
+
+
+	std::shared_ptr<CSprite>Model3D6 = make_shared<CSprite>();
+	Model3D6->initModel("Resources/Models/justigue league flying vehicle/justigue_league_flying_vehicle.obj", CUtility::modelProgram);
+	SpritesAdd(Model3D6);
+	Model3D6->objPosition = { -400.0f, -100.0f, 0.0f };
+	Model3D6->objRotate = { 90.0f, 90.0f, 0.0f };
+	Model3D6->objScale = { 30.0f, 30.0f, 30.0f };
+
+
+	std::shared_ptr<CSprite>Model3D7 = make_shared<CSprite>();
+	Model3D7->initModel("Resources/Models/Wraith Raider Starship/Wraith Raider Starship.obj", CUtility::modelProgram);
+	SpritesAdd(Model3D7);
+	Model3D7->objPosition = { -400.0f, -100.0f, 0.0f };
+	Model3D7->objRotate = { 90.0f, 90.0f, 0.0f };
+	Model3D7->objScale = { 30.0f, 30.0f, 30.0f };
+
 	
-	//Tank = new Model("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
 }
 
 void CLevel::addEndMenu()
@@ -138,7 +180,7 @@ void CLevel::addEndMenu()
 
 void CLevel::render()
 {
-	Tank->Render({ 0.0f, 50.0f, 0.0f }, { 90.0f,90.0f, 0.0f }, {30.0f,30.0f,30.0f});
+
 	m_cubemap->render();	//calls render function of cubemap
 
 	CScene::render();		//calls scene render which goes through the spritevector and renders everything
