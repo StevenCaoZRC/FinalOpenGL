@@ -1,54 +1,140 @@
-﻿  Utils.cpp
-  TextLabel.cpp
-h:\000 opengl\source - steven zhao\opengltest\textlabel.cpp(61): warning C4838: conversion from 'FT_Pos' to 'GLuint' requires a narrowing conversion
-  ShaderLoader.cpp
-  main.cpp
+﻿  main.cpp
   CubeMap.cpp
   CSprite.cpp
-h:\000 opengl\source - steven zhao\opengltest\csprite.cpp(151): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(228): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(229): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(230): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   CSound.cpp
   CSceneManager.cpp
   CScene.cpp
   CPlayer.cpp
   CLevel.cpp
-c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.11.25503\include\memory(1712): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[22],const unsigned int&,const unsigned int&,int>(const char (&)[22],const unsigned int &,const unsigned int &,int &&)' being compiled
-          with
-          [
-              _Ty=CSprite
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[22],const unsigned int&,const unsigned int&,int>(const char (&)[22],const unsigned int &,const unsigned int &,int &&)' being compiled
-          with
-          [
-              _Ty=CSprite
-          ]
-  h:\000 opengl\source - steven zhao\opengltest\clevel.cpp(153): note: see reference to function template instantiation 'std::shared_ptr<_Ty> std::make_shared<CSprite,const char(&)[22],const unsigned int&,const unsigned int&,int>(const char (&)[22],const unsigned int &,const unsigned int &,int &&)' being compiled
-          with
-          [
-              _Ty=CSprite
-          ]
-c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.11.25503\include\memory(1712): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[21],double,double,int>(const char (&)[21],double &&,double &&,int &&)' being compiled
-          with
-          [
-              _Ty=CSprite
-          ]
-  c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.11.25503\include\memory(1778): note: see reference to function template instantiation 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[21],double,double,int>(const char (&)[21],double &&,double &&,int &&)' being compiled
-          with
-          [
-              _Ty=CSprite
-          ]
-  h:\000 opengl\source - steven zhao\opengltest\clevel.cpp(169): note: see reference to function template instantiation 'std::shared_ptr<_Ty> std::make_shared<CSprite,const char(&)[21],double,double,int>(const char (&)[21],double &&,double &&,int &&)' being compiled
-          with
-          [
-              _Ty=CSprite
-          ]
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(55): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(55): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(55): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(56): error C2039: 'iObjectType': is not a member of 'CPlayer'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cplayer.h(33): note: see declaration of 'CPlayer'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(56): error C2039: 'PLAYER': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(56): error C2065: 'PLAYER': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(72): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(72): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(72): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(73): error C2039: 'iObjectType': is not a member of 'CEnemy'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.h(31): note: see declaration of 'CEnemy'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(73): error C2039: 'ENEMY': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(73): error C2065: 'ENEMY': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(79): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(79): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(79): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(81): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(81): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(81): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(85): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(85): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(85): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(87): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(87): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(87): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(92): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(92): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(92): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(94): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(94): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(94): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(98): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(98): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(98): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(100): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(100): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(100): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(105): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(105): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(105): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(107): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(107): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(107): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(111): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(111): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(111): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(113): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(113): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(113): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(118): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(118): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(118): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(120): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(120): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(120): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(124): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(124): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(124): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(126): error C2065: 'v_CollisionObjects': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(126): error C2228: left of '.push_back' must have class/struct/union
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(126): note: type is 'unknown-type'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(215): error C2065: 'v_CollisionObjects': undeclared identifier
   CInterface.cpp
   CGameMech.cpp
   CEnemy.cpp
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(31): error C2661: 'CSprite::CSprite': no overloaded function takes 4 arguments
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(292): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(292): error C2039: 'IMOBIL_WALL': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(292): error C2065: 'IMOBIL_WALL': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(295): error C2039: 'fRadius': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(296): error C2039: 'fRadius': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(297): error C2039: 'fRadius': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(386): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(386): error C2039: 'ENEMY': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(386): error C2065: 'ENEMY': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(388): error C2039: 'fRadius': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(388): error C2065: 'fRadius': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(421): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(421): error C2039: 'ENEMY': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(421): error C2065: 'ENEMY': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(456): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(456): error C2039: 'ENEMY': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(456): error C2065: 'ENEMY': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(456): error C2039: 'PLAYER': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(456): error C2065: 'PLAYER': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(465): error C2039: 'iObjectType': is not a member of 'CSprite'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.h(35): note: see declaration of 'CSprite'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(465): error C2039: 'ENEMY': is not a member of 'CUtility'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\utils.h(25): note: see declaration of 'CUtility'
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(465): error C2065: 'ENEMY': undeclared identifier
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(471): error C2039: 'new_movement': is not a member of 'CPlayer'
+  d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.h(30): note: see declaration of 'CPlayer'
   CControls.cpp
-  CCollisionManager.cpp
   CCamera.cpp
   Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  OpenGLTest.vcxproj -> H:\000 OPENGL\Source - Steven Zhao\Debug\OpenGLTest.exe
