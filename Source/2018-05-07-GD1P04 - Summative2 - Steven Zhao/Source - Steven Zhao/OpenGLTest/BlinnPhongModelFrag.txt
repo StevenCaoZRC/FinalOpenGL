@@ -17,7 +17,7 @@ uniform vec3 camPos = vec3(1.0f,1.0f,1.0f);
 uniform float shininess = 64.0f;
 uniform sampler2D texture_diffuse1;
 
-void main(void) {
+void main() {
 	
 	//Ambient lightning
 	vec3 ambient = ambientStr * ambientColor;
