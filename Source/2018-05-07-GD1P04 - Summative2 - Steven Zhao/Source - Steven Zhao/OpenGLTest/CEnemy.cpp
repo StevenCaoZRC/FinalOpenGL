@@ -320,7 +320,9 @@ glm::vec3 CEnemy::AIObstacleAvoid(std::vector<std::shared_ptr<CSprite>>* _Collis
 			}
 		}
 	}
+	std::cout << AvoidanceVector.x << ":|:" << AvoidanceVector.y << ":|:" << AvoidanceVector.z << std::endl;
 	return (AvoidanceVector);
+
 }
 
 glm::vec3 CEnemy::AIFLocking(CPlayer & _player)

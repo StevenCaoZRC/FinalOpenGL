@@ -80,7 +80,7 @@ void CLevel::addEnemy()
 	ObstacleSpr->objScale = { 3.0f,3.0f,3.0f };
 	SpritesAdd(ObstacleSpr);											
 	ObstacleSpr->iObjectMechanicsType = CUtility::IMOBIL_WALL;
-	v_CollisionObjects.push_back(SlimeSpr);
+	v_CollisionObjects.push_back(ObstacleSpr);
 }
 
 void CLevel::addLevel()
