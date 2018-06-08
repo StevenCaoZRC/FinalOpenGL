@@ -181,10 +181,16 @@
     <Text Include="ModelVertShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="PhongFragShader.txt">
+    <Text Include="BlinnPhongFragShader.txt">
       <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
-    <Text Include="PhongVertShader.txt">
+    <Text Include="BlinnPhongModelFrag.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="BlinnPhongModelVert.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
+    </Text>
+    <Text Include="BlinnPhongVertShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
   </ItemGroup>

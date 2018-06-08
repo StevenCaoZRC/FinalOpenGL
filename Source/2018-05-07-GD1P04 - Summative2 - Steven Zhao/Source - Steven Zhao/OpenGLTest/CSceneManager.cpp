@@ -95,8 +95,8 @@ void CSceneManager::init()
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
 	CUtility::modelProgram = shaderloader.CreateProgram("ModelVertShader.txt", "ModelFragShader.txt");
 	CUtility::CubemapProgram = shaderloader.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
-	CUtility::PhongLightProgram = shaderloader.CreateProgram("PhongVertShader.txt", "PhongFragShader.txt");
-
+	CUtility::BlinnPhongProgram = shaderloader.CreateProgram("BlinnPhongVertShader.txt", "BlinnPhongFragShader.txt");
+	CUtility::BPModelProgram = shaderloader.CreateProgram("BlinnPhongModelVert.txt", "BlinnPhongModelFrag.txt");
 
 	//---------------|Level Scenes Stuff|---------------//
 	//Gets the initial values of the controls

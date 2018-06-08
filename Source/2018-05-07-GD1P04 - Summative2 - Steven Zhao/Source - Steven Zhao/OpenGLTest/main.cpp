@@ -88,7 +88,7 @@ void render()
 	finalTime = time(NULL);
 	if (finalTime - initialTime > 0)
 	{
-		cout << "FPS: " << frameCount / (finalTime - initialTime) << endl;
+		//cout << "FPS: " << frameCount / (finalTime - initialTime) << endl;
 		CInterface::GetInstance()->FPSCounter.SetText("FPS: " + std::to_string(frameCount / (finalTime - initialTime)));
 		frameCount = 0;
 		initialTime = finalTime;

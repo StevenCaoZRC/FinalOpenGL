@@ -20,7 +20,8 @@
 GLuint CUtility::program;
 GLuint CUtility::CubemapProgram;
 GLuint CUtility::modelProgram;
-GLuint CUtility::PhongLightProgram;
+GLuint CUtility::BlinnPhongProgram;
+GLuint CUtility::BPModelProgram;
 CUtility::CUtility()
 {
 

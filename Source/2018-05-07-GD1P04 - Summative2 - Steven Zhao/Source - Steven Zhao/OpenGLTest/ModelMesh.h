@@ -71,11 +71,19 @@ public:
 			glBindTexture(GL_TEXTURE_2D, this->textures[i].id);
 		}
 		
-		glm::mat4 model;
+		//glm::mat4 model;
 		glm::mat4 mvp = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
 		GLint mvpLoc = glGetUniformLocation(program, "MVP");
 		glUniformMatrix4fv(mvpLoc, 1, GL_FALSE, glm::value_ptr(mvp));
 
+		glm::mat4 m_m4Translate = glm::translate(glm::mat4(), objPosition);
+		glm::mat4 m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(objRotate.x), glm::vec3(1.0f, 0.0f, 0.0f)); //x
+		m_m4Rotate = glm::rotate(m_m4Rotate, glm::radians(objRotate.y), glm::vec3(0.0f, 1.0f, 0.0f)); //y
+		m_m4Rotate = glm::rotate(m_m4Rotate, glm::radians(objRotate.z), glm::vec3(0.0f, 0.0f, 1.0f)); //Z
+		glm::mat4 m_m4Scale = glm::scale(glm::mat4(), objScale);
+		//Model Matrix
+		glm::mat4 m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
+		glUniformMatrix4fv(glGetUniformLocation(program, "normalMatrix"), 1, GL_FALSE, glm::value_ptr(m_m4Model));
 		// Draw mesh
 		glBindVertexArray(this->VAO);
 		glDrawElements(GL_TRIANGLES, this->indices.size(), GL_UNSIGNED_INT, 0);
