@@ -54,15 +54,15 @@ void CScene::render()
 	{
 		if (it->m_iObjType == CUtility::TWOD)
 		{
-			it->render(CUtility::PhongLightProgram);
+			it->render(CUtility::BlinnPhongProgram);
 		}
 		else if (it->m_iObjType == CUtility::THREED)
 		{
-			it->render3D(CUtility::PhongLightProgram);
+			it->render3D(CUtility::BlinnPhongProgram);
 		}
 		else if (it->m_iObjType == CUtility::MODEL)
 		{
-			it->renderModel(CUtility::PhongLightProgram);
+			it->renderModel();
 		}
 	}
 }

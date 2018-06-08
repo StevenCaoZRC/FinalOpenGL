@@ -61,6 +61,7 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 
 		HalfWidth = nWidth / 2;
 		HalfHeight = nHeight / 2;
+		fRadius = (HalfWidth + HalfHeight) / 2.0f;
 	}
 
 	//This switch will decide either a cube or a sphere will be loaded depending on the parameter of iShape passed in 
@@ -440,7 +441,7 @@ void CSprite::initModel(std::string path, GLuint program)
 	m_iObjType = CUtility::MODEL;
 }
 
-void CSprite::renderModel(GLuint _program)
+void CSprite::renderModel()
 {
 	m_3DModel->Render(objPosition, objRotate, objScale);
 }

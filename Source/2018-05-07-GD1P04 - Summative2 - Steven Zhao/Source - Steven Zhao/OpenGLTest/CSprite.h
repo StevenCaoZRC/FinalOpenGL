@@ -54,7 +54,7 @@ public:
 	void init2D(const char * _fileName, float fWidth, float fHeight);
 	virtual void render(GLuint _program);
 	void initModel(std::string path, GLuint program);
-	virtual void renderModel(GLuint _program);
+	virtual void renderModel();
 
 	virtual void CSprite::update();
 	virtual void CSprite::LookAt(glm::vec3 _pos);
@@ -80,7 +80,7 @@ public:
 	//GLuint tex1;
 	//GLuint tex2;
 
-	int iObjectType;
+	int iObjectMechanicsType;
 	void ScaleSprite(float _scale);
 
 	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };

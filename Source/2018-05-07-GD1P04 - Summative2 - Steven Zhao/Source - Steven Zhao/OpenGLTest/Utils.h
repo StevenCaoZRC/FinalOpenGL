@@ -58,7 +58,8 @@ public:
 	static GLuint program;
 	static GLuint CubemapProgram;
 	static GLuint modelProgram;
-	static GLuint PhongLightProgram;
+	static GLuint BlinnPhongProgram;
+	static GLuint BPModelProgram;
 	enum SpriteType
 	{
 		ENEMY = 0,

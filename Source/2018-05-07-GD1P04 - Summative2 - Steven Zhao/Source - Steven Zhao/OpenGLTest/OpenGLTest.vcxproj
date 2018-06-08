@@ -178,6 +178,10 @@
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="BlinnPhongFragShader.txt" />
+    <Text Include="BlinnPhongModelFrag.txt" />
+    <Text Include="BlinnPhongModelVert.txt" />
+    <Text Include="BlinnPhongVertShader.txt" />
     <Text Include="CubeMapFrag.txt" />
     <Text Include="CubeMapVer.txt" />
     <Text Include="FragmentShader.txt" />
@@ -185,8 +189,6 @@
     <Text Include="LightVertexShader.txt" />
     <Text Include="ModelFragShader.txt" />
     <Text Include="ModelVertShader.txt" />
-    <Text Include="PhongFragShader.txt" />
-    <Text Include="PhongVertShader.txt" />
     <Text Include="TextFragment.txt" />
     <Text Include="TextVertex.txt" />
     <Text Include="VertexShader.txt" />

@@ -45,10 +45,10 @@ void CEnemy::init(float _fMoveSpeed, float _fJumpHeight)
 	m_vCurVelocity = { 0.0f, 0.0f, 0.0f };
 	m_iWanderTimer = 0;
 	m_fWanderAngle = 0.0f;
-	m_vPoints.push_back(glm::vec3(50.0f, 50.0f, 0.0f));
-	m_vPoints.push_back(glm::vec3(-50.0f, 50.0f, 0.0f));
-	m_vPoints.push_back(glm::vec3(-50.0f, -50.0f, 0.0f));
-	m_vPoints.push_back(glm::vec3(50.0f, -50.0f, 0.0f));
+	m_vPoints.push_back(glm::vec3(450.0f, 200.0f, 0.0f));
+	m_vPoints.push_back(glm::vec3(-450.0f, 200.0f, 0.0f));
+	m_vPoints.push_back(glm::vec3(-450.0f, -200.0f, 0.0f));
+	m_vPoints.push_back(glm::vec3(450.0f, -200.0f, 0.0f));
 	m_vPoints.push_back(glm::vec3(0.0f, 0.0f, 0.0f));
 	m_iPointsReached = 0;
 }
@@ -291,7 +291,7 @@ glm::vec3 CEnemy::AIObstacleAvoid(std::vector<std::shared_ptr<CSprite>>* _Collis
 	{
 		for (auto it1 : *_CollisionObjects)
 		{
-			if (it1->iObjectType == CUtility::IMOBIL_WALL)
+			if (it1->iObjectMechanicsType == CUtility::IMOBIL_WALL)
 			{
 				if (FindMagnitude(SeeAhead - it1->objPosition) <= it1->fRadius
 					|| FindMagnitude(SeeAheadHalf - it1->objPosition) <= it1->fRadius
@@ -385,9 +385,9 @@ glm::vec3 CEnemy::AIseperation(std::vector<std::shared_ptr<CSprite>>* _Collision
 	{
 		for (auto it1 : *_CollisionObjects)
 		{
-			if (it1->iObjectType == CUtility::ENEMY)
+			if (it1->iObjectMechanicsType == CUtility::ENEMY)
 			{
-				if (FindMagnitude(objPosition - it1->objPosition) <= _seperatDistance //+ _seperatDistance
+				if (FindMagnitude(objPosition - it1->objPosition) <= this->fRadius + it1->fRadius  + _seperatDistance //+ _seperatDistance
 					&& this != it1.get())
 				{
 					if (FindMagnitude(objPosition - it1->objPosition) > 0.0005f)
@@ -420,7 +420,7 @@ glm::vec3 CEnemy::AICohesion(std::vector<std::shared_ptr<CSprite>>* _CollisionOb
 	{
 		for (auto it1 : *_CollisionObjects)
 		{
-			if (it1->iObjectType == CUtility::ENEMY)
+			if (it1->iObjectMechanicsType == CUtility::ENEMY)
 			{
 				if (FindMagnitude(objPosition - it1->objPosition) <= _cohesionDistance
 					&& this != it1.get())
@@ -455,7 +455,7 @@ glm::vec3 CEnemy::AIAlignment(std::vector<std::shared_ptr<CSprite>>* _CollisionO
 	{
 		for (auto it1 : *_CollisionObjects)
 		{
-			if (it1->iObjectType == CUtility::ENEMY || it1->iObjectType == CUtility::PLAYER)
+			if (it1->iObjectMechanicsType == CUtility::ENEMY || it1->iObjectMechanicsType == CUtility::PLAYER)
 			{
 				if (FindMagnitude(objPosition - it1->objPosition) <= _alignDistance
 					&& this != it1.get())
@@ -464,7 +464,7 @@ glm::vec3 CEnemy::AIAlignment(std::vector<std::shared_ptr<CSprite>>* _CollisionO
 					{
 						shared_ptr<CEnemy> myEnemy;
 						glm::vec3 temp;
-						if (it1->iObjectType == CUtility::ENEMY)
+						if (it1->iObjectMechanicsType == CUtility::ENEMY)
 						{
 							temp = dynamic_pointer_cast<CEnemy>(it1)->new_movement;
 						}
@@ -494,9 +494,9 @@ glm::vec3 CEnemy::AIAlignment(std::vector<std::shared_ptr<CSprite>>* _CollisionO
 void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects)
 {
 	//m_vCurVelocity = glm::vec3(0.0f, 0.0f, 0.0f);
-	//new_movement += AISeek(_player.objPosition);
+	new_movement += AISeek(_player.objPosition);
 	new_movement += AIObstacleAvoid(_CollisionObjects) * 50.0f;
-	//new_movement += AIseperation(_CollisionObjects, 1.0f);
+	new_movement += AIseperation(_CollisionObjects, 1.0f) * 5.0f;
 	//new_movement += AICohesion(_CollisionObjects, 50.0f) * 0.5f;
 	//new_movement += AIAlignment(_CollisionObjects, 50.0f);
 	//new_movement += AIPathFollow(&m_vPoints, 30.0f) * 10.0f;

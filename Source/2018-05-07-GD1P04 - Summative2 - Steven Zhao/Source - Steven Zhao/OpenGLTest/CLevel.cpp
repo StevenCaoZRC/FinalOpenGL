@@ -49,12 +49,13 @@ void CLevel::addPlayer()
 {
 	//Creating Player
 	CharacterSpr = make_shared<CPlayer>();
-	CharacterSpr->initModel("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
+	CharacterSpr->initModel("Resources/Models/Tank/Tank.obj", CUtility::BPModelProgram);
 	CharacterSpr->init(5.0f, 10.0f);	//Sets Move speed and jumpheight
 	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };	//sets the players spawning locatin
 	CharacterSpr->objScale = { 10.0f, 10.0f, 10.0f };	//sets their scale
 	CharacterSpr->objRotate = { 90.0f, 90.0f, 0.0f };
 	SpritesAdd(CharacterSpr);							//Adds to the spr vector
+	CharacterSpr->iObjectMechanicsType = CUtility::PLAYER;
 }
 
 
@@ -69,14 +70,16 @@ void CLevel::addEnemy()
 		SlimeSpr->objPosition = { 0.0f, 0.0f + (10.0f* i),0.0f }; //Sets the enemy position
 		SpritesAdd(SlimeSpr);							//Adds to Sprite vector
 		v_CollisionObjects.push_back(SlimeSpr);					//Adds to enemy vector to keep track of enemies
-		SlimeSpr->m_iObjType = CUtility::ENEMY;
+		v_Enemies.push_back(SlimeSpr);
+		SlimeSpr->iObjectMechanicsType = CUtility::ENEMY;
 	}
 	std::shared_ptr<CSprite>ObstacleSpr;
 	ObstacleSpr = make_shared<CSprite>();
-	ObstacleSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);				//Sets Move speed and jumpheight
-	ObstacleSpr->objPosition = { 100.0f, 100.0f,0.0f }; //Sets the enemy position
-	SpritesAdd(ObstacleSpr);							//Adds to Sprite vector				//Adds to enemy vector to keep track of enemies
-	ObstacleSpr->m_iObjType = CUtility::IMOBIL_WALL;
+	ObstacleSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);	
+	ObstacleSpr->objPosition = { 100.0f, 100.0f,0.0f };				
+	ObstacleSpr->objScale = { 3.0f,3.0f,3.0f };
+	SpritesAdd(ObstacleSpr);											
+	ObstacleSpr->iObjectMechanicsType = CUtility::IMOBIL_WALL;
 	v_CollisionObjects.push_back(SlimeSpr);
 }
 
