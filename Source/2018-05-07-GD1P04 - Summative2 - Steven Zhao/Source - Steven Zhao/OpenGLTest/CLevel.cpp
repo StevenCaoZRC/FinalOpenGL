@@ -124,7 +124,7 @@ void CLevel::addCubeMap()
 
 void CLevel::addModels()
 {
-	Tank = make_shared<Model>("Resources/Models/Tank/Tank.mtl", CUtility::modelProgram);
+	Tank = make_shared<Model>("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
 	
 	//Tank = new Model("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
 }

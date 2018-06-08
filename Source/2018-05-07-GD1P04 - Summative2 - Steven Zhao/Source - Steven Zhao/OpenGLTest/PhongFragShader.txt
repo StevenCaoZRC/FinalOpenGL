@@ -1,7 +1,8 @@
 #version 450 core
 
 in vec2 fragTexCoord;
-in vec3 fragPo3
+in vec3 fragPos;
+in vec3 fragNormal;
 
 out vec4 color;
 
@@ -13,7 +14,7 @@ uniform vec3 lightPos = vec3(5.0f, 5.0f, 0.5f);
 uniform float lightSpecStr = 1.0f;
 uniform vec3 camPos = vec3(1.0f,1.0f,1.0f);
 uniform float shininess = 32.0f;
-
+uniform sampler2D tex;
 
 void main() {
 	
@@ -30,7 +31,7 @@ void main() {
 
 	//Specular Highlight
 	vec3 negViewDir = normalize(camPos - fragPos);
-	vec3 reflectDir = reflect(lightDir);
+	vec3 reflectDir = reflect(lightDir, norm);
 	float spec = pow(max(dot(negViewDir, reflectDir), 0.0f), shininess);
 	vec3 specular = lightSpecStr * spec * lightColor;
 

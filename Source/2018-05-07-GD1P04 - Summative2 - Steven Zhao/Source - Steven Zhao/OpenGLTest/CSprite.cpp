@@ -492,8 +492,6 @@ void CSprite::render3D(GLuint program)
 	
 }
 
-
-
 void CSprite::addFrame(const char* _filename)
 {
 	GLuint tex;
