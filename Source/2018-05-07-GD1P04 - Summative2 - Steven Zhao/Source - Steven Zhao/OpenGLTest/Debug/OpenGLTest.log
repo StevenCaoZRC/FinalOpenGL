@@ -1,1 +1,7 @@
-﻿  OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe
+﻿  CSprite.cpp
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(228): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(229): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\csprite.cpp(230): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe

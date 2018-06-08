@@ -56,7 +56,6 @@ public:
 	void update(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects);
 	bool bIsAlive = true;
 	bool bIsGoingRight = true;
-	float FindMagnitude(glm::vec3 _v3);
 	glm::vec3 new_movement;
 
 	float m_fSteeringRatio = 9.0f;

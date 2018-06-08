@@ -66,6 +66,7 @@ int main(int argc, char **argv)
 	glutDisplayFunc(render);
 	glutTimerFunc(1000/FPS, Update,0);
 	glutCloseFunc(exit);
+
 	glutMainLoop();
 
 	

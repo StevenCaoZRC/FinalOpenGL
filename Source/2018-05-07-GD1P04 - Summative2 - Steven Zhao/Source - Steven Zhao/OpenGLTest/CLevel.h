@@ -58,9 +58,11 @@ class CLevel : public CScene
 			std::shared_ptr<CSprite>EndSpr;
 			std::vector<std::shared_ptr<CSprite>> v_CollisionObjects;
 			int nScore = 0;
+			glm::vec3 MousePointPos;
         private:
 			std::shared_ptr<Model> Tank;
 			CCubeMap * m_cubemap;
+			glm::vec3 normal = glm::vec3(0.0f, 0.0f, 1.0f);
 };
 
 #endif // _CLEVEL_H__

@@ -38,17 +38,13 @@ class CCamera
 			//---------------| Getting MVP Matrices for 2D|---------------//
 			glm::mat4 SetMVP(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation, glm::vec3 v3_SetScale);
 		
-			glm::vec3 m_v3CameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+			glm::vec3 m_v3CameraPos = glm::vec3(0.0f, 0.0f, 400.0f);
 			glm::vec3 m_v3CameraForward = glm::vec3(0.0f, 0.0f, -1.0f);
 			glm::vec3 m_v3CameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 			//---------------| Getting MVP Matrices for 3D|---------------//
 			glm::mat4 SetMVP3D(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation, glm::vec3 v3_SetScale);
 			
-			GLfloat m_v3CamX = 0.0f;
-			GLfloat m_v3CamHeight = 0.0f;
-			GLfloat m_v3CamZ = 450.0f;
-        private:
 			static CCamera* m_pCamera;
 			CCamera();
 			~CCamera();

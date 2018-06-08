@@ -514,11 +514,3 @@ void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _
 	}
 	objPosition += m_vCurVelocity;
 }
-
-
-
-float CEnemy::FindMagnitude(glm::vec3 _v3)
-{
-	float vFinalMag = sqrtf(powf(_v3.x, 2) + powf(_v3.y, 2) + powf(_v3.z, 2));
-	return vFinalMag;
-}

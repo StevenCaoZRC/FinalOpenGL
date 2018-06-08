@@ -47,12 +47,20 @@ public:
 	static void InitKeyUp(unsigned char cKey, int nX, int nY);
 	void KeyDown(unsigned char cKey, int nX, int nY);
 	void KeyUp(unsigned char cKey, int nX, int nY);
+	static void MousePosPassive(int x, int y);
+	void MousePosUpdate(int x, int y);
 	
 
 	void Mouse(int nButton, int nGlutState, int nX, int nY);
 
-	
-private:
+
+	float mouseX;
+	float mouseY;
+	float mouseZ;
+	glm::vec3 ray_nds;
+	glm::vec4 ray_clip;
+	glm::vec4 ray_eye;
+	glm::vec3 ray_world;
 	CControls();
 	~CControls();
 	static CControls* m_pControls;

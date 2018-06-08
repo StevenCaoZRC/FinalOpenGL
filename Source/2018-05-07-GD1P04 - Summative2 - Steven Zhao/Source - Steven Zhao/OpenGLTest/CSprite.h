@@ -57,6 +57,8 @@ public:
 	virtual void renderModel(GLuint _program);
 
 	virtual void CSprite::update();
+	virtual void CSprite::LookAt(glm::vec3 _pos);
+	virtual float FindMagnitude(glm::vec3 _v3);
 
 	void addFrame(const char* _filename);
 	std::vector<GLuint> ImgArray;

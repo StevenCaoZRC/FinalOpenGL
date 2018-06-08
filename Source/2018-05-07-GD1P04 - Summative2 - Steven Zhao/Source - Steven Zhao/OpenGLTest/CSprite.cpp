@@ -450,6 +450,40 @@ void CSprite::update()
 
 }
 
+void CSprite::LookAt(glm::vec3 _pos)
+{
+	float fPI = 3.1415926f;
+	float theta;
+	glm::vec3 up = { 0.0f,1.0f,0.0f };
+	glm::vec3 direction = _pos - objPosition;
+	direction = direction / FindMagnitude(direction);
+	theta = dot(up, direction);
+	theta = acosf(theta);
+	theta = theta * 180.0f / fPI;
+	if (_pos.x < objPosition.x && _pos.x != objPosition.x)
+	{
+		objRotate.y = theta;
+	}
+	else if(_pos.x > objPosition.x && _pos.x != objPosition.x)
+	{
+		objRotate.y = 360.0f - theta;
+	}
+	if (_pos.x == objPosition.x && _pos.y < objPosition.y)
+	{
+		objRotate.y = 0.0f;
+	}
+	else if (_pos.x == objPosition.x && _pos.y > objPosition.y)
+	{
+		objRotate.y = 180.0f;
+	}
+}
+
+float CSprite::FindMagnitude(glm::vec3 _v3)
+{
+	float vFinalMag = sqrtf(powf(_v3.x, 2) + powf(_v3.y, 2) + powf(_v3.z, 2));
+	return vFinalMag;
+}
+
 void CSprite::render3D(GLuint _program)
 {
 	//Depending what iShape was passed in, it will decide what render function will be used
@@ -495,7 +529,6 @@ void CSprite::render3D(GLuint _program)
 		glUniform1i(glGetUniformLocation(_program, "tex"), 0);
 
 		glBindVertexArray(vao);			  // Bind VAO
-
 										  //------3D MVP------//
 		glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
 		GLint MVPLoc = glGetUniformLocation(_program, "MVP");

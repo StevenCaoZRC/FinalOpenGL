@@ -24,6 +24,7 @@
 // This Includes //
 #include "CLevel.h"
 #include "Utils.h"
+#include <glm\gtx\string_cast.hpp>
 
 // Static Variables //
 
@@ -48,11 +49,11 @@ void CLevel::addPlayer()
 {
 	//Creating Player
 	CharacterSpr = make_shared<CPlayer>();
-	CharacterSpr->init3D("Resources/player_character/character_idle_1.png", 0.0f, 0.0f, 1);
+	CharacterSpr->initModel("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
 	CharacterSpr->init(5.0f, 10.0f);	//Sets Move speed and jumpheight
-	CharacterSpr->addFrame("Resources/player_character/character_jump_0.png"); //addes first frame of the jump animation
 	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };	//sets the players spawning locatin
-	CharacterSpr->objScale = { 30.0f, 30.0f, 10.0f };	//sets their scale
+	CharacterSpr->objScale = { 10.0f, 10.0f, 10.0f };	//sets their scale
+	CharacterSpr->objRotate = { 90.0f, 90.0f, 0.0f };
 	SpritesAdd(CharacterSpr);							//Adds to the spr vector
 }
 
@@ -168,6 +169,22 @@ void CLevel::render()
 
 void CLevel::update()
 {
+	float fDotProduct = glm::dot(CControls::GetInstance()->ray_world, normal);
+	float fDistance;
+	if (fDotProduct == 0)
+	{
+		MousePointPos = glm::vec3(0.0f, 0.0f, 0.0f);
+	}
+	else
+	{
+		fDistance = -(glm::dot(CCamera::GetInstance()->m_v3CameraPos, normal) / glm::dot(CControls::GetInstance()->ray_world, normal));
+		MousePointPos = CCamera::GetInstance()->m_v3CameraPos + (fDistance * CControls::GetInstance()->ray_world);
+	}
+	
+	if (CharacterSpr != nullptr)
+	{
+		CharacterSpr->LookAt(MousePointPos);
+	}
 	CScene::update();
 
 	for (auto it : v_Enemies)

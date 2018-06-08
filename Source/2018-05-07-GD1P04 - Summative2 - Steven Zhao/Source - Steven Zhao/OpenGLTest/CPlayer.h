@@ -45,6 +45,7 @@ public:
 	void update();
 	bool bIsPlayerAlive = true;
 	glm::vec3 new_movement;
+
 };
 
 #endif // _CPLAYER_H__
