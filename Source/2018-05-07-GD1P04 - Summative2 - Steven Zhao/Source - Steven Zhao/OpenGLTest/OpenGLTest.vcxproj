@@ -185,6 +185,8 @@
     <Text Include="LightVertexShader.txt" />
     <Text Include="ModelFragShader.txt" />
     <Text Include="ModelVertShader.txt" />
+    <Text Include="PhongFragShader.txt" />
+    <Text Include="PhongVertShader.txt" />
     <Text Include="TextFragment.txt" />
     <Text Include="TextVertex.txt" />
     <Text Include="VertexShader.txt" />

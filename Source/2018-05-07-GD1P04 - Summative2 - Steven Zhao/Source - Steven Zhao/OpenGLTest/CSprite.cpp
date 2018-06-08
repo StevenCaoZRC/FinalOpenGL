@@ -71,42 +71,42 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 		//-----------------------Going 3D-----------------------//
 		GLfloat cubeVertices[] =
 		{
-			// Positions         // Colour       // Tex Coords
-			// Front Face
-			-HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f, // 0
-			HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f,	// 1
-			HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f,	// 2
-			-HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f, // 3
+				// Positions         // Colour       // Tex Coords
+				// Front Face
+				-HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 0.0f, // 0
+				HalfWidth,  HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 0.0f,	// 1
+				HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  1.0f, 1.0f,	// 2
+				-HalfWidth, -HalfHeight,  1.0f,  0.0f, 0.0f, 1.0f,  0.0f, 1.0f, // 3
 
-																			// Right Face
-																			HalfWidth,  HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
-																			HalfWidth,  HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
-																			HalfWidth, -HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
-																			HalfWidth, -HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
+				// Right Face
+				HalfWidth,  HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 4
+				HalfWidth,  HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 5
+				HalfWidth, -HalfHeight, -1.0f,  1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 6
+				HalfWidth, -HalfHeight,  1.0f,  1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 7
 
-																																		  // Back Face
-																																		  HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,	// 8
-																																		  -HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
-																																		  -HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
-																																		  HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f,	// 11
+				// Back Face
+				HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 0.0f,	// 8
+				-HalfWidth,  HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 0.0f, // 9
+				-HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 1.0f, 1.0f, // 10
+				HalfWidth, -HalfHeight, -1.0f,  0.0f, 0.0f, -1.0f, 0.0f, 1.0f,	// 11
 
-																																																			// Left Face
-																																																			-HalfWidth,  HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
-																																																			-HalfWidth,  HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
-																																																			-HalfWidth, -HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
-																																																			-HalfWidth, -HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
+				// Left Face
+				-HalfWidth,  HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 12
+				-HalfWidth,  HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 0.0f, // 13
+				-HalfWidth, -HalfHeight,  1.0f,  -1.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 14
+				-HalfWidth, -HalfHeight, -1.0f,  -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, // 15
 
-																																																																			// Top Face
-																																																																			-HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
-																																																																			HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
-																																																																			HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
-																																																																			-HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
+				// Top Face
+				-HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 0.0f, // 16
+				HalfWidth,  HalfHeight, -1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, // 17
+				HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 1.0f, 1.0f, // 18
+				-HalfWidth,  HalfHeight,  1.0f,  0.0f, 1.0f, 0.0f, 0.0f, 1.0f, // 19
 
-																																																																																		   // Bottom Face
-																																																																																		   -HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
-																																																																																		   HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
-																																																																																		   HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
-																																																																																		   -HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
+				// Bottom Face
+				-HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 0.0f, // 20
+				HalfWidth, -HalfHeight,  1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 0.0f, // 21
+				HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 1.0f, 1.0f, // 22
+				-HalfWidth, -HalfHeight, -1.0f,  0.0f, -1.0f, 0.0f, 0.0f, 1.0f, // 23
 		};
 
 		//GLfloat cubeVertices[] = {
@@ -411,24 +411,23 @@ void CSprite::init2D(const char * _fileName, float fWidth, float fHeight)
 		glEnableVertexAttribArray(2);
 }
 
-void CSprite::render()
+void CSprite::render(GLuint _program)
 {
-	glUseProgram(CUtility::program);
+	glUseProgram(_program);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	// Activating the texture and binding it
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, textures[iCurrentFrame]);
-	glUniform1i(glGetUniformLocation(CUtility::program, "tex"), 0);
+	glUniform1i(glGetUniformLocation(_program, "tex"), 0);
 
 	glBindVertexArray(vao);			  // Bind VAO
 	
 	//------3D MVP------//
 	glm::mat4 MVP = CCamera::GetInstance()->SetMVP(objPosition,objRotate,objScale);
-	GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
+	GLint MVPLoc = glGetUniformLocation(_program, "MVP");
 	glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
-
-
+	
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 	glBindVertexArray(0);			  // Unbind VAO
@@ -441,7 +440,7 @@ void CSprite::initModel(std::string path, GLuint program)
 	m_iObjType = CUtility::MODEL;
 }
 
-void CSprite::renderModel()
+void CSprite::renderModel(GLuint _program)
 {
 	m_3DModel->Render(objPosition, objRotate, objScale);
 }
@@ -451,27 +450,34 @@ void CSprite::update()
 
 }
 
-void CSprite::render3D()
+void CSprite::render3D(GLuint _program)
 {
 	//Depending what iShape was passed in, it will decide what render function will be used
 	switch (m_iShape)
 	{
 	case 0:
 	{
-		glUseProgram(CUtility::program);
+		glUseProgram(_program);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		// Activating the texture and binding it
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, textures[iCurrentFrame]);
-		glUniform1i(glGetUniformLocation(CUtility::program, "tex"), 0);
+		glUniform1i(glGetUniformLocation(_program, "tex"), 0);
 
 		glBindVertexArray(vao);			  // Bind VAO
 
 										  //------3D MVP------//
 		glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
-		GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
+		GLint MVPLoc = glGetUniformLocation(_program, "MVP");
 		glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
+
+		glm::mat4 m_m4Translate = glm::translate(glm::mat4(), objPosition);
+		glm::mat4 m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(objRotate.z), glm::vec3(0, 0, 1)); //Z
+		glm::mat4 m_m4Scale = glm::scale(glm::mat4(), objScale);
+		//Model Matrix
+		glm::mat4 m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
+		glUniformMatrix4fv(glGetUniformLocation(_program, "normalMatrix"), 1, GL_FALSE, glm::value_ptr(m_m4Model));
 
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
@@ -480,20 +486,27 @@ void CSprite::render3D()
 	}
 	case 1:
 	{
-		glUseProgram(CUtility::program);
+		glUseProgram(_program);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		// Activating the texture and binding it
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, tex);
-		glUniform1i(glGetUniformLocation(CUtility::program, "tex"), 0);
+		glUniform1i(glGetUniformLocation(_program, "tex"), 0);
 
 		glBindVertexArray(vao);			  // Bind VAO
 
 										  //------3D MVP------//
 		glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
-		GLint MVPLoc = glGetUniformLocation(CUtility::program, "MVP");
+		GLint MVPLoc = glGetUniformLocation(_program, "MVP");
 		glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
+
+		glm::mat4 m_m4Translate = glm::translate(glm::mat4(), objPosition);
+		glm::mat4 m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(objRotate.z), glm::vec3(0, 0, 1)); //Z
+		glm::mat4 m_m4Scale = glm::scale(glm::mat4(), objScale);
+		//Model Matrix
+		glm::mat4 m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
+		glUniformMatrix4fv(glGetUniformLocation(_program, "normalMatrix"), 1, GL_FALSE, glm::value_ptr(m_m4Model));
 
 		glDrawElements(GL_TRIANGLES, IndiceCount, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);			  // Unbind VAO

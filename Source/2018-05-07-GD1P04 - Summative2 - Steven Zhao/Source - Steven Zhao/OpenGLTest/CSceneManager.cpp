@@ -95,7 +95,7 @@ void CSceneManager::init()
 	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
 	CUtility::modelProgram = shaderloader.CreateProgram("ModelVertShader.txt", "ModelFragShader.txt");
 	CUtility::CubemapProgram = shaderloader.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
-	
+	CUtility::PhongLightProgram = shaderloader.CreateProgram("PhongVertShader.txt", "PhongFragShader.txt");
 
 
 	//---------------|Level Scenes Stuff|---------------//

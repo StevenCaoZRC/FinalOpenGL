@@ -49,12 +49,12 @@ public:
 	~CSprite();
 	//3D
 	void init3D(const char* _fileName, float fWidth, float fHeight, int iShape);
-	virtual void render3D();
+	virtual void render3D(GLuint _program);
 	//2D
 	void init2D(const char * _fileName, float fWidth, float fHeight);
-	virtual void render();
+	virtual void render(GLuint _program);
 	void initModel(std::string path, GLuint program);
-	virtual void renderModel();
+	virtual void renderModel(GLuint _program);
 
 	virtual void CSprite::update();
 

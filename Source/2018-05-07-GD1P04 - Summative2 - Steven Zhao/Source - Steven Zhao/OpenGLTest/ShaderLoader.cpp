@@ -77,9 +77,9 @@ GLuint ShaderLoader::CreateProgram(const char* vertexShaderFilename,
 		std::string fragment_shader_code = ReadShader(fragmentShaderFilename);
 		fragment_shader = CreateShader(GL_FRAGMENT_SHADER, fragment_shader_code, "fragment shader");
 	}
-	sProgram temp;
-	temp._kVS = vertexShaderFilename;
-	temp._kFS = fragmentShaderFilename;
+	sProgram* temp = new sProgram;
+	temp->_kVS = vertexShaderFilename;
+	temp->_kFS = fragmentShaderFilename;
 	for (auto it = m_mProgramMap.begin(); it != m_mProgramMap.end(); it++)
 	{
 		if (it->first->_kVS == vertexShaderFilename && it->first->_kFS == fragmentShaderFilename)
@@ -106,6 +106,6 @@ GLuint ShaderLoader::CreateProgram(const char* vertexShaderFilename,
 		std::cout << "Shader Loader : LINK ERROR" << std::endl << &program_log[0] << std::endl;
 		return 0;
 	}
-	m_mProgramMap[&temp] = program;
+	m_mProgramMap.insert(std::pair<sProgram*, GLuint>(temp, program));
 	return program;
 }
