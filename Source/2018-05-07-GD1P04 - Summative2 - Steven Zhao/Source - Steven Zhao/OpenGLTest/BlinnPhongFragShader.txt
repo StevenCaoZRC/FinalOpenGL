@@ -39,7 +39,7 @@ void main() {
 	//Rim Lighting
 	float rimFactor = 1.0f - dot(norm, negViewDir);
 	rimFactor = smoothstep(0.0f,1.0f,rimFactor);
-	rimFactor = pow(rimFactor,12.0f);
+	rimFactor = pow(rimFactor,1.0f);
 	vec3 rim = rimFactor * rimColor * lightColor;
 
 	color = vec4((ambient + diffuse + specular + rim), 1.0f) * texture(tex, fragTexCoord);

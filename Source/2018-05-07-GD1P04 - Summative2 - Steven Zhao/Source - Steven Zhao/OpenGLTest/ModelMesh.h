@@ -76,14 +76,14 @@ public:
 		GLint mvpLoc = glGetUniformLocation(program, "MVP");
 		glUniformMatrix4fv(mvpLoc, 1, GL_FALSE, glm::value_ptr(mvp));
 
-		glm::mat4 m_m4Translate = glm::translate(glm::mat4(), objPosition);
-		glm::mat4 m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(objRotate.x), glm::vec3(1.0f, 0.0f, 0.0f)); //x
-		m_m4Rotate = glm::rotate(m_m4Rotate, glm::radians(objRotate.y), glm::vec3(0.0f, 1.0f, 0.0f)); //y
-		m_m4Rotate = glm::rotate(m_m4Rotate, glm::radians(objRotate.z), glm::vec3(0.0f, 0.0f, 1.0f)); //Z
-		glm::mat4 m_m4Scale = glm::scale(glm::mat4(), objScale);
+		glm::mat4 m_Translate = glm::translate(glm::mat4(), objPosition);
+		glm::mat4 m_Rotate = glm::rotate(glm::mat4(), glm::radians(objRotate.x), glm::vec3(1.0f, 0.0f, 0.0f)); //x
+		m_Rotate = glm::rotate(m_Rotate, glm::radians(objRotate.y), glm::vec3(0.0f, 1.0f, 0.0f)); //y
+		m_Rotate = glm::rotate(m_Rotate, glm::radians(objRotate.z), glm::vec3(0.0f, 0.0f, 1.0f)); //Z
+		glm::mat4 m_Scale = glm::scale(glm::mat4(), objScale);
 		//Model Matrix
-		glm::mat4 m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
-		glUniformMatrix4fv(glGetUniformLocation(program, "normalMatrix"), 1, GL_FALSE, glm::value_ptr(m_m4Model));
+		glm::mat4 m_Model = m_Translate * m_Rotate *m_Scale;
+		glUniformMatrix4fv(glGetUniformLocation(program, "model"), 1, GL_FALSE, glm::value_ptr(m_Model));
 		// Draw mesh
 		glBindVertexArray(this->VAO);
 		glDrawElements(GL_TRIANGLES, this->indices.size(), GL_UNSIGNED_INT, 0);
