@@ -60,14 +60,24 @@ void CLevel::addPlayer()
 
 void CLevel::addEnemy()
 {
-	//Creating Enemy1
-	std::shared_ptr<CEnemy>SlimeSpr = make_shared<CEnemy>();
-	SlimeSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
-	SlimeSpr->init(2.0f,2.0f);						//Sets Move speed and jumpheight
-	SlimeSpr->objPosition = { 100.0f,-50.0f,0.0f }; //Sets the enemy position
-	//SlimeSpr->objScale = { 0.5f, 0.5f, 0.5f };
-	SpritesAdd(SlimeSpr);							//Adds to Sprite vector
-	v_Enemies.push_back(SlimeSpr);					//Adds to enemy vector to keep track of enemies
+	std::shared_ptr<CEnemy>SlimeSpr;
+	for (int i = 0; i < 15; i++)
+	{
+		SlimeSpr = make_shared<CEnemy>();
+		SlimeSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
+		SlimeSpr->init(2.0f, 2.0f);						//Sets Move speed and jumpheight
+		SlimeSpr->objPosition = { 0.0f, 0.0f + (10.0f* i),0.0f }; //Sets the enemy position
+		SpritesAdd(SlimeSpr);							//Adds to Sprite vector
+		v_CollisionObjects.push_back(SlimeSpr);					//Adds to enemy vector to keep track of enemies
+		SlimeSpr->m_iObjType = CUtility::ENEMY;
+	}
+	std::shared_ptr<CSprite>ObstacleSpr;
+	ObstacleSpr = make_shared<CSprite>();
+	ObstacleSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);				//Sets Move speed and jumpheight
+	ObstacleSpr->objPosition = { 100.0f, 100.0f,0.0f }; //Sets the enemy position
+	SpritesAdd(ObstacleSpr);							//Adds to Sprite vector				//Adds to enemy vector to keep track of enemies
+	ObstacleSpr->m_iObjType = CUtility::IMOBIL_WALL;
+	v_CollisionObjects.push_back(SlimeSpr);
 }
 
 void CLevel::addLevel()
@@ -124,33 +134,33 @@ void CLevel::addCubeMap()
 
 void CLevel::addModels()
 {
-	std::shared_ptr<CSprite>Model3D = make_shared<CSprite>();
-	Model3D->initModel("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
-	SpritesAdd(Model3D);
-	Model3D->objPosition = { -400.0f, 200.0f, 0.0f };
-	Model3D->objRotate = { 90.0f, 90.0f, 0.0f };
-	Model3D->objScale = { 30.0f, 30.0f, 30.0f };
+	//std::shared_ptr<CSprite>Model3D = make_shared<CSprite>();
+	//Model3D->initModel("Resources/Models/Tank/Tank.obj", CUtility::modelProgram);
+	//SpritesAdd(Model3D);
+	//Model3D->objPosition = { -400.0f, 200.0f, 0.0f };
+	//Model3D->objRotate = { 90.0f, 90.0f, 0.0f };
+	//Model3D->objScale = { 30.0f, 30.0f, 30.0f };
 
-	std::shared_ptr<CSprite>Model3D3 = make_shared<CSprite>();
-	Model3D3->initModel("Resources/Models/nanosuit/nanosuit.obj", CUtility::modelProgram);
-	SpritesAdd(Model3D3);
-	Model3D3->objPosition = { -400.0f, 100.0f, 0.0f };
-	Model3D3->objRotate = { 90.0f, 90.0f, 0.0f };
-	Model3D3->objScale = { 30.0f, 30.0f, 30.0f };
+	//std::shared_ptr<CSprite>Model3D3 = make_shared<CSprite>();
+	//Model3D3->initModel("Resources/Models/nanosuit/nanosuit.obj", CUtility::modelProgram);
+	//SpritesAdd(Model3D3);
+	//Model3D3->objPosition = { -400.0f, 100.0f, 0.0f };
+	//Model3D3->objRotate = { 90.0f, 90.0f, 0.0f };
+	//Model3D3->objScale = { 30.0f, 30.0f, 30.0f };
 
-	std::shared_ptr<CSprite>Model3D4 = make_shared<CSprite>();
-	Model3D4->initModel("Resources/Models/pug/Dog 1.obj", CUtility::modelProgram);
-	SpritesAdd(Model3D4);
-	Model3D4->objPosition = { -400.0f, 50.0f, 0.0f };
-	Model3D4->objRotate = { 90.0f, 90.0f, 0.0f };
-	Model3D4->objScale = { 30.0f, 30.0f, 30.0f };
+	//std::shared_ptr<CSprite>Model3D4 = make_shared<CSprite>();
+	//Model3D4->initModel("Resources/Models/pug/Dog 1.obj", CUtility::modelProgram);
+	//SpritesAdd(Model3D4);
+	//Model3D4->objPosition = { -400.0f, 50.0f, 0.0f };
+	//Model3D4->objRotate = { 90.0f, 90.0f, 0.0f };
+	//Model3D4->objScale = { 30.0f, 30.0f, 30.0f };
 
-	std::shared_ptr<CSprite>model3d5 = make_shared<CSprite>();
-	model3d5->initModel("resources/models/pugenemy/Dog 1.obj", CUtility::modelProgram);
-	SpritesAdd(model3d5);
-	model3d5->objPosition = { -400.0f, 0.0f, 0.0f };
-	model3d5->objRotate = { 90.0f, 90.0f, 0.0f };
-	model3d5->objScale = { 30.0f, 30.0f, 30.0f };
+	//std::shared_ptr<CSprite>model3d5 = make_shared<CSprite>();
+	//model3d5->initModel("resources/models/pugenemy/Dog 1.obj", CUtility::modelProgram);
+	//SpritesAdd(model3d5);
+	//model3d5->objPosition = { -400.0f, 0.0f, 0.0f };
+	//model3d5->objRotate = { 90.0f, 90.0f, 0.0f };
+	//model3d5->objScale = { 30.0f, 30.0f, 30.0f };
 }
 
 void CLevel::addEndMenu()

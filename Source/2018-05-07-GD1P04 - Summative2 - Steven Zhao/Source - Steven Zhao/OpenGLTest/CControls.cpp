@@ -78,12 +78,6 @@ void CControls::update()
 
 	ray_world = glm::vec3(glm::inverse(CCamera::GetInstance()->m_m4View) * ray_eye);
 	ray_world = glm::normalize(ray_world);
-	//ray_world = (glm::vec3)ray_eye;
-
-	std::cout << glm::to_string(ray_world) << std::endl;
-
-
-	//std::cout << glm::to_string(ray_world) << std::endl;
 
 	for (int i = 0; i < 255; i++)
 	{

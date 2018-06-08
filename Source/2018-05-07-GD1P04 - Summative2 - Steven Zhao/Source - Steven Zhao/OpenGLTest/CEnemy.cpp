@@ -387,7 +387,7 @@ glm::vec3 CEnemy::AIseperation(std::vector<std::shared_ptr<CSprite>>* _Collision
 		{
 			if (it1->iObjectType == CUtility::ENEMY)
 			{
-				if (FindMagnitude(objPosition - it1->objPosition) <= it1->fRadius + fRadius - 10.0f //+ _seperatDistance
+				if (FindMagnitude(objPosition - it1->objPosition) <= _seperatDistance //+ _seperatDistance
 					&& this != it1.get())
 				{
 					if (FindMagnitude(objPosition - it1->objPosition) > 0.0005f)
@@ -496,10 +496,10 @@ void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _
 	//m_vCurVelocity = glm::vec3(0.0f, 0.0f, 0.0f);
 	//new_movement += AISeek(_player.objPosition);
 	new_movement += AIObstacleAvoid(_CollisionObjects) * 50.0f;
-	new_movement += AIseperation(_CollisionObjects, 1.0f) * 4.0f;
+	//new_movement += AIseperation(_CollisionObjects, 1.0f);
 	//new_movement += AICohesion(_CollisionObjects, 50.0f) * 0.5f;
 	//new_movement += AIAlignment(_CollisionObjects, 50.0f);
-	new_movement += AIPathFollow(&m_vPoints, 30.0f) * 10.0f;
+	//new_movement += AIPathFollow(&m_vPoints, 30.0f) * 10.0f;
 	if (FindMagnitude(new_movement) > 0.0005f)
 	{
 		new_movement = new_movement / FindMagnitude(new_movement) * fMoveSpeed;
