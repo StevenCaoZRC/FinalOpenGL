@@ -18,11 +18,9 @@
 #include "Utils.h"
 // Global Variables // 
 GLuint CUtility::program;
-GLuint CUtility::CubemapProgram;
 GLuint CUtility::modelProgram;
 GLuint CUtility::BlinnPhongProgram;
-GLuint CUtility::BPModelProgram;
-;
+GLuint CUtility::BPModelProgram; 
 CUtility::CUtility()
 {
 

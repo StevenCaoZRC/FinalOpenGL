@@ -22,6 +22,7 @@ public:
 	CCubeMap(std::vector<std::string> _filePaths);
 	~CCubeMap();
 	void render();
+	GLuint GetTextureID() { return CCubeMap::tex; };
 	GLuint VAO;
 	GLuint VBO;
 	GLuint EBO;

@@ -92,7 +92,7 @@ glm::mat4 CCamera::SetMVP3D(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotatio
 	m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
 
 	//view
-	m_m4View = glm::lookAt(m_v3CameraPos, m_v3CameraPos + m_v3CameraForward, m_v3CameraUp);
+	m_m4View = glm::lookAt(m_v3CameraPos, m_v3CameraPos * m_v3CameraForward, m_v3CameraUp);
 
 	//Projection and Camera
 	m_m4Proj = glm::perspective(45.0f, (float)Utility::SCR_WIDTH / (float)Utility::SCR_HEIGHT, 0.1f, 2000.0f);

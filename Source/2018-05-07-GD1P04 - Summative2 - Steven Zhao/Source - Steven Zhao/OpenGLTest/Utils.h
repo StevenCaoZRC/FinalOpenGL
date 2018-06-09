@@ -56,7 +56,6 @@ public:
 	};
 	
 	static GLuint program;
-	static GLuint CubemapProgram;
 	static GLuint modelProgram;
 	static GLuint BlinnPhongProgram;
 	static GLuint BPModelProgram;

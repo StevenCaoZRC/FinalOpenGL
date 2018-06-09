@@ -92,11 +92,10 @@ void CSceneManager::init()
 	ShaderLoader shaderloader;
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
-	CUtility::program = shaderloader.CreateProgram("VertexShader.txt", "FragmentShader.txt");
-	CUtility::modelProgram = shaderloader.CreateProgram("ModelVertShader.txt", "ModelFragShader.txt");
-	CUtility::CubemapProgram = shaderloader.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
-	CUtility::BlinnPhongProgram = shaderloader.CreateProgram("BlinnPhongVertShader.txt", "BlinnPhongFragShader.txt");
-	CUtility::BPModelProgram = shaderloader.CreateProgram("BlinnPhongModelVert.txt","BlinnPhongModelFrag.txt");
+	CUtility::program = shaderloader.CreateProgram("Resources/Shaders/VertexShaders/VertexShader.txt", "Resources/Shaders/FragmentShaders/FragmentShader.txt");
+	CUtility::modelProgram = shaderloader.CreateProgram("Resources/Shaders/VertexShaders/ModelVertShader.txt", "Resources/Shaders/FragmentShaders/ModelFragShader.txt");
+	CUtility::BlinnPhongProgram = shaderloader.CreateProgram("Resources/Shaders/VertexShaders/BlinnPhongVertShader.txt", "Resources/Shaders/FragmentShaders/BlinnPhongFragShader.txt");
+	CUtility::BPModelProgram = shaderloader.CreateProgram("Resources/Shaders/VertexShaders/BlinnPhongModelVert.txt","Resources/Shaders/FragmentShaders/BlinnPhongModelFrag.txt");
 
 	//---------------|Level Scenes Stuff|---------------//
 	//Gets the initial values of the controls

@@ -20,7 +20,7 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 {
 	//Program which contains the vertex shader and fragment shader for the cubemaping
 	static ShaderLoader shaderl;
-	cubemapProgram = shaderl.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
+	cubemapProgram = shaderl.CreateProgram("Resources/Shaders/VertexShaders/CubeMapVert.txt", "Resources/Shaders/FragmentShaders/CubeMapFrag.txt");
 
 	//Cube vertices that only contain the position 
 	GLfloat cubeVertices[] = {
@@ -139,8 +139,10 @@ void CCubeMap::render()
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
 	glUniform1i(glGetUniformLocation(cubemapProgram, "skybox"), 0);
+	glm::mat4 model = glm::scale(glm::mat4(), glm::vec3(1000.0f, 1000.0f, 1000.0f));
 
-	glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, glm::vec3(1000.0f, 1000.0f, 1000.0f));
+	CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, glm::vec3(1000.0f, 1000.0f, 1000.0f));
+	glm::mat4 MVP = CCamera::GetInstance()->m_m4Proj * CCamera::GetInstance()->m_m4View * model;
 	glUniformMatrix4fv(glGetUniformLocation(cubemapProgram, "MVP"), 1, GL_FALSE, glm::value_ptr(MVP));
 
 	// Bind the VAO and draw the cube map

@@ -39,7 +39,7 @@ class CCamera
 			glm::mat4 SetMVP(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation, glm::vec3 v3_SetScale);
 		
 			glm::vec3 m_v3CameraPos = glm::vec3(0.0f, 0.0f, 600.0f);
-			glm::vec3 m_v3CameraForward = glm::vec3(0.0f, 0.0f, -1.0f);
+			glm::vec3 m_v3CameraForward = glm::vec3(0.0f,0.0f, -1.0f);
 			glm::vec3 m_v3CameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 			//---------------| Getting MVP Matrices for 3D|---------------//

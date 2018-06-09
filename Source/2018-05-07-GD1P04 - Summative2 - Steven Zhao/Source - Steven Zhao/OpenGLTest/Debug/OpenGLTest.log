@@ -1,7 +1,1 @@
-﻿  CLevel.cpp
-d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(92): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(113): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(172): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
-  CEnemy.cpp
-  Generating Code...
-  OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe
+﻿  OpenGLTest.vcxproj -> D:\Users\steven.zha7447\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe
