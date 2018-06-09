@@ -96,6 +96,9 @@
     <ClInclude Include="CCollisionManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CProjectile.h">
+      <Filter>Header Files\Character/Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -149,16 +152,13 @@
     <ClCompile Include="CCollisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CProjectile.cpp">
+      <Filter>Source Files\Character/Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="FragmentShader.txt">
       <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
-    <Text Include="TextFragment.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
-    <Text Include="TextVertex.txt">
-      <Filter>Resource Files\VertexShaders</Filter>
     </Text>
     <Text Include="VertexShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
@@ -192,6 +192,12 @@
     </Text>
     <Text Include="BlinnPhongModelFrag.txt">
       <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="TextFragment.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="TextVertex.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
     </Text>
   </ItemGroup>
 </Project>

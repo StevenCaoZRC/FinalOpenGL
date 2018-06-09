@@ -48,6 +48,7 @@ public:
 	void KeyDown(unsigned char cKey, int nX, int nY);
 	void KeyUp(unsigned char cKey, int nX, int nY);
 	static void MousePosPassive(int x, int y);
+	static void MouseButton(int nButton, int nGlutState, int nX, int nY);
 	void MousePosUpdate(int x, int y);
 	
 
@@ -57,6 +58,8 @@ public:
 	float mouseX;
 	float mouseY;
 	float mouseZ;
+	bool mouse1down;
+	bool mouse2down;
 	glm::vec3 ray_nds;
 	glm::vec4 ray_clip;
 	glm::vec4 ray_eye;

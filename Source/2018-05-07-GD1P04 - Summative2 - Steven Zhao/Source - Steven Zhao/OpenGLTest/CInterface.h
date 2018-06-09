@@ -41,6 +41,8 @@ class CInterface
 			TextLabel WinText;
 			TextLabel LostText;
 			TextLabel FPSCounter;
+			int iScore;
+			int iHealth;
         private:
 			CInterface();
 			~CInterface();

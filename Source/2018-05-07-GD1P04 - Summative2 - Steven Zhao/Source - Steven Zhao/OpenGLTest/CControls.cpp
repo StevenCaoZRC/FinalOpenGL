@@ -57,12 +57,20 @@ void CControls::DestroyInstance()
 
 void CControls::init()
 {
+	mouse1down = false;
+	mouse2down = false;
 	glutPassiveMotionFunc(MousePosPassive);
 	glutKeyboardFunc(InitKeyDown);
 	glutKeyboardUpFunc(InitKeyUp);
+	glutMouseFunc(MouseButton);
+	glutMotionFunc(MousePosPassive);
 	for (int i = 0; i < 255; i++)
 	{
 		cKeyState[i] = INPUT_RELEASED;
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		cMouse[i] = INPUT_RELEASED;
 	}
 }
 
@@ -88,8 +96,21 @@ void CControls::update()
 		else if (cKeyState[i] == INPUT_FIRST_RELEASE)
 		{
 			cKeyState[i] = INPUT_RELEASED;
-		}	
+		}
 	
+	}
+	if (cMouse[0] == INPUT_HOLD && mouse1down == false)
+	{
+		mouse1down = true;
+		cMouse[0] = INPUT_FIRST_PRESSED;
+	}
+	else if (cMouse[0] == INPUT_RELEASED)
+	{
+		mouse1down = false;
+	}
+	else if (mouse1down == true)
+	{
+		cMouse[0] = INPUT_HOLD;
 	}
 	
 }
@@ -109,17 +130,22 @@ void CControls::MousePosPassive(int x, int y)
 	CControls::GetInstance()->MousePosUpdate(x,y);
 }
 
+void CControls::MouseButton(int nButton, int nGlutState, int nX, int nY)
+{
+	CControls::GetInstance()->Mouse(nButton, nGlutState, nX, nY);
+}
+
 void CControls::MousePosUpdate(int x, int y)
 {
 	mouseX = x;
 	mouseY = y;
 }
 
-
 void CControls::InitKeyUp(unsigned char cKey, int nX, int nY)
 {
 	CControls::GetInstance()->KeyUp(cKey, nX, nY);
 }
+
 void CControls::InitKeyDown(unsigned char cKey, int nX, int nY)
 {
 	CControls::GetInstance()->KeyDown(cKey, nX, nY);
@@ -133,6 +159,3 @@ void CControls::Mouse(int nButton, int nGlutState, int nX, int nY)
 		cMouse[nButton] = (nGlutState == GLUT_DOWN)? INPUT_HOLD : INPUT_RELEASED;
 	}
 }
-
-
-

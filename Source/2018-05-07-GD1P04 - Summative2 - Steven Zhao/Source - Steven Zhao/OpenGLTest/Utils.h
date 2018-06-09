@@ -67,6 +67,8 @@ public:
 		IMOBIL_WALL,
 		MOBIL_WALL,
 		NON_SOLID,
+		ENEMY_PROJ,
+		MY_PROJ,
 	};
 private: 
 	float fWidth;

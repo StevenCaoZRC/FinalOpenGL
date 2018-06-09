@@ -209,8 +209,29 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 	case 1:
 	{
 		//For make a sphere
-		float radius = 1.0f;
+		float radius;
+		if (fWidth == 0 || fHeight == 0)
+		{
+			int nWidth, nHeight;
+			unsigned char* image = SOIL_load_image(
+				_fileName,				//File path/name
+				&nWidth,							//Output for the image width
+				&nHeight,						//Output for the image height
+				0,								//Output for number of channels
+				SOIL_LOAD_RGBA);
+			SOIL_free_image_data(image);
 
+			HalfWidth = nWidth / 2;
+			HalfHeight = nHeight / 2;
+		
+			radius = (HalfWidth + HalfHeight) / 2;
+			fRadius = radius;
+		}
+		else
+		{
+			radius = (fWidth / 2 + fHeight / 2) / 2;
+			fRadius = radius;
+		}
 		const int sections = 20;
 		const int vertexAttrib = 8;
 		const int indexPerQuad = 6;
@@ -435,8 +456,9 @@ void CSprite::render(GLuint _program)
 	
 }
 
-void CSprite::initModel(std::string path, GLuint program)
+void CSprite::initModel(std::string path, GLuint program, float _HitboxRadius)
 {
+	fRadius = _HitboxRadius;
 	m_3DModel = make_shared<Model>(path, program);
 	m_iObjType = CUtility::MODEL;
 }
@@ -567,7 +589,7 @@ void CSprite::addFrame(const char* _filename)
 
 void CSprite::ScaleSprite(float _scale)
 {
-	objScale * _scale;
+	objScale = objScale * _scale;
 	fRadius = fRadius * _scale;
 }
 

@@ -53,7 +53,7 @@ public:
 	//2D
 	void init2D(const char * _fileName, float fWidth, float fHeight);
 	virtual void render(GLuint _program);
-	void initModel(std::string path, GLuint program);
+	void initModel(std::string path, GLuint program, float _HitboxRadius);
 	virtual void renderModel();
 
 	virtual void CSprite::update();
@@ -71,7 +71,7 @@ public:
 	GLuint tex;
 	std::shared_ptr<Model> m_3DModel;
 	int m_iObjType;
-
+	int iObjectMechanicsType;
 	int iCurrentFrame = 0;
 	//Sphere stuff
 	int DrawType;
@@ -80,7 +80,6 @@ public:
 	//GLuint tex1;
 	//GLuint tex2;
 
-	int iObjectMechanicsType;
 	void ScaleSprite(float _scale);
 
 	glm::vec3 objPosition = { 0.0f,0.0f,0.0f };

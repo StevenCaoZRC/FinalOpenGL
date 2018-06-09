@@ -37,7 +37,7 @@ public:
 	~CEnemy();
 	float fJumpHeight;
 	float fMoveSpeed;
-	void init(float _fMoveSpeed, float _fJumpHeight);
+	void init(float _fMoveSpeed, float _fJumpHeight, int _hp);
 
 	//AI functions
 	glm::vec3 AISeek(glm::vec3 _pos);
@@ -47,12 +47,15 @@ public:
 	glm::vec3 AIArrivalSeek(glm::vec3 _pos, float _fArrivalRadius);
 	glm::vec3 AIWander(int _iTimer);
 	glm::vec3 AIObstacleAvoid(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects);
-	glm::vec3 AIFLocking(CPlayer &_player);
+	glm::vec3 AIFLocking(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, CPlayer &_player);
 	glm::vec3 AIPathFollow(std::vector<glm::vec3>* _points, float _pathRadius);
 	glm::vec3 AIseperation(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, float _seperatDistance);
 	glm::vec3 AICohesion(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, float _cohesionDistance);
 	glm::vec3 AIAlignment(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, float _alignDistance);
+	glm::vec3 AIAvoidBullets(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, float _seperatDistance);
+	glm::vec3 AIDodgeBullets(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, float _seperatDistance);
 	void Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects);
+	void MeleeCollisionCheck(CPlayer &_player);
 	void update(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects);
 	bool bIsAlive = true;
 	bool bIsGoingRight = true;
@@ -65,6 +68,7 @@ public:
 	std::vector<glm::vec3> m_vPoints;
 	int m_iPointsReached;
 	float m_fSeeAheadDistance;
+	int m_iHealth;
 };
 
 #endif // _CENEMY_H__

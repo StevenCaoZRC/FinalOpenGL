@@ -61,7 +61,7 @@ void CInterface::update()
 		}	
 		else if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 		{
-			
+			CInterface::GetInstance()->iScore = 0;
 			CSceneManager::GetInstance()->switchScene(CSceneManager::MENU);
 			label.SetPosition(glm::vec2(100.0f, 650.0f));
 		}
@@ -69,15 +69,18 @@ void CInterface::update()
 	
 	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END)
 	{
+		
 		label.SetPosition(glm::vec2(Utility::SCR_WIDTH / 2.5, Utility::SCR_HEIGHT / 2));
 		
 	}
 
 	if (Level)
 	{
-		label.SetText("Score: " + std::to_string(Level->nScore));
+
+		label.SetText("Score: " + std::to_string(iScore));
 		
 	}
+
 	//have another label for win conditon, 
 }
 
@@ -93,7 +96,11 @@ void CInterface::render()
 
 		}
 		else
+		{
 			LostText.Render();
+
+		}
+			
 	}	
 }
 

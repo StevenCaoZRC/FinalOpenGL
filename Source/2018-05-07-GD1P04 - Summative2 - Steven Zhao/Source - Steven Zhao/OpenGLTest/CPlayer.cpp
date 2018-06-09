@@ -38,6 +38,7 @@ CPlayer::~CPlayer()
 
 void CPlayer::init(float _fMovementSpeed, float _fJumpHeight)
 {
+	m_iHealth = 100;
 	fMovementSpeed = _fMovementSpeed;
 	fJumpHeight = _fJumpHeight;
 	fGravity = 0.5f;

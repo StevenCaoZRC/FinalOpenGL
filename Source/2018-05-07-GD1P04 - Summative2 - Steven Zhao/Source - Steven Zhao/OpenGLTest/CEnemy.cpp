@@ -18,7 +18,7 @@
 
 // This Includes //
 #include "CEnemy.h"
-
+#include "CProjectile.h"
 // Static Variables //
 
 // Static Function Prototypes //
@@ -38,8 +38,9 @@ CEnemy::~CEnemy()
 
 }
 
-void CEnemy::init(float _fMoveSpeed, float _fJumpHeight)
+void CEnemy::init(float _fMoveSpeed, float _fJumpHeight, int _hp)
 {
+	m_iHealth = _hp;
 	fMoveSpeed = _fMoveSpeed;
 	fJumpHeight = _fJumpHeight;
 	m_vCurVelocity = { 0.0f, 0.0f, 0.0f };
@@ -59,6 +60,7 @@ void CEnemy::update(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _Co
 	if (bIsAlive)
 	{
 		Movement(_player, _CollisionObjects);
+		MeleeCollisionCheck(_player);
 	}
 	m_iWanderTimer++;
 	if (m_iWanderTimer >= 1)
@@ -93,6 +95,7 @@ glm::vec3 CEnemy::AISeek(glm::vec3 _pos)
 	glm::vec3 curPos = objPosition;
 	glm::vec3 seekPos;
 	glm::vec3 nextPosSeek;
+	glm::vec3 vFinal;
 	glm::vec3 nextPos = objPosition + m_vCurVelocity;
 	if (objPosition != _pos) // making sure that you are not right on top of the position your seeking and causing divide by 0 errors
 	{
@@ -109,7 +112,7 @@ glm::vec3 CEnemy::AISeek(glm::vec3 _pos)
 		vSteering = vSteering / m_fSteeringRatio;
 		seekPos = nextPos + vSteering;
 
-		glm::vec3 vFinal = seekPos - curPos;
+		vFinal = seekPos - curPos;
 		float vFinalMag = sqrtf(powf(vFinal.x, 2) + powf(vFinal.y, 2) + powf(vFinal.z, 2));
 		if (vFinalMag > 0.005)
 		{
@@ -121,7 +124,7 @@ glm::vec3 CEnemy::AISeek(glm::vec3 _pos)
 			else
 			{
 				glm::vec3 vFinalI = vFinal / vFinalMag;
-				return (vFinalI * fMoveSpeed);
+				return vFinal;
 			}
 		}
 		else
@@ -129,7 +132,7 @@ glm::vec3 CEnemy::AISeek(glm::vec3 _pos)
 			return glm::vec3(0.0f, 0.0f, 0.0f);
 		}
 	}
-	return glm::vec3(0.0f, 0.0f, 0.0f);
+	return vFinal;
 }
 glm::vec3 CEnemy::AIFlee(glm::vec3 _pos, float _seperatDistance)
 {
@@ -320,14 +323,17 @@ glm::vec3 CEnemy::AIObstacleAvoid(std::vector<std::shared_ptr<CSprite>>* _Collis
 			}
 		}
 	}
-	std::cout << AvoidanceVector.x << ":|:" << AvoidanceVector.y << ":|:" << AvoidanceVector.z << std::endl;
 	return (AvoidanceVector);
 
 }
 
-glm::vec3 CEnemy::AIFLocking(CPlayer & _player)
+glm::vec3 CEnemy::AIFLocking(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, CPlayer & _player)
 {
-	return { 0.0f,0.0f,0.0f };
+	glm::vec3 flocking;
+	flocking += AIseperation(_CollisionObjects, 1.0f);
+	flocking += AICohesion(_CollisionObjects, 50.0f);
+	flocking += AIAlignment(_CollisionObjects, 50.0f);
+	return flocking;
 }
 
 glm::vec3 CEnemy::AIPathFollow(std::vector<glm::vec3>* _points, float _pathRadius)
@@ -493,12 +499,85 @@ glm::vec3 CEnemy::AIAlignment(std::vector<std::shared_ptr<CSprite>>* _CollisionO
 	return AvoidanceVector;
 }
 
+glm::vec3 CEnemy::AIAvoidBullets(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, float _seperatDistance)
+{
+	float iTotalNeedingSeperation = 0.0f;
+	glm::vec3 AvoidanceVector = glm::vec3(0.0f, 0.0f, 0.0f);
+	if (!_CollisionObjects->empty())
+	{
+		for (auto it1 : *_CollisionObjects)
+		{
+			if (it1->iObjectMechanicsType == CUtility::MY_PROJ)
+			{
+				if (FindMagnitude(objPosition - it1->objPosition) <= this->fRadius + it1->fRadius + _seperatDistance //+ _seperatDistance
+					&& this != it1.get())
+				{
+					if (FindMagnitude(objPosition - it1->objPosition) > 0.0005f)
+					{
+						glm::vec3 temp = objPosition - it1->objPosition;
+						AvoidanceVector += temp;
+						iTotalNeedingSeperation += 1.0f;
+					}
+				}
+			}
+		}
+	}
+	if (FindMagnitude(AvoidanceVector) > 0.0005f)
+	{
+		AvoidanceVector = AvoidanceVector / iTotalNeedingSeperation;
+		AvoidanceVector = AvoidanceVector / FindMagnitude(AvoidanceVector) * fMoveSpeed * 0.3f;
+	}
+	else
+	{
+		AvoidanceVector = glm::vec3(0.0f, 0.0f, 0.0f);
+	}
+	return AvoidanceVector;
+}
+
+glm::vec3 CEnemy::AIDodgeBullets(std::vector<std::shared_ptr<CSprite>>* _CollisionObjects, float _seperatDistance)
+{
+	float iTotalNeedingSeperation = 0.0f;
+	glm::vec3 AvoidanceVector = glm::vec3(0.0f, 0.0f, 0.0f);
+	if (!_CollisionObjects->empty())
+	{
+		for (auto it1 : *_CollisionObjects)
+		{
+			if (it1->iObjectMechanicsType == CUtility::MY_PROJ)
+			{
+				if (FindMagnitude(objPosition - it1->objPosition) <= this->fRadius + it1->fRadius + _seperatDistance //+ _seperatDistance
+					&& this != it1.get())
+				{
+					glm::vec3 temp;
+					float fTImeForward = FindMagnitude(objPosition - it1->objPosition) / fMoveSpeed;
+					glm::vec3 vVeloObj = dynamic_pointer_cast<CProjectile>(it1)->m_CurrentVelo;
+					glm::vec3 vPosObj = it1->objPosition;
+					glm::vec3 futureMovement = { vVeloObj.x * fTImeForward, vVeloObj.y * fTImeForward ,vVeloObj.z * fTImeForward };
+					glm::vec3 seekPos = vPosObj + futureMovement;
+					AvoidanceVector += AIFlee(seekPos, _seperatDistance);
+					iTotalNeedingSeperation += 1.0f;
+				}
+			}
+		}
+	}
+	if (FindMagnitude(AvoidanceVector) > 0.0005f)
+	{
+		AvoidanceVector = AvoidanceVector / iTotalNeedingSeperation;
+		AvoidanceVector = AvoidanceVector / FindMagnitude(AvoidanceVector) * fMoveSpeed * 0.3f;
+	}
+	else
+	{
+		AvoidanceVector = glm::vec3(0.0f, 0.0f, 0.0f);
+	}
+	return AvoidanceVector;
+}
+
 void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects)
 {
 	//m_vCurVelocity = glm::vec3(0.0f, 0.0f, 0.0f);
 	new_movement += AISeek(_player.objPosition);
 	new_movement += AIObstacleAvoid(_CollisionObjects) * 50.0f;
 	new_movement += AIseperation(_CollisionObjects, 1.0f) * 5.0f;
+	new_movement += AIDodgeBullets(_CollisionObjects, 30.0f) * 100.0f;
 	//new_movement += AICohesion(_CollisionObjects, 50.0f) * 0.5f;
 	//new_movement += AIAlignment(_CollisionObjects, 50.0f);
 	//new_movement += AIPathFollow(&m_vPoints, 30.0f) * 10.0f;
@@ -515,4 +594,16 @@ void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _
 		m_vCurVelocity = new_movement;
 	}
 	objPosition += m_vCurVelocity;
+}
+
+
+void CEnemy::MeleeCollisionCheck(CPlayer &_player)
+{
+	if (FindMagnitude(_player.objPosition - objPosition) < _player.fRadius + fRadius)
+	{
+		m_iHealth = 0;
+		_player.m_iHealth -= 5;
+		bIsAlive = false;
+		return;
+	}
 }

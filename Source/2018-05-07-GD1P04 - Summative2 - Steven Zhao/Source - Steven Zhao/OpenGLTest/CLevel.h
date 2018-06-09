@@ -25,6 +25,7 @@
 #include"TextLabel.h"
 #include "Model.h"
 
+
 // Types //
 
 // Constants //
@@ -35,7 +36,7 @@ class CPlayer;
 class CSprite;
 class TextLabel;
 class CCubeMap;
-
+class CProjectile;
 class CLevel : public CScene
 {
     // Member Functions //
@@ -43,7 +44,7 @@ class CLevel : public CScene
             CLevel();
             ~CLevel();
 			void addPlayer();
-			void addEnemy();
+			void addEnemy(int _iCount);
 			void addLevel();
 			void addMenu();
 			void addCubeMap();
@@ -52,13 +53,21 @@ class CLevel : public CScene
 			void render();
 			void update();
 			void resetLevel();
-			void delEnemy(std::shared_ptr<CEnemy>);
+			void delEnemy();
+			void delProjectile();
+			void delPlayer();
+			void DeleteCollision(std::shared_ptr<CSprite> TobeDeleted);
+			void LevelUp();
 			std::vector<std::shared_ptr<CEnemy>> v_Enemies;
 			std::shared_ptr<CPlayer>CharacterSpr;
 			std::shared_ptr<CSprite>EndSpr;
 			std::vector<std::shared_ptr<CSprite>> v_CollisionObjects;
+			std::vector<std::shared_ptr<CProjectile>> v_ProjectileObjects;
 			int nScore = 0;
 			glm::vec3 MousePointPos;
+			int m_iShootCD = 0;
+			int m_iCurLevel;
+			bool m_bPlayerAlive;
         private:
 			std::shared_ptr<Model> Tank;
 			CCubeMap * m_cubemap;

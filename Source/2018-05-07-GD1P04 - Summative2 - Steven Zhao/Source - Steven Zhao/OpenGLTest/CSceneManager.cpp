@@ -109,7 +109,7 @@ void CSceneManager::init()
 	Level->addLevel();
 	Level->addCubeMap();
 	Level->addModels();
-	Level->addEnemy();
+	Level->addEnemy(15);
 	Level->addPlayer();
 	
 	//---------------|Menu Scenes Stuff|---------------//
@@ -125,6 +125,7 @@ void CSceneManager::init()
 	
 
 	End->addEndMenu();
+	End->addCubeMap();
 	//Adding the different scenes into a vector of scenes
 	CSceneManager::GetInstance()->SceneAdd(Menu);
 	CSceneManager::GetInstance()->SceneAdd(Level);

@@ -21,6 +21,7 @@
 #include "CubeMap.h"
 #include "Model.h"
 #include "ModelMesh.h"
+#include "CProjectile.h"
 // This Includes //
 #include "CLevel.h"
 #include "Utils.h"
@@ -47,48 +48,52 @@ CLevel::~CLevel()
 
 void CLevel::addPlayer()
 {
+	m_bPlayerAlive = true;
 	//Creating Player
 	CharacterSpr = make_shared<CPlayer>();
-	CharacterSpr->initModel("Resources/Models/Tank/Tank.obj", CUtility::BPModelProgram);
+	CharacterSpr->initModel("Resources/Models/pug/Dog 1.obj", CUtility::BPModelProgram, 10.0f);
 	CharacterSpr->init(5.0f, 10.0f);	//Sets Move speed and jumpheight
 	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };	//sets the players spawning locatin
 	CharacterSpr->objScale = { 10.0f, 10.0f, 10.0f };	//sets their scale
 	CharacterSpr->objRotate = { 90.0f, 90.0f, 0.0f };
 	SpritesAdd(CharacterSpr);							//Adds to the spr vector
 	CharacterSpr->iObjectMechanicsType = CUtility::PLAYER;
+	v_CollisionObjects.push_back(CharacterSpr);
 }
 
 
-void CLevel::addEnemy()
+void CLevel::addEnemy(int _iCount)
 {
 	std::shared_ptr<CEnemy>SlimeSpr;
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < _iCount; i++)
 	{
 		SlimeSpr = make_shared<CEnemy>();
 		SlimeSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
-		SlimeSpr->init(2.0f, 2.0f);						//Sets Move speed and jumpheight
+		SlimeSpr->init(2.0f, 2.0f, 10);						//Sets Move speed and jumpheight
 		SlimeSpr->objPosition = { 0.0f, 0.0f + (10.0f* i),0.0f }; //Sets the enemy position
 		SpritesAdd(SlimeSpr);							//Adds to Sprite vector
 		v_CollisionObjects.push_back(SlimeSpr);					//Adds to enemy vector to keep track of enemies
 		v_Enemies.push_back(SlimeSpr);
 		SlimeSpr->iObjectMechanicsType = CUtility::ENEMY;
 	}
-	std::shared_ptr<CSprite>ObstacleSpr;
-	ObstacleSpr = make_shared<CSprite>();
-	ObstacleSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);	
-	ObstacleSpr->objPosition = { 100.0f, 100.0f,0.0f };				
-	ObstacleSpr->objScale = { 3.0f,3.0f,3.0f };
-	SpritesAdd(ObstacleSpr);											
-	ObstacleSpr->iObjectMechanicsType = CUtility::IMOBIL_WALL;
-	v_CollisionObjects.push_back(ObstacleSpr);
+	//std::shared_ptr<CSprite>ObstacleSpr;
+	//ObstacleSpr = make_shared<CSprite>();
+	//ObstacleSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);	
+	//ObstacleSpr->objPosition = { 100.0f, 100.0f,0.0f };				
+	//ObstacleSpr->ScaleSprite(3.0f);
+	//SpritesAdd(ObstacleSpr);											
+	//ObstacleSpr->iObjectMechanicsType = CUtility::IMOBIL_WALL;
+	//v_CollisionObjects.push_back(ObstacleSpr);
 }
 
 void CLevel::addLevel()
 {
+	m_iCurLevel = 1;
 	std::shared_ptr<CSprite>BackGroundSpr = make_shared<CSprite>();
 	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>();
 	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>();
 	//loads sprites for the different objects in level
+
 	BackGroundSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
 	EntranceSpr->init3D("Resources/entrance.png", 0.0, 0.0, 0);
 	ExitSpr->init3D("Resources/exit.png", 0.0, 0.0, 0);
@@ -133,6 +138,7 @@ void CLevel::addCubeMap()
 		"front.jpg"
 	};
 	m_cubemap = new CCubeMap(cubemapPaths);
+	m_cubemap->objRotate = { 90.0f,0.0f,0.0f };
 }
 
 void CLevel::addModels()
@@ -182,6 +188,10 @@ void CLevel::render()
 
 void CLevel::update()
 {
+	if (m_iShootCD > 0)
+	{
+		m_iShootCD--;
+	}
 	float fDotProduct = glm::dot(CControls::GetInstance()->ray_world, normal);
 	float fDistance;
 	if (fDotProduct == 0)
@@ -197,6 +207,21 @@ void CLevel::update()
 	if (CharacterSpr != nullptr)
 	{
 		CharacterSpr->LookAt(MousePointPos);
+ 		if ((CControls::GetInstance()->cMouse[0] == CControls::INPUT_HOLD || CControls::GetInstance()->cMouse[0] == CControls::INPUT_FIRST_RELEASE) && m_iShootCD == 0)
+		{
+			m_iShootCD = 20;
+			std::shared_ptr<CProjectile> aBullet = make_shared<CProjectile>();
+			aBullet->init3D("Resources/blue.png", 5.0f,5.0f, 1);
+			aBullet->ScaleSprite(2.0f);
+			aBullet->objPosition = {CharacterSpr->objPosition};
+			aBullet->m_iDamage = 10;
+			aBullet->m_CurrentVelo = glm::normalize(MousePointPos - CharacterSpr->objPosition) * 5.0f;
+			v_ProjectileObjects.push_back(aBullet);
+			v_CollisionObjects.push_back(aBullet);
+			SpritesAdd(aBullet);
+			aBullet->m_iProjectileType = CUtility::MY_PROJ;
+			aBullet->iObjectMechanicsType = CUtility::MY_PROJ;
+		}
 	}
 	CScene::update();
 
@@ -207,6 +232,24 @@ void CLevel::update()
 			it->update(*CharacterSpr,&v_CollisionObjects);
 		}
 	}
+	for (auto it : v_ProjectileObjects)
+	{
+		it->update(*CharacterSpr, &v_CollisionObjects);
+	}
+
+	delProjectile();
+	delEnemy();
+	delPlayer();
+	LevelUp();
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::LEVEL)
+	{
+		if (CharacterSpr == nullptr)
+		{
+			CSceneManager::GetInstance()->switchScene(CSceneManager::END);
+			resetLevel();
+		}
+	}
+	
 	/*
 	if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED && (abs(CharacterSpr->objPosition.x - EndSpr->objPosition.x) < 30) && abs(CharacterSpr->objPosition.y - EndSpr->objPosition.y) < 30 && v_Enemies.empty())
 	{
@@ -218,36 +261,88 @@ void CLevel::update()
 void CLevel::resetLevel()
 {
 	//Checks if the enemy vector is empty or not, if not empty goes through and deletes the enemy 
-	if (!v_Enemies.empty())
+	while (v_Enemies.size() > 0)
 	{
-		for (auto it : v_Enemies)
-		{
-			delEnemy(it);
-		}
-		
+		DeleteSprite(v_Enemies.at(0));
+		DeleteCollision(dynamic_pointer_cast<CSprite>(v_Enemies.at(0)));
+		v_Enemies.erase(v_Enemies.begin() + 0);
 	}
-	//adds the enemy again
-	addEnemy();
-	//deletes the sprite
-	DeleteSprite(CharacterSpr);
-	//adds the player again
+	addModels();
+	addEnemy(15);
 	addPlayer();
-	//resets the score
-	nScore = 0;
+	m_iCurLevel = 1;
+}
+
+void CLevel::delEnemy()
+{
+	for (int i = 0; i < v_Enemies.size(); i++)
+	{
+		if (v_Enemies.at(i)->m_iHealth <= 0)
+		{
+			DeleteSprite(v_Enemies.at(i));
+			DeleteCollision(dynamic_pointer_cast<CSprite>(v_Enemies.at(i)));
+			v_Enemies.erase(v_Enemies.begin() + i);
+			CInterface::GetInstance()->iScore+= 1;
+		}
+	}
 
 }
 
-void CLevel::delEnemy(std::shared_ptr<CEnemy>TobeDeleted)
+void CLevel::delProjectile()
 {
-	for (auto it = v_Enemies.begin(); it != v_Enemies.end(); it++)
+	for (int i = 0; i < v_ProjectileObjects.size(); i++)
+	{
+		if (v_ProjectileObjects.at(i)->m_iAliveTime > 300)
+		{
+			DeleteSprite(v_ProjectileObjects.at(i));
+			DeleteCollision(dynamic_pointer_cast<CSprite>(v_ProjectileObjects.at(i)));
+			v_ProjectileObjects.erase(v_ProjectileObjects.begin() + i);
+		}
+	}
+}
+
+void CLevel::delPlayer()
+{
+	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::LEVEL)
+	{
+		if (m_bPlayerAlive == true)
+		{
+			if (CharacterSpr->m_iHealth <= 0)
+			{
+				m_bPlayerAlive = false;
+				DeleteSprite(CharacterSpr);
+				DeleteCollision(CharacterSpr);
+				CharacterSpr = nullptr;
+			}
+		}
+	}
+}
+
+
+
+void CLevel::DeleteCollision(std::shared_ptr<CSprite> TobeDeleted)
+{
+	//goes through and finds all the sprites that will be deleted and delete them
+	//decides what needs to be deleted by the parameter passed in, a sharedptr of sprite
+	for (auto it = v_CollisionObjects.begin(); it != v_CollisionObjects.end(); it++)
 	{
 		if ((*it) == TobeDeleted)
 		{
-			v_Enemies.erase(it);
-			DeleteSprite(TobeDeleted);
+			v_CollisionObjects.erase(it);
 			break;
 		}
 
+	}
+}
+
+void CLevel::LevelUp()
+{
+	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
+	if(v_Enemies.size() == 0 && CSceneManager::GetInstance()->nCurrentScene == CSceneManager::LEVEL)
+	{
+		m_iCurLevel++;
+		addEnemy(15 * m_iCurLevel);
 	}
 }
 
