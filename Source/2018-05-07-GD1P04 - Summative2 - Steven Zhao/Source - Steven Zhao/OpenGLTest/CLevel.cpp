@@ -92,7 +92,7 @@ void CLevel::addLevel()
 
 	Sphere->init3D("Resources/entrance.png", 0.0, 0.0, 2);
 	Sphere->objPosition = { 0.0f, 0.0f,0.0f };
-	Sphere->objScale = { 20.0f,20.0f,20.0f };
+	Sphere->objScale = { 50.0f,50.0f,50.0f };
 	//loads sprites for the different objects in level
 	BackGroundSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
 	EntranceSpr->init3D("Resources/entrance.png", 0.0, 0.0, 0);

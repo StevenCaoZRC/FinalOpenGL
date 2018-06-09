@@ -54,6 +54,7 @@ public:
 	//2D
 	void init2D(const char * _fileName, float fWidth, float fHeight);
 	virtual void render(GLuint _program);
+	//Model
 	void initModel(std::string path, GLuint program);
 	virtual void renderModel();
 

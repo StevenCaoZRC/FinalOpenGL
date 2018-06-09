@@ -648,7 +648,7 @@ void CSprite::render3D(GLuint _program)
 		//Activiating the reflection texture of skybox
 		glActiveTexture(GL_TEXTURE1);
 		glUniform1i(glGetUniformLocation(_program, "skybox"), 1);
-		glBindTexture(GL_TEXTURE_2D, Level->m_cubemap->GetTextureID());
+		glBindTexture(GL_TEXTURE_CUBE_MAP, Level->m_cubemap->GetTextureID());
 	
 
 
@@ -663,7 +663,7 @@ void CSprite::render3D(GLuint _program)
 		glm::mat4 m_m4Scale = glm::scale(glm::mat4(), objScale);
 		//Model Matrix
 		glm::mat4 m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
-		glUniformMatrix4fv(glGetUniformLocation(_program, "normalMatrix"), 1, GL_FALSE, glm::value_ptr(m_m4Model));
+		glUniformMatrix4fv(glGetUniformLocation(_program, "model"), 1, GL_FALSE, glm::value_ptr(m_m4Model));
 
 		glDrawElements(GL_TRIANGLES, IndiceCount, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);			  // Unbind VAO
