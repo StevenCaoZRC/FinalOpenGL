@@ -88,21 +88,27 @@ void CLevel::addLevel()
 	std::shared_ptr<CSprite>BackGroundSpr = make_shared<CSprite>();
 	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>();
 	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>();
+	std::shared_ptr<CSprite>Sphere = make_shared<CSprite>();
+
+	Sphere->init3D("Resources/entrance.png", 0.0, 0.0, 2);
+	Sphere->objPosition = { 0.0f, 0.0f,0.0f };
+	Sphere->objScale = { 20.0f,20.0f,20.0f };
 	//loads sprites for the different objects in level
-	//BackGroundSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
+	BackGroundSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
 	EntranceSpr->init3D("Resources/entrance.png", 0.0, 0.0, 0);
 	ExitSpr->init3D("Resources/exit.png", 0.0, 0.0, 0);
 
 	EndSpr = ExitSpr;
-	//BackGroundSpr->objPosition = { 0.0f, 0.0f, -200.0f };	//its position in the world space
+	BackGroundSpr->objPosition = { 0.0f, 0.0f, -200.0f };	//its position in the world space
 	//BackGroundSpr->objScale = { 30.0f, 30.0f, 30.0f };
 	//BackGroundSpr->objScale = { 5.0f,2.5f,1.0f};
 	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f }; //its position in the world space
 	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f }; //its position in the world space
 	//adding them to spr vec
-	//SpritesAdd(BackGroundSpr);
+	SpritesAdd(BackGroundSpr);
 	SpritesAdd(EntranceSpr);
 	SpritesAdd(ExitSpr);
+	SpritesAdd(Sphere);
 }
 
 void CLevel::addMenu()

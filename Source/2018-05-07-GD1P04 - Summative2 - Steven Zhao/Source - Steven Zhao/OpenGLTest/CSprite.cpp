@@ -22,6 +22,8 @@
 // This Includes //
 #include "CSprite.h"
 #include "Utils.h"
+#include "CubeMap.h"
+#include "CSceneManager.h"
 // Types //
 
 using namespace std;
@@ -290,12 +292,97 @@ void CSprite::init3D(const char * _fileName, float fWidth, float fHeight, int iS
 		DrawType = GL_TRIANGLES;
 		break;
 	}
+	case 2:
+	{						
+		m_iObjType = CUtility::REFLECT;
+		//For make a sphere
+		float radius = 1.0f;
+
+		const int sections = 20;
+		const int vertexAttrib = 8;
+		const int indexPerQuad = 6;
+
+		double phi = 0;
+		double theta = 0;
+
+		float vertices[(sections) * (sections)* vertexAttrib];
+		int offset = 0;
+		for (int i = 0; i < sections; i++)
+		{
+			theta = 0;
+
+			for (int j = 0; j < sections; j++)
+			{
+				float x = cos(phi) * sin(theta);
+				float y = cos(theta);
+				float z = sin(phi) * sin(theta);
+
+				vertices[offset++] = x * radius;
+				vertices[offset++] = y * radius;
+				vertices[offset++] = z * radius;
+
+				vertices[offset++] = x;
+				vertices[offset++] = y;
+				vertices[offset++] = z;
+
+				vertices[offset++] = (float)i / (sections - 1);
+				vertices[offset++] = (float)j / (sections - 1);
+
+				theta += (M_PI / (sections - 1));
+			}
+
+			phi += (2 * M_PI) / (sections - 1);
+		}
+
+
+		GLuint indices[(sections) * (sections)* indexPerQuad];
+		offset = 0;
+		for (int i = 0; i < sections; i++)
+		{
+			for (int j = 0; j < sections; j++)
+			{
+				indices[offset++] = (((i + 1) % sections) * sections) + ((j + 1) % sections);
+				indices[offset++] = (((i + 1) % sections) * sections) + (j);
+				indices[offset++] = (i * sections) + (j);
+
+				indices[offset++] = (i * sections) + ((j + 1) % sections);
+				indices[offset++] = (((i + 1) % sections) * sections) + ((j + 1) % sections);
+				indices[offset++] = (i * sections) + (j);
+			}
+		}
+
+		GLuint VBO, EBO;
+
+		glGenVertexArrays(1, &vao);
+		glBindVertexArray(vao);
+
+		glGenBuffers(1, &VBO);
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		glGenBuffers(1, &EBO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)0);
+		glEnableVertexAttribArray(0);
+
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+		glEnableVertexAttribArray(1);
+
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (void*)(6 * sizeof(GLfloat)));
+		glEnableVertexAttribArray(2);
+
+		IndiceCount = sizeof(indices) / sizeof(GLuint);
+		DrawType = GL_TRIANGLES;
+		break;
+	}
 	default:
 		break;
 	}
 
 
-	glGenTextures(1, &tex);
+	glGenTextures(2, &tex);
 	glBindTexture(GL_TEXTURE_2D, tex);
 	//Texture class to load images.
 	textures.push_back(tex);
@@ -528,6 +615,42 @@ void CSprite::render3D(GLuint _program)
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, tex);
 		glUniform1i(glGetUniformLocation(_program, "tex"), 0);
+
+		glBindVertexArray(vao);			  // Bind VAO
+										  //------3D MVP------//
+		glm::mat4 MVP = CCamera::GetInstance()->SetMVP3D(objPosition, objRotate, objScale);
+		GLint MVPLoc = glGetUniformLocation(_program, "MVP");
+		glUniformMatrix4fv(MVPLoc, 1, GL_FALSE, glm::value_ptr(MVP));
+
+		glm::mat4 m_m4Translate = glm::translate(glm::mat4(), objPosition);
+		glm::mat4 m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(objRotate.z), glm::vec3(0, 0, 1)); //Z
+		glm::mat4 m_m4Scale = glm::scale(glm::mat4(), objScale);
+		//Model Matrix
+		glm::mat4 m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
+		glUniformMatrix4fv(glGetUniformLocation(_program, "normalMatrix"), 1, GL_FALSE, glm::value_ptr(m_m4Model));
+
+		glDrawElements(GL_TRIANGLES, IndiceCount, GL_UNSIGNED_INT, 0);
+		glBindVertexArray(0);			  // Unbind VAO
+		break;
+	}
+	case 2:
+	{
+		
+		glUseProgram(_program);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		// Activating the texture and binding it
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, tex);
+		glUniform1i(glGetUniformLocation(_program, "tex"), 0);
+
+		std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
+		//Activiating the reflection texture of skybox
+		glActiveTexture(GL_TEXTURE1);
+		glUniform1i(glGetUniformLocation(_program, "skybox"), 1);
+		glBindTexture(GL_TEXTURE_2D, Level->m_cubemap->GetTextureID());
+	
+
 
 		glBindVertexArray(vao);			  // Bind VAO
 										  //------3D MVP------//

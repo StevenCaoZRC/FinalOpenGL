@@ -31,6 +31,7 @@ public:
 	void SpritesAdd(std::shared_ptr<CSprite> AddSpr);
 	//vector of entites taht getscalled in render
 	std::vector<std::shared_ptr<CSprite>> v_SpritesInScene;
+	
 
 };
 

@@ -64,6 +64,10 @@ void CScene::render()
 		{
 			it->renderModel();
 		}
+		else if (it->m_iObjType == CUtility::REFLECT)
+		{
+			it->render3D(CUtility::ReflectProgram);
+		}
 	}
 }
 

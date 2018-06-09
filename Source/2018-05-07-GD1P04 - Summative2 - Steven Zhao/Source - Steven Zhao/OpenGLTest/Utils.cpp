@@ -21,6 +21,7 @@ GLuint CUtility::program;
 GLuint CUtility::modelProgram;
 GLuint CUtility::BlinnPhongProgram;
 GLuint CUtility::BPModelProgram; 
+GLuint CUtility::ReflectProgram;
 CUtility::CUtility()
 {
 

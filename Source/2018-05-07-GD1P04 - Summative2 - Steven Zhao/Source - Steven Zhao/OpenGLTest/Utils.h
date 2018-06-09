@@ -53,12 +53,14 @@ public:
 		TWOD,
 		THREED,
 		MODEL,
+		REFLECT,
 	};
 	
 	static GLuint program;
 	static GLuint modelProgram;
 	static GLuint BlinnPhongProgram;
 	static GLuint BPModelProgram;
+	static GLuint ReflectProgram;
 	enum SpriteType
 	{
 		ENEMY = 0,

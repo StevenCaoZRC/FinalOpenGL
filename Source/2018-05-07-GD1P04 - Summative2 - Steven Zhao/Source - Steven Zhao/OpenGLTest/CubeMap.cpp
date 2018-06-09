@@ -82,7 +82,7 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 	glGenTextures(1, &tex);
 	//Binding texture stored to target
 	glBindTexture(GL_TEXTURE_CUBE_MAP, tex);
-
+	
 	int iWidth, iHeight;
 	unsigned char* image;
 

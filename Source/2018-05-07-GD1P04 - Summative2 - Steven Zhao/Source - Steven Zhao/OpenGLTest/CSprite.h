@@ -42,6 +42,7 @@ public:
 	enum Shapes {
 		CUBE = 0,
 		SPHERE,
+		REFLECTSPHERE,
 	};
 
 	CSprite();
