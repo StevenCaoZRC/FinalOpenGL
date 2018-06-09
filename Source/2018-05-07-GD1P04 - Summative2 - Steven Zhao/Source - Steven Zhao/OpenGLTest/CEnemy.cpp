@@ -538,23 +538,35 @@ glm::vec3 CEnemy::AIDodgeBullets(std::vector<std::shared_ptr<CSprite>>* _Collisi
 {
 	float iTotalNeedingSeperation = 0.0f;
 	glm::vec3 AvoidanceVector = glm::vec3(0.0f, 0.0f, 0.0f);
+	float fCurrentLowest;
 	if (!_CollisionObjects->empty())
 	{
 		for (auto it1 : *_CollisionObjects)
 		{
 			if (it1->iObjectMechanicsType == CUtility::MY_PROJ)
 			{
-				if (FindMagnitude(objPosition - it1->objPosition) <= this->fRadius + it1->fRadius + _seperatDistance //+ _seperatDistance
+				float fDistanceFromProjectile = FindMagnitude(objPosition - it1->objPosition);
+				if (fDistanceFromProjectile <= this->fRadius + it1->fRadius + _seperatDistance //+ _seperatDistance
 					&& this != it1.get())
 				{
-					glm::vec3 temp;
-					float fTImeForward = FindMagnitude(objPosition - it1->objPosition) / fMoveSpeed;
 					glm::vec3 vVeloObj = dynamic_pointer_cast<CProjectile>(it1)->m_CurrentVelo;
-					glm::vec3 vPosObj = it1->objPosition;
-					glm::vec3 futureMovement = { vVeloObj.x * fTImeForward, vVeloObj.y * fTImeForward ,vVeloObj.z * fTImeForward };
-					glm::vec3 seekPos = vPosObj + futureMovement;
-					AvoidanceVector += AIFlee(seekPos, _seperatDistance);
-					iTotalNeedingSeperation += 1.0f;
+					glm::vec3 temp = { 0.0f,0.0f,0.0f };
+					float fPI2 = 3.1415926f / 2.0f;
+					float cs = cosf(fPI2);
+					float sn = sinf(fPI2);
+					temp.x = vVeloObj.x * cs - vVeloObj.y * sn;
+					temp.y = vVeloObj.x * sn + vVeloObj.y * cs;
+					//if (vVeloObj.x <= 0.0f)
+					//{
+					//	temp.x = -temp.x;
+					//}
+					//if (vVeloObj.y <= 0.0f)
+					//{
+					//	temp.y = -temp.y;
+					//}
+
+					AvoidanceVector += temp;
+					iTotalNeedingSeperation++;
 				}
 			}
 		}
@@ -573,11 +585,11 @@ glm::vec3 CEnemy::AIDodgeBullets(std::vector<std::shared_ptr<CSprite>>* _Collisi
 
 void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects)
 {
-	//m_vCurVelocity = glm::vec3(0.0f, 0.0f, 0.0f);
-	new_movement += AISeek(_player.objPosition);
-	new_movement += AIObstacleAvoid(_CollisionObjects) * 50.0f;
-	new_movement += AIseperation(_CollisionObjects, 1.0f) * 5.0f;
-	new_movement += AIDodgeBullets(_CollisionObjects, 30.0f) * 100.0f;
+	m_vCurVelocity = glm::vec3(0.0f, 0.0f, 0.0f);
+	//new_movement += AISeek(_player.objPosition);
+	//new_movement += AIObstacleAvoid(_CollisionObjects) * 50.0f;
+	//new_movement += AIseperation(_CollisionObjects, 1.0f) * 5.0f;
+	new_movement += AIDodgeBullets(_CollisionObjects, 50.0f) * 100.0f;
 	//new_movement += AICohesion(_CollisionObjects, 50.0f) * 0.5f;
 	//new_movement += AIAlignment(_CollisionObjects, 50.0f);
 	//new_movement += AIPathFollow(&m_vPoints, 30.0f) * 10.0f;
