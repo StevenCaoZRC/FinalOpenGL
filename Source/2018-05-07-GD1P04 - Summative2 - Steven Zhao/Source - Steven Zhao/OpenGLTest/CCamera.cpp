@@ -67,7 +67,7 @@ glm::mat4 CCamera::SetMVP(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation,
 	m_m4Translate = glm::translate(glm::mat4(), v3_SetTranslation);
 	m_m4Rotate = glm::rotate(glm::mat4(), glm::radians(v3_SetRotation.z), glm::vec3(0, 0, 1)); //Z
 	m_m4Scale = glm::scale(glm::mat4(), v3_SetScale);
-	//Model Matrix
+	//Model Matrixs
 	m_m4Model = m_m4Translate * m_m4Rotate *m_m4Scale;
 
 	//view
@@ -76,7 +76,7 @@ glm::mat4 CCamera::SetMVP(glm::vec3 v3_SetTranslation, glm::vec3 v3_SetRotation,
 	//Projection and Camera
 	float fHalfScrWidth = (float)Utility::SCR_WIDTH/2;  
 	float fHalfScrHeight = (float)Utility::SCR_HEIGHT/2;
-	m_m4Proj = glm::ortho(-fHalfScrWidth, fHalfScrWidth, -fHalfScrHeight, fHalfScrHeight, 0.1f, 100.0f); 
+	m_m4Proj = glm::ortho(-fHalfScrWidth, fHalfScrWidth, -fHalfScrHeight, fHalfScrHeight, 0.1f, 1000.0f); 
 	m_m4MVP = m_m4Proj * m_m4View * m_m4Model;
 	return m_m4MVP;
 }

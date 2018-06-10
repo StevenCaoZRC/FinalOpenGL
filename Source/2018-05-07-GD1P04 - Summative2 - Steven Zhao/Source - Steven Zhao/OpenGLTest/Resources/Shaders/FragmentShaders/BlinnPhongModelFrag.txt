@@ -10,12 +10,12 @@ uniform float ambientStr = 0.05f;
 uniform vec3 ambientColor = vec3(1.0f, 1.0f, 1.0f);
 uniform vec3 lightColor = vec3(1.0f, 1.0f, 1.0f);
 uniform vec3 lightPos = vec3(0.0f, 0.0f, 1000.0f);
-uniform vec3 rimColor = vec3(1.0f,0.0f,1.0f);
+uniform vec3 rimColor = vec3(1.0f,1.0f,1.0f);
 
 uniform float lightSpecStr = 1.0f;
 uniform vec3 camPos = vec3(1.0f,1.0f,1.0f);
 uniform float shininess = 64.0f;
-uniform sampler2D tex;
+uniform sampler2D texture_diffuse1;
 
 void main() {
 	
@@ -39,9 +39,9 @@ void main() {
 	//Rim Lighting
 	float rimFactor = 1.0f - dot(norm, negViewDir);
 	rimFactor = smoothstep(0.0f,1.0f,rimFactor);
-	rimFactor = pow(rimFactor,12.0f);
+	rimFactor = pow(rimFactor,1.0f);
 	vec3 rim = rimFactor * rimColor * lightColor;
 
-	color = vec4((ambient + diffuse + specular), 1.0f) * texture(tex, fragTexCoord);
+	color = vec4((ambient + diffuse + specular + rim), 1.0f) * texture(texture_diffuse1, fragTexCoord);
 	
 }

@@ -68,10 +68,13 @@ class CLevel : public CScene
 			int m_iShootCD = 0;
 			int m_iCurLevel;
 			bool m_bPlayerAlive;
-        private:
 			std::shared_ptr<Model> Tank;
 			CCubeMap * m_cubemap;
 			glm::vec3 normal = glm::vec3(0.0f, 0.0f, 1.0f);
+			std::shared_ptr<CSprite> startBtn0;
+			std::shared_ptr<CSprite> startBtn1;
+			std::shared_ptr<CSprite> startBtn2;
+			std::shared_ptr<CSprite> startBtn3;
 };
 
 #endif // _CLEVEL_H__

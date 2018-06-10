@@ -54,7 +54,7 @@ void CScene::render()
 	{
 		if (it->m_iObjType == CUtility::TWOD)
 		{
-			it->render(CUtility::BlinnPhongProgram);
+			it->render(CUtility::program);
 		}
 		else if (it->m_iObjType == CUtility::THREED)
 		{
@@ -63,6 +63,10 @@ void CScene::render()
 		else if (it->m_iObjType == CUtility::MODEL)
 		{
 			it->renderModel();
+		}
+		else if (it->m_iObjType == CUtility::REFLECT)
+		{
+			it->render3D(CUtility::ReflectionProgram);
 		}
 	}
 }

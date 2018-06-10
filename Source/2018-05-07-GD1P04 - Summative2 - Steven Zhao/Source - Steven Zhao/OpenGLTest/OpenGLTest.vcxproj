@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\assimp;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\vld\lib\Win32;$(LibraryPath);$(ProjectDir)\Dependencies\assimp</LibraryPath>
+    <IncludePath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\assimp;C:\apps\vld\2.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\vld\lib\Win32;$(LibraryPath);$(ProjectDir)\Dependencies\assimp;C:\apps\vld\2.5\lib\Win32</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(ProjectDir)\Dependencies\FMOD;$(ProjectDir)\Dependencies\freeglut;$(ProjectDir)\Dependencies\freetype;$(ProjectDir)\Dependencies\glew;$(ProjectDir)\Dependencies\glm;$(ProjectDir)\Dependencies\soil;$(ProjectDir)\Dependencies;$(ProjectDir)\Dependencies\assimp;$(IncludePath)</IncludePath>
@@ -180,20 +180,22 @@
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="BlinnPhongFragShader.txt" />
-    <Text Include="BlinnPhongModelFrag.txt" />
-    <Text Include="BlinnPhongModelVert.txt" />
-    <Text Include="BlinnPhongVertShader.txt" />
-    <Text Include="CubeMapFrag.txt" />
-    <Text Include="CubeMapVer.txt" />
-    <Text Include="FragmentShader.txt" />
-    <Text Include="LightFragment.txt" />
-    <Text Include="LightVertexShader.txt" />
-    <Text Include="ModelFragShader.txt" />
-    <Text Include="ModelVertShader.txt" />
-    <Text Include="TextFragment.txt" />
-    <Text Include="TextVertex.txt" />
-    <Text Include="VertexShader.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\BlinnPhongFragShader.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\BlinnPhongModelFrag.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\CubeMapFrag.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\FragmentShader.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\LightFragment.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\ModelFragShader.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\ReflectionFrag.txt" />
+    <Text Include="Resources\Shaders\FragmentShaders\TextFragment.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\BlinnPhongModelVert.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\BlinnPhongVertShader.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\CubeMapVert.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\LightVertexShader.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\ModelVertShader.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\ReflectionVert.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\TextVertex.txt" />
+    <Text Include="Resources\Shaders\VertexShaders\VertexShader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

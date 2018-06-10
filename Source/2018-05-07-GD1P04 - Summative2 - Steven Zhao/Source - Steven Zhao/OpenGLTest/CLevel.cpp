@@ -51,10 +51,10 @@ void CLevel::addPlayer()
 	m_bPlayerAlive = true;
 	//Creating Player
 	CharacterSpr = make_shared<CPlayer>();
-	CharacterSpr->initModel("Resources/Models/pug/Dog 1.obj", CUtility::BPModelProgram, 10.0f);
+	CharacterSpr->initModel("Resources/Models/Ship/Sample_Ship.obj", CUtility::BPModelProgram, 10.0f);
 	CharacterSpr->init(5.0f, 10.0f);	//Sets Move speed and jumpheight
-	CharacterSpr->objPosition = { 0.0f,50.0f,0.0f };	//sets the players spawning locatin
-	CharacterSpr->objScale = { 10.0f, 10.0f, 10.0f };	//sets their scale
+	CharacterSpr->objPosition = { -400.0f,-200.0f,0.0f };	//sets the players spawning locatin
+	CharacterSpr->objScale = { 50.0f, 50.0f, 50.0f };	//sets their scale
 	CharacterSpr->objRotate = { 90.0f, 90.0f, 0.0f };
 	SpritesAdd(CharacterSpr);							//Adds to the spr vector
 	CharacterSpr->iObjectMechanicsType = CUtility::PLAYER;
@@ -68,9 +68,11 @@ void CLevel::addEnemy(int _iCount)
 	for (int i = 0; i < _iCount; i++)
 	{
 		SlimeSpr = make_shared<CEnemy>();
-		SlimeSpr->init3D("Resources/enemies/slime0.png", 0.0f, 0.0f, 0);
+		SlimeSpr->initModel("Resources/Models/pug/Dog 1.obj", CUtility::BPModelProgram, 10.0f);
 		SlimeSpr->init(2.0f, 2.0f, 10);						//Sets Move speed and jumpheight
 		SlimeSpr->objPosition = { 0.0f, 0.0f + (10.0f* i),0.0f }; //Sets the enemy position
+		SlimeSpr->objScale = { 10.0f, 10.0f, 10.0f };	//sets their scale
+		SlimeSpr->objRotate = { 90.0f, 90.0f, 0.0f };
 		SpritesAdd(SlimeSpr);							//Adds to Sprite vector
 		v_CollisionObjects.push_back(SlimeSpr);					//Adds to enemy vector to keep track of enemies
 		v_Enemies.push_back(SlimeSpr);
@@ -92,37 +94,56 @@ void CLevel::addLevel()
 	std::shared_ptr<CSprite>BackGroundSpr = make_shared<CSprite>();
 	std::shared_ptr<CSprite>EntranceSpr = make_shared<CSprite>();
 	std::shared_ptr<CSprite>ExitSpr = make_shared<CSprite>();
+	std::shared_ptr<CSprite>ReflectSpr = make_shared<CSprite>();
+
 	//loads sprites for the different objects in level
 
 	BackGroundSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
 	EntranceSpr->init3D("Resources/entrance.png", 0.0, 0.0, 0);
 	ExitSpr->init3D("Resources/exit.png", 0.0, 0.0, 0);
-
+	ReflectSpr->init3D("Resources/entrance.png",0.0,0.0,2);
 	EndSpr = ExitSpr;
 	BackGroundSpr->objPosition = { 0.0f, 0.0f, -200.0f };	//its position in the world space
 	//BackGroundSpr->objScale = { 30.0f, 30.0f, 30.0f };
 	//BackGroundSpr->objScale = { 5.0f,2.5f,1.0f};
 	EntranceSpr->objPosition = { -550.0f, -195.0f, 1.0f }; //its position in the world space
 	ExitSpr->objPosition = { 550.0f,-195.0f,1.0f }; //its position in the world space
+	ReflectSpr->objPosition = { 0.0f,0.0f,0.0f };
+	ReflectSpr->objScale = { 30.0f,30.0f,30.0f };
+	ReflectSpr->objRotate = { 270.0f,0.0f,0.0f };
 	//adding them to spr vec
 	SpritesAdd(BackGroundSpr);
 	SpritesAdd(EntranceSpr);
 	SpritesAdd(ExitSpr);
+	//SpritesAdd(ReflectSpr);
 }
 
 void CLevel::addMenu()
 {
-	std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>();
-	std::shared_ptr<CSprite> startBtn0 = make_shared<CSprite>();
+	
+	//std::shared_ptr<CSprite> MenuSpr = make_shared<CSprite>();
+	startBtn0 = make_shared<CSprite>();
+	startBtn1 = make_shared<CSprite>();
+	startBtn2 = make_shared<CSprite>();
+	startBtn3 = make_shared<CSprite>();
 
-	MenuSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
-	startBtn0->init3D("Resources/start0.png", 0.0, 0.0, 0);
+	//MenuSpr->init2D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT);
+	startBtn0->init2D("Resources/Menu Buttons/Single Player Blue.png", 0.0, 0.0);
+	startBtn1->init2D("Resources/Menu Buttons/Controls Blue.png", 0.0, 0.0);
+	startBtn2->init2D("Resources/Menu Buttons/Options Blue.png", 0.0, 0.0);
+	startBtn3->init2D("Resources/Menu Buttons/Exit Blue.png", 0.0, 0.0);
 
-	MenuSpr->objPosition = { 0.0f, 0.0f, -200.0f };
-	startBtn0->objPosition = { 0.0f, 0.0f, -150.0f };
+	//MenuSpr->objPosition = { 0.0f, 0.0f, 0.0f };
+	startBtn0->objPosition = { 0.0f, 120.0f, 1.0f };
+	startBtn1->objPosition = { 0.0f, 50.0f, 1.0f };
+	startBtn2->objPosition = { 0.0f, -20.0f, 1.0f };
+	startBtn3->objPosition = { 0.0f, -90.0f, 1.0f };
 
-	SpritesAdd(MenuSpr);
+	//SpritesAdd(MenuSpr);
 	SpritesAdd(startBtn0);
+	SpritesAdd(startBtn1);
+	SpritesAdd(startBtn2);
+	SpritesAdd(startBtn3);
 }
 
 void CLevel::addCubeMap()
@@ -130,12 +151,12 @@ void CLevel::addCubeMap()
 	//Storing the correct order of file paths
 	std::vector<std::string> cubemapPaths =
 	{
-		"right.jpg",
-		"left.jpg",
-		"top.jpg",
-		"bottom.jpg",
-		"back.jpg",
-		"front.jpg"
+		"right.png",
+		"left.png",
+		"up.png",
+		"down.png",
+		"back.png",
+		"front.png"
 	};
 	m_cubemap = new CCubeMap(cubemapPaths);
 	m_cubemap->objRotate = { 90.0f,0.0f,0.0f };
@@ -174,9 +195,14 @@ void CLevel::addModels()
 
 void CLevel::addEndMenu()
 {
-	std::shared_ptr<CSprite> EndSpr = make_shared<CSprite>();
-	EndSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
-	SpritesAdd(EndSpr);
+
+	//std::shared_ptr<CSprite> EndSpr = make_shared<CSprite>();
+	//EndSpr->init3D("Resources/dungeon.png", Utility::SCR_WIDTH, Utility::SCR_HEIGHT, 0);
+	//SpritesAdd(EndSpr);
+	std::shared_ptr<CSprite> EndBtn0 = make_shared<CSprite>();
+	EndBtn0->init2D("Resources/Menu Buttons/Main Menu Blue.png", 0.0, 0.0);
+	EndBtn0->objPosition = { 0.0f, -120.0f, 1.0f };
+	SpritesAdd(EndBtn0);
 }
 
 void CLevel::render()
@@ -249,7 +275,50 @@ void CLevel::update()
 			resetLevel();
 		}
 	}
-	
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::MENU)
+	{
+		float Left = startBtn0->objPosition.x - startBtn0->nWidth / 2;
+		float Right = startBtn0->objPosition.x + startBtn0->nWidth / 2;
+		float Top = startBtn0->objPosition.y + startBtn0->nHeight / 2;
+		float Bot = startBtn0->objPosition.y - startBtn0->nHeight / 2;
+		if (MousePointPos.x >= Left && MousePointPos.x <= Right && MousePointPos.y <= Top && MousePointPos.y >= Bot)
+		{
+			startBtn0->addFrame("Resources/Menu Buttons/Single Player Green.png");
+			if (CControls::GetInstance()->cMouse[0] == CControls::INPUT_HOLD || CControls::GetInstance()->cMouse[0] == CControls::INPUT_FIRST_RELEASE)
+			{
+				CSceneManager::GetInstance()->switchScene(CSceneManager::LEVEL);
+			}
+		}
+		Left = startBtn1->objPosition.x - startBtn1->nWidth / 2;
+		Right = startBtn1->objPosition.x + startBtn1->nWidth / 2;
+		Top = startBtn1->objPosition.y + startBtn1->nHeight / 2;
+		Bot = startBtn1->objPosition.y - startBtn1->nHeight / 2;
+		if (MousePointPos.x >= Left && MousePointPos.x <= Right && MousePointPos.y <= Top && MousePointPos.y >= Bot)
+		{
+
+		}
+		Left = startBtn2->objPosition.x - startBtn2->nWidth / 2;
+		Right = startBtn2->objPosition.x + startBtn2->nWidth / 2;
+		Top = startBtn2->objPosition.y + startBtn2->nHeight / 2;
+		Bot = startBtn2->objPosition.y - startBtn2->nHeight / 2;
+		if (MousePointPos.x >= Left && MousePointPos.x <= Right && MousePointPos.y <= Top && MousePointPos.y >= Bot)
+		{
+
+		}
+		Left = startBtn3->objPosition.x - startBtn3->nWidth / 2;
+		Right = startBtn3->objPosition.x + startBtn3->nWidth / 2;
+		Top = startBtn3->objPosition.y + startBtn3->nHeight / 2;
+		Bot = startBtn3->objPosition.y - startBtn3->nHeight / 2;
+		if (MousePointPos.x >= Left && MousePointPos.x <= Right && MousePointPos.y <= Top && MousePointPos.y >= Bot)
+		{
+
+		}
+	}
+	if (CSceneManager::GetInstance()->nCurrentScene == CSceneManager::END
+)
+	{
+
+	}
 	/*
 	if (CControls::GetInstance()->cKeyState[32] == CControls::INPUT_FIRST_PRESSED && (abs(CharacterSpr->objPosition.x - EndSpr->objPosition.x) < 30) && abs(CharacterSpr->objPosition.y - EndSpr->objPosition.y) < 30 && v_Enemies.empty())
 	{

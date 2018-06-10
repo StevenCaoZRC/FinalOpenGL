@@ -550,12 +550,15 @@ glm::vec3 CEnemy::AIDodgeBullets(std::vector<std::shared_ptr<CSprite>>* _Collisi
 					&& this != it1.get())
 				{
 					glm::vec3 vVeloObj = dynamic_pointer_cast<CProjectile>(it1)->m_CurrentVelo;
-					glm::vec3 temp = { 0.0f,0.0f,0.0f };
-					float fPI2 = 3.1415926f / 2.0f;
-					float cs = cosf(fPI2);
-					float sn = sinf(fPI2);
-					temp.x = vVeloObj.x * cs - vVeloObj.y * sn;
-					temp.y = vVeloObj.x * sn + vVeloObj.y * cs;
+					vVeloObj = glm::normalize(vVeloObj);
+					glm::vec3 temp = glm::normalize(objPosition - it1->objPosition);
+					temp = temp - vVeloObj;
+
+					//float fPI2 = 3.1415926f / 2.0f;
+					//float cs = cosf(fPI2);
+					//float sn = sinf(fPI2);
+					//temp.x = vVeloObj.x * cs - vVeloObj.y * sn;
+					//temp.y = vVeloObj.x * sn + vVeloObj.y * cs;
 					//if (vVeloObj.x <= 0.0f)
 					//{
 					//	temp.x = -temp.x;
@@ -565,7 +568,7 @@ glm::vec3 CEnemy::AIDodgeBullets(std::vector<std::shared_ptr<CSprite>>* _Collisi
 					//	temp.y = -temp.y;
 					//}
 
-					AvoidanceVector += temp;
+					AvoidanceVector += temp * fDistanceFromProjectile;
 					iTotalNeedingSeperation++;
 				}
 			}
@@ -586,10 +589,11 @@ glm::vec3 CEnemy::AIDodgeBullets(std::vector<std::shared_ptr<CSprite>>* _Collisi
 void CEnemy::Movement(CPlayer &_player, std::vector<std::shared_ptr<CSprite>>* _CollisionObjects)
 {
 	m_vCurVelocity = glm::vec3(0.0f, 0.0f, 0.0f);
-	//new_movement += AISeek(_player.objPosition);
+	new_movement = glm::vec3(0.0f, 0.0f, 0.0f);
+	new_movement += AISeek(_player.objPosition);
 	//new_movement += AIObstacleAvoid(_CollisionObjects) * 50.0f;
-	//new_movement += AIseperation(_CollisionObjects, 1.0f) * 5.0f;
-	new_movement += AIDodgeBullets(_CollisionObjects, 50.0f) * 100.0f;
+	new_movement += AIseperation(_CollisionObjects, 1.0f) * 5.0f;
+	new_movement += AIDodgeBullets(_CollisionObjects, 50.0f) * 2.0f;
 	//new_movement += AICohesion(_CollisionObjects, 50.0f) * 0.5f;
 	//new_movement += AIAlignment(_CollisionObjects, 50.0f);
 	//new_movement += AIPathFollow(&m_vPoints, 30.0f) * 10.0f;

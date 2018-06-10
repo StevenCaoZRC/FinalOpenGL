@@ -1,3 +1,5 @@
-﻿  CEnemy.cpp
-d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\cenemy.cpp(541): warning C4101: 'fCurrentLowest': unreferenced local variable
+﻿  CLevel.cpp
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(101): warning C4244: 'argument': conversion from 'const unsigned int' to 'float', possible loss of data
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(347): warning C4018: '<': signed/unsigned mismatch
+d:\users\michael.xu7480\documents\github\finalopengl\source\2018-05-07-gd1p04 - summative2 - steven zhao\source - steven zhao\opengltest\clevel.cpp(362): warning C4018: '<': signed/unsigned mismatch
   OpenGLTest.vcxproj -> D:\Users\michael.xu7480\Documents\GitHub\FinalOpenGL\Source\2018-05-07-GD1P04 - Summative2 - Steven Zhao\Source - Steven Zhao\Debug\OpenGLTest.exe

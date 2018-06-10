@@ -18,7 +18,7 @@
 #include "Utils.h"
 // Global Variables // 
 GLuint CUtility::program;
-GLuint CUtility::CubemapProgram;
+GLuint CUtility::ReflectionProgram;
 GLuint CUtility::modelProgram;
 GLuint CUtility::BlinnPhongProgram;
 GLuint CUtility::BPModelProgram;

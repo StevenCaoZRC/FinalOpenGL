@@ -9,7 +9,7 @@ TextLabel::TextLabel(std::string newText, std::string newFont, glm::vec2 pos)
 	scale = 1.0;
 	SetPosition(pos);
 
-	program = shaderLoader.CreateProgram("TextVertex.txt", "TextFragment.txt");
+	program = shaderLoader.CreateProgram("Resources/Shaders/VertexShaders/TextVertex.txt", "Resources/Shaders/FragmentShaders/TextFragment.txt");
 
 	glm::mat4 proj = glm::ortho(0.0f, (GLfloat)Utility::SCR_WIDTH, 0.0f, (GLfloat)Utility::SCR_HEIGHT);
 	glUseProgram(program);

@@ -49,6 +49,20 @@ void CInterface::DestroyInstance()
 
 void CInterface::update()
 {
+	glm::vec3 normal = glm::vec3(0.0f, 0.0f, 1.0f);
+	glm::vec3 MousePointPos;
+	float fDotProduct = glm::dot(CControls::GetInstance()->ray_world, normal);
+	float fDistance;
+	if (fDotProduct == 0)
+	{
+		MousePointPos = glm::vec3(0.0f, 0.0f, 0.0f);
+	}
+	else
+	{
+		fDistance = -(glm::dot(CCamera::GetInstance()->m_v3CameraPos, normal) / glm::dot(CControls::GetInstance()->ray_world, normal));
+		MousePointPos = CCamera::GetInstance()->m_v3CameraPos + (fDistance * CControls::GetInstance()->ray_world);
+	}
+
 	// casts the current scene to the sp of level
 	std::shared_ptr<CLevel>Level = std::dynamic_pointer_cast<CLevel>(CSceneManager::GetInstance()->GetCurrentScene());
 	

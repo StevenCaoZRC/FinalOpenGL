@@ -20,7 +20,7 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 {
 	//Program which contains the vertex shader and fragment shader for the cubemaping
 	static ShaderLoader shaderl;
-	cubemapProgram = shaderl.CreateProgram("CubeMapVer.txt", "CubeMapFrag.txt");
+	cubemapProgram = shaderl.CreateProgram("Resources/Shaders/VertexShaders/CubeMapVert.txt", "Resources/Shaders/FragmentShaders/CubeMapFrag.txt");
 
 	//Cube vertices that only contain the position 
 	GLfloat cubeVertices[] = {
@@ -90,7 +90,8 @@ CCubeMap::CCubeMap(std::vector<std::string> _filePaths)
 	for (GLuint i = 0; i < 6; i++)
 	{
 		//Prevent repetition in code
-		std::string fullPathName = "Resources/CubeMap/";
+		std::string fullPathName = "Resources/ame_nebula/";
+
 		fullPathName.append(_filePaths[i]);
 
 		image = SOIL_load_image(fullPathName.c_str(), &iWidth, &iHeight, 0, SOIL_LOAD_RGB);

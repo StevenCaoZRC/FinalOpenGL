@@ -157,46 +157,52 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="FragmentShader.txt">
+    <Text Include="Resources\Shaders\FragmentShaders\BlinnPhongFragShader.txt">
       <Filter>Resource Files\FragmentShaders</Filter>
     </Text>
-    <Text Include="VertexShader.txt">
+    <Text Include="Resources\Shaders\FragmentShaders\BlinnPhongModelFrag.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="Resources\Shaders\FragmentShaders\CubeMapFrag.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="Resources\Shaders\FragmentShaders\FragmentShader.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="Resources\Shaders\FragmentShaders\LightFragment.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="Resources\Shaders\FragmentShaders\ModelFragShader.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="Resources\Shaders\FragmentShaders\ReflectionFrag.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="Resources\Shaders\FragmentShaders\TextFragment.txt">
+      <Filter>Resource Files\FragmentShaders</Filter>
+    </Text>
+    <Text Include="Resources\Shaders\VertexShaders\BlinnPhongModelVert.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="LightVertexShader.txt">
+    <Text Include="Resources\Shaders\VertexShaders\BlinnPhongVertShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="LightFragment.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
-    <Text Include="CubeMapFrag.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
-    <Text Include="CubeMapVer.txt">
+    <Text Include="Resources\Shaders\VertexShaders\CubeMapVert.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="ModelFragShader.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
-    <Text Include="ModelVertShader.txt">
+    <Text Include="Resources\Shaders\VertexShaders\LightVertexShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="BlinnPhongModelVert.txt">
+    <Text Include="Resources\Shaders\VertexShaders\ModelVertShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="BlinnPhongVertShader.txt">
+    <Text Include="Resources\Shaders\VertexShaders\ReflectionVert.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="BlinnPhongFragShader.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
+    <Text Include="Resources\Shaders\VertexShaders\TextVertex.txt">
+      <Filter>Resource Files\VertexShaders</Filter>
     </Text>
-    <Text Include="BlinnPhongModelFrag.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
-    <Text Include="TextFragment.txt">
-      <Filter>Resource Files\FragmentShaders</Filter>
-    </Text>
-    <Text Include="TextVertex.txt">
+    <Text Include="Resources\Shaders\VertexShaders\VertexShader.txt">
       <Filter>Resource Files\VertexShaders</Filter>
     </Text>
   </ItemGroup>

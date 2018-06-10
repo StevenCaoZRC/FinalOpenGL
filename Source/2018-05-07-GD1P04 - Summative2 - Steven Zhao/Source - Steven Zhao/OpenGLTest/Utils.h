@@ -53,10 +53,11 @@ public:
 		TWOD,
 		THREED,
 		MODEL,
+		REFLECT,
 	};
 	
 	static GLuint program;
-	static GLuint CubemapProgram;
+	static GLuint ReflectionProgram;
 	static GLuint modelProgram;
 	static GLuint BlinnPhongProgram;
 	static GLuint BPModelProgram;
